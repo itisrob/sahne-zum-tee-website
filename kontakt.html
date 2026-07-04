@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt · Sahne zum Tee? — Das Kiez Quiz</title>
+<meta name="description" content="Kontakt zum Kiez Quiz in Berlin-Friedrichshain: Instagram @sahne.zum.tee.quiz, E-Mail hallo@sahne-zum-tee.de, Tischreservierung und Veranstaltungsanfragen. Straßmanns, Haberlandstr. 11, 10247 Berlin.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---------- Kontakt: Stage-Layout (Design-Canvas 1536, Inhalt um 115px nach oben gerückt) ---------- */
+body { --bg: #F7F1E6; }
+
+.kontakt-stage {
+  height: calc(830 * var(--su));
+  background: #F7F1E6;
+}
+.el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
+.el > img { width: 100%; height: auto; }
+
+/* Titel "KONTAKT" mit Herz + pinkem Strich (eingebackt) */
+.kontakt-titel { --x: 90; --y: 40; width: calc(415 * var(--su)); }
+
+/* Intro */
+.kontakt-intro { --x: 105; --y: 172; width: calc(460 * var(--su)); }
+.kontakt-intro .fett {
+  font-family: var(--ff-body); font-weight: 700;
+  font-size: calc(17 * var(--su)); line-height: 1.35; color: var(--ink);
+}
+.kontakt-intro p {
+  font-family: var(--ff-body); font-weight: 400;
+  font-size: calc(14.5 * var(--su)); line-height: 1.55; color: #3E362C;
+  margin-top: calc(9 * var(--su));
+}
+
+/* Kontakt-Liste: helles Panel mit 5 Zeilen */
+.k-panel-pos { --x: 100; --y: 260; width: calc(435 * var(--su)); }
+.k-panel {
+  background: #FCF8EF;
+  border: 1px solid rgba(138, 106, 69, .28);
+  border-radius: calc(14 * var(--su));
+  box-shadow: 0 8px 26px rgba(60, 40, 20, .08);
+  overflow: hidden;
+}
+.k-row {
+  display: flex; align-items: center;
+  gap: calc(17 * var(--su));
+  padding: calc(15 * var(--su)) calc(20 * var(--su));
+  position: relative;
+  transition: background .3s ease, transform .3s ease;
+}
+.k-row + .k-row::before {
+  content: '';
+  position: absolute; left: calc(18 * var(--su)); right: calc(18 * var(--su)); top: 0;
+  height: 1px; background: rgba(138, 106, 69, .18);
+}
+.k-row:hover { background: #FFFDF6; transform: translateY(calc(-2 * var(--su))); }
+.k-ic {
+  width: calc(52 * var(--su)); height: auto; flex-shrink: 0;
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+.k-row:hover .k-ic { transform: scale(1.08) rotate(-5deg); }
+.k-txt { flex: 1; min-width: 0; }
+.k-titel {
+  display: block; font-family: var(--ff-display);
+  font-size: calc(15 * var(--su)); letter-spacing: .05em; color: var(--c);
+}
+.k-sub {
+  display: block; font-family: var(--ff-body); font-weight: 400;
+  font-size: calc(13.5 * var(--su)); line-height: 1.4; color: #4C4338;
+  margin-top: calc(5 * var(--su));
+}
+.k-pfeil {
+  font-family: var(--ff-tag); font-weight: 700;
+  font-size: calc(22 * var(--su)); line-height: 1; color: var(--c);
+  transition: transform .3s ease; flex-shrink: 0;
+}
+.k-row:hover .k-pfeil { transform: translateX(calc(6 * var(--su))); }
+
+/* Kiez-Karte rechts */
+.karte {
+  --x: 595; --y: 5; width: calc(850 * var(--su));
+  transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
+}
+.karte:hover { transform: translateY(calc(-6 * var(--su))) rotate(.3deg); }
+.karte img {
+  filter: drop-shadow(0 10px 24px rgba(60, 40, 20, .12));
+  animation: karte-bob 12s ease-in-out infinite;
+}
+@keyframes karte-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(calc(-5 * var(--su))); }
+}
+
+/* Weicher Puls-Glow auf dem Herz der Karte (kein zweites Herz) */
+.k-glow {
+  position: absolute;
+  left: calc(228 * var(--su)); top: calc(250 * var(--su));
+  width: calc(72 * var(--su)); height: calc(72 * var(--su));
+  border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(225, 39, 90, .32) 0%, rgba(225, 39, 90, .14) 45%, transparent 70%);
+  animation: glow-puls 3.2s ease-in-out infinite;
+}
+@keyframes glow-puls {
+  0%, 100% { opacity: .45; transform: scale(1); }
+  50%      { opacity: .95; transform: scale(1.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .karte img, .k-glow { animation: none; }
+}
+
+/* ---------- Mobile: gestapeltes Layout ---------- */
+@media (max-width: 820px) {
+  .kontakt-stage { display: none; }
+  .kontakt-mobile { display: block !important; }
+
+  .kontakt-mobile { padding: 26px 16px 44px; }
+  .kontakt-mobile .m-titel { width: min(300px, 72vw); margin-bottom: 18px; }
+  .kontakt-mobile .fett { font-family: var(--ff-body); font-weight: 700; font-size: 17px; line-height: 1.35; }
+  .kontakt-mobile p.m-intro { font-family: var(--ff-body); font-size: 14.5px; line-height: 1.55; color: #3E362C; margin-top: 8px; }
+  .kontakt-mobile .k-panel { border-radius: 14px; margin-top: 20px; }
+  .kontakt-mobile .k-row { gap: 14px; padding: 14px 16px; }
+  .kontakt-mobile .k-row + .k-row::before { left: 16px; right: 16px; }
+  .kontakt-mobile .k-ic { width: 44px; }
+  .kontakt-mobile .k-titel { font-size: 14px; }
+  .kontakt-mobile .k-sub { font-size: 13px; margin-top: 4px; }
+  .kontakt-mobile .k-pfeil { font-size: 20px; }
+  .kontakt-mobile .m-karte { margin-top: 24px; }
+  .kontakt-mobile .m-karte img { border-radius: 10px; }
+}
+.kontakt-mobile { display: none; }
+.kontakt-titel img, img.m-titel { mix-blend-mode: multiply; }
+</style>
+</head>
+<body>
+
+<!-- ======================= NAVIGATION ======================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Sahne zum Tee? Das Kiezquiz — Startseite">
+      <span class="brand-main">Sahne zum Tee?</span>
+      <span class="brand-sub">DAS KiEZQUiZ</span>
+      <img class="brand-krone" src="assets/img/deco/krone-schwarz.png" alt="">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="termine.html">Termine</a></li>
+      <li><a href="das-quiz.html">Das Quiz</a></li>
+      <li><a href="index.html#team">Über uns</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menü">Menü</button>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.6.6-.7 1.1-.1.4-.3.8-.4 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.6 1.1.7.4.1.8.3 1.9.4 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.6-.6.7-1.1.1-.4.3-.8.4-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.6-1.1-.7-.4-.1-.8-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+      </a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ======================= DESKTOP-STAGE ======================= -->
+  <div class="stage kontakt-stage" aria-label="Kontakt — Sahne zum Tee, Das Kiez Quiz">
+
+    <!-- Titel -->
+    <h1 class="el kontakt-titel rv"><img src="assets/img/kontakt/titel.png" alt="Kontakt" fetchpriority="high"></h1>
+
+    <!-- Intro -->
+    <div class="el kontakt-intro rv" style="--d:.1s">
+      <div class="fett">Schreibt uns, folgt uns oder reserviert euren Tisch!</div>
+      <p>Wir freuen uns auf eure Nachrichten, Ideen,<br>Veranstaltungsanfragen oder einfach ein nettes „Moin!“.</p>
+    </div>
+
+    <!-- Kontakt-Liste -->
+    <div class="el k-panel-pos rv" style="--d:.15s">
+      <div class="k-panel">
+        <a class="k-row rv" style="--d:.2s; --c:var(--pink)" href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">
+          <img class="k-ic" src="assets/img/kontakt/icon-instagram.png" alt="">
+          <span class="k-txt">
+            <span class="k-titel">Instagram</span>
+            <span class="k-sub">@sahne.zum.tee.quiz</span>
+          </span>
+          <span class="k-pfeil" aria-hidden="true">→</span>
+        </a>
+        <a class="k-row rv" style="--d:.3s; --c:#8A6A45" href="termine.html">
+          <img class="k-ic" src="assets/img/kontakt/icon-kalender.png" alt="">
+          <span class="k-txt">
+            <span class="k-titel">Tisch reservieren</span>
+            <span class="k-sub">Sichere dir deinen Platz beim nächsten Quiz!</span>
+          </span>
+          <span class="k-pfeil" aria-hidden="true">→</span>
+        </a>
+        <a class="k-row rv" style="--d:.4s; --c:#2678B8" href="mailto:hallo@sahne-zum-tee.de">
+          <img class="k-ic" src="assets/img/kontakt/icon-mail.png" alt="">
+          <span class="k-txt">
+            <span class="k-titel">E-Mail</span>
+            <span class="k-sub">hallo@sahne-zum-tee.de</span>
+          </span>
+          <span class="k-pfeil" aria-hidden="true">→</span>
+        </a>
+        <a class="k-row rv" style="--d:.5s; --c:#7BA05B" href="mailto:hallo@sahne-zum-tee.de?subject=Veranstaltungsanfrage">
+          <img class="k-ic" src="assets/img/kontakt/icon-event.png" alt="">
+          <span class="k-txt">
+            <span class="k-titel">Veranstaltungsanfragen</span>
+            <span class="k-sub">Ihr wollt uns für ein Event buchen?<br>Dann meldet euch gern!</span>
+          </span>
+          <span class="k-pfeil" aria-hidden="true">→</span>
+        </a>
+        <a class="k-row rv" style="--d:.6s; --c:#7B5EA7" href="das-quiz.html">
+          <img class="k-ic" src="assets/img/kontakt/icon-frage.png" alt="">
+          <span class="k-txt">
+            <span class="k-titel">Noch Fragen?</span>
+            <span class="k-sub">Hier findet ihr Antworten auf häufige Fragen.</span>
+          </span>
+          <span class="k-pfeil" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Kiez-Karte -->
+    <div class="el karte rv-right" style="--d:.2s">
+      <img src="assets/img/kontakt/karte.png" alt="Illustrierte Kiez-Karte von Friedrichshain: das Straßmanns in der Haberlandstraße 11 zwischen Boxhagener Platz, Samariterkiez, RAW-Gelände und Ostkreuz — Mitten im Kiez. Mitten im Quiz.">
+      <div class="k-glow" aria-hidden="true"></div>
+    </div>
+
+    <!-- Karteninhalt für SEO / Screenreader / Chatbot -->
+    <div class="sr-only">
+      Straßmanns, Haberlandstr. 11, 10247 Berlin · Mitten im Kiez. Mitten im Quiz. ·
+      Friedrichshain · Boxhagener Platz · Samariterkiez · RAW-Gelände · Ostkreuz ·
+      Simon-Dach-Str. · Warschauer Straße.
+    </div>
+  </div>
+
+  <!-- ======================= MOBILE ======================= -->
+  <div class="kontakt-mobile">
+    <img class="m-titel" src="assets/img/kontakt/titel.png" alt="Kontakt">
+    <div class="fett">Schreibt uns, folgt uns oder reserviert euren Tisch!</div>
+    <p class="m-intro">Wir freuen uns auf eure Nachrichten, Ideen, Veranstaltungsanfragen oder einfach ein nettes „Moin!“.</p>
+
+    <div class="k-panel rv">
+      <a class="k-row" style="--c:var(--pink)" href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">
+        <img class="k-ic" src="assets/img/kontakt/icon-instagram.png" alt="">
+        <span class="k-txt">
+          <span class="k-titel">Instagram</span>
+          <span class="k-sub">@sahne.zum.tee.quiz</span>
+        </span>
+        <span class="k-pfeil" aria-hidden="true">→</span>
+      </a>
+      <a class="k-row" style="--c:#8A6A45" href="termine.html">
+        <img class="k-ic" src="assets/img/kontakt/icon-kalender.png" alt="">
+        <span class="k-txt">
+          <span class="k-titel">Tisch reservieren</span>
+          <span class="k-sub">Sichere dir deinen Platz beim nächsten Quiz!</span>
+        </span>
+        <span class="k-pfeil" aria-hidden="true">→</span>
+      </a>
+      <a class="k-row" style="--c:#2678B8" href="mailto:hallo@sahne-zum-tee.de">
+        <img class="k-ic" src="assets/img/kontakt/icon-mail.png" alt="">
+        <span class="k-txt">
+          <span class="k-titel">E-Mail</span>
+          <span class="k-sub">hallo@sahne-zum-tee.de</span>
+        </span>
+        <span class="k-pfeil" aria-hidden="true">→</span>
+      </a>
+      <a class="k-row" style="--c:#7BA05B" href="mailto:hallo@sahne-zum-tee.de?subject=Veranstaltungsanfrage">
+        <img class="k-ic" src="assets/img/kontakt/icon-event.png" alt="">
+        <span class="k-txt">
+          <span class="k-titel">Veranstaltungsanfragen</span>
+          <span class="k-sub">Ihr wollt uns für ein Event buchen? Dann meldet euch gern!</span>
+        </span>
+        <span class="k-pfeil" aria-hidden="true">→</span>
+      </a>
+      <a class="k-row" style="--c:#7B5EA7" href="das-quiz.html">
+        <img class="k-ic" src="assets/img/kontakt/icon-frage.png" alt="">
+        <span class="k-txt">
+          <span class="k-titel">Noch Fragen?</span>
+          <span class="k-sub">Hier findet ihr Antworten auf häufige Fragen.</span>
+        </span>
+        <span class="k-pfeil" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="m-karte rv">
+      <img src="assets/img/kontakt/karte.png" alt="Illustrierte Kiez-Karte von Friedrichshain: das Straßmanns in der Haberlandstraße 11 zwischen Boxhagener Platz, Samariterkiez, RAW-Gelände und Ostkreuz — Mitten im Kiez. Mitten im Quiz.">
+    </div>
+    <div class="sr-only">
+      Straßmanns, Haberlandstr. 11, 10247 Berlin · Mitten im Kiez. Mitten im Quiz. ·
+      Friedrichshain · Boxhagener Platz · Samariterkiez · RAW-Gelände · Ostkreuz ·
+      Simon-Dach-Str. · Warschauer Straße.
+    </div>
+  </div>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
+  <div class="footer-meta">
+    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+  </div>
+</footer>
+
+<!-- ======================= CHAT-STUB (Cali) ======================= -->
+<button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">
+  <img src="assets/img/team/avatar-cali.png" alt="">
+  <span class="chat-badge"></span>
+</button>
+<div class="kiez-chat-panel" role="dialog" aria-label="Cali-Chat">
+  <h3>Wuff! Ich bin Cali 🐾</h3>
+  <p>Bald beantworte ich hier eure Fragen rund ums Kiezquiz — Termine, Regeln, Reservierung. Bis dahin:</p>
+  <a class="btn btn-rot" href="termine.html">Tisch reservieren</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

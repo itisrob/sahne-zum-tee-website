@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahne zum Tee? — Das Kiez Quiz · Kneipenquiz in Berlin-Friedrichshain</title>
+<meta name="description" content="Dein Kiez-Kneipenquiz in Berlin-Friedrichshain. Von hier. Für euch. Mit Herz, Berliner Schnauze und unnützem Wissen. Alle zwei Wochen samstags im Straßmanns.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---------- Startseite: Stage-Layout (Design-Canvas 1536×1024) ---------- */
+.home-stage {
+  height: calc(1030 * var(--su));
+  background: url('assets/img/pages/karten-grid-textur.png') no-repeat top center / 100% auto;
+  overflow: visible;
+}
+.el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
+.el > img { width: 100%; height: auto; }
+
+/* Hero */
+.hero-sky      { --x: 28;   --y: 21;  width: calc(1479 * var(--su)); border-radius: calc(8 * var(--su)); overflow: hidden; }
+.hero-turm     { --x: 32;   --y: 143; width: calc(231 * var(--su)); }
+.hero-bruecke  { --x: 1163; --y: 198; width: calc(346 * var(--su)); }
+.hero-julia    { --x: 595;  --y: 59;  width: calc(346 * var(--su)); }
+.hero-schwebi  { --x: 902;  --y: 59;  width: calc(366 * var(--su)); }
+.hero-cali     { --x: 576;  --y: 374; width: calc(173 * var(--su)); }
+.hero-pfote    { --x: 1339; --y: 44;  width: calc(122 * var(--su)); opacity: .9; }
+.hero-wolke    { --x: 98;   --y: 22;  width: calc(126 * var(--su)); opacity: .8; }
+.hero-wolke-2  { --x: 690;  --y: 40;  width: calc(96 * var(--su)); opacity: .55; }
+.hero-cali-label { --x: 499; --y: 346; width: calc(134 * var(--su)); }
+
+.hero-logo { --x: 208; --y: 96; transform: rotate(-5deg); line-height: .96; }
+.hero-logo .l1 { font-family: var(--ff-marker); font-size: calc(84 * var(--su)); color: var(--navy); }
+.hero-logo .l2 { font-family: var(--ff-marker); font-size: calc(62 * var(--su)); color: var(--navy); margin-top: calc(-4 * var(--su)); }
+.hero-logo .l3 { font-family: var(--ff-marker); font-size: calc(46 * var(--su)); color: var(--blue);
+                 text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,31,61,.25); margin-top: calc(6 * var(--su)); }
+
+.hero-tagline { --x: 245; --y: 296; font-family: var(--ff-tag); font-weight: 500;
+                font-size: calc(17 * var(--su)); line-height: calc(23.5 * var(--su)); color: #111; }
+
+.hero-btn { --x: 228; --y: 413; width: calc(251 * var(--su)); height: calc(60 * var(--su));
+            font-size: calc(22 * var(--su)); border-radius: calc(7 * var(--su)); white-space: nowrap; }
+
+.hero-label { font-family: var(--ff-marker); color: var(--navy); white-space: nowrap; }
+.lbl-julia   { --x: 518; --y: 132; font-size: calc(23 * var(--su)); transform: rotate(-9deg); }
+.lbl-schwebi { --x: 1188; --y: 165; font-size: calc(23 * var(--su)); transform: rotate(9deg); }
+.pfeil-julia   { --x: 614; --y: 137; width: calc(78 * var(--su)); }
+.pfeil-schwebi { --x: 1153; --y: 128; width: calc(78 * var(--su)); transform: scaleX(-1) rotate(-16deg); }
+
+/* Karten-Sektion */
+.card-titel { font-family: var(--ff-marker); font-size: calc(25 * var(--su)); color: var(--ink); white-space: nowrap; }
+.stroke-unter { position: absolute; z-index: -1; }
+
+.k1-titel   { --x: 44;  --y: 546; }
+.k1-stroke  { --x: 38;  --y: 572; width: calc(193 * var(--su)); }
+.k1-icon-1  { --x: 40;  --y: 586; width: calc(66 * var(--su)); }
+.k1-icon-2  { --x: 43;  --y: 642; width: calc(59 * var(--su)); }
+.k1-icon-3  { --x: 42;  --y: 692; width: calc(63 * var(--su)); }
+.k1-t1 { --x: 124; --y: 606; }
+.k1-t2 { --x: 118; --y: 662; }
+.k1-t3 { --x: 124; --y: 712; }
+.k1-fact { font-family: var(--ff-marker); font-size: calc(20 * var(--su)); }
+.k1-btn { --x: 51; --y: 749; width: calc(193 * var(--su)); height: calc(60 * var(--su)); font-size: calc(15 * var(--su)); border-radius: calc(8 * var(--su)); }
+.k1-cafe { --x: 266; --y: 550; width: calc(330 * var(--su)); border-radius: calc(10 * var(--su)); overflow: hidden;
+           transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+.k1-cafe:hover { transform: scale(1.03) rotate(-.6deg); }
+
+.k2-titel { --x: 640; --y: 548; }
+.k2-stroke { --x: 636; --y: 574; width: calc(160 * var(--su)); }
+.avatar { border-radius: 50%; overflow: hidden; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+.avatar:hover { transform: scale(1.1) rotate(-4deg); }
+.av-julia   { --x: 632; --y: 556; width: calc(143 * var(--su)); }
+.av-schwebi { --x: 767; --y: 552; width: calc(143 * var(--su)); }
+.av-cali    { --x: 906; --y: 552; width: calc(143 * var(--su)); }
+.av-name { font-family: var(--ff-marker); font-size: calc(21 * var(--su)); text-align: center; }
+.nm-julia   { --x: 632; --y: 710; width: calc(143 * var(--su)); }
+.nm-schwebi { --x: 767; --y: 710; width: calc(143 * var(--su)); }
+.nm-cali    { --x: 906; --y: 710; width: calc(143 * var(--su)); }
+.nm-sub { display: block; font-family: var(--ff-cond); font-weight: 600; font-size: calc(11 * var(--su)); letter-spacing: .04em; color: var(--pink); margin-top: calc(2 * var(--su)); }
+.av-rolle { font-family: var(--ff-cond); font-weight: 600; font-size: calc(12.5 * var(--su)); line-height: 1.45;
+            letter-spacing: .03em; text-transform: uppercase; color: #333; }
+.rl-julia   { --x: 630; --y: 752; width: calc(145 * var(--su)); }
+.rl-schwebi { --x: 767; --y: 752; width: calc(150 * var(--su)); }
+.rl-cali    { --x: 906; --y: 752; width: calc(145 * var(--su)); }
+
+.k3-titel { --x: 1084; --y: 522; font-family: var(--ff-round); font-weight: 600; font-size: calc(27 * var(--su)); transform: rotate(-3.2deg); }
+.k3-stroke { --x: 1078; --y: 550; width: calc(87 * var(--su)); }
+.tile { border-radius: calc(14 * var(--su)); transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1.05); z-index: 4; }
+.tile img.tile-bg { width: 100%; }
+.tile .tile-icon { position: absolute; }
+.tile .tile-label { position: absolute; left: 0; right: 0; text-align: center; font-family: var(--ff-round);
+                    font-weight: 600; color: var(--ink); line-height: 1.05; }
+.t1 { --x: 1082; --y: 557; width: calc(136 * var(--su)); }
+.t1 .tile-icon { left: 32%; top: -8%; width: 37%; }
+.t1 .tile-label { bottom: 8%; font-size: calc(15 * var(--su)); transform: rotate(-3deg); }
+.t2 { --x: 1219; --y: 552; width: calc(136 * var(--su)); }
+.t2 .tile-icon { left: 30%; top: 4%; width: 42%; }
+.t2 .tile-label { bottom: 5%; font-size: calc(11.5 * var(--su)); }
+.t2 .tile-note { position: absolute; left: 8%; top: 16%; width: 16%; }
+.t3 { --x: 1355; --y: 552; width: calc(131 * var(--su)); }
+.t3 .tile-icon { left: 26%; top: 12%; width: 52%; }
+.t3 .tile-label { bottom: 7%; font-size: calc(11.5 * var(--su)); }
+.t4 { --x: 1093; --y: 691; width: calc(191 * var(--su)); }
+.t4 .tile-q { position: absolute; left: 0; right: 0; top: 2%; text-align: center; font-family: var(--ff-round);
+              font-weight: 600; font-size: calc(52 * var(--su)); color: var(--lila);
+              text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,0,0,.18); }
+.t4 .tile-label { bottom: 9%; font-size: calc(13.5 * var(--su)); }
+.t4 .tile-funkel { position: absolute; right: 12%; top: 8%; width: 12%; }
+.t5 { --x: 1284; --y: 691; width: calc(202 * var(--su)); }
+.t5 .tile-icon { left: 34%; top: 4%; width: 30%; }
+.t5 .tile-label { bottom: 9%; font-size: calc(17 * var(--su)); }
+.k3-stroke-4 { --x: 1128; --y: 792; width: calc(98 * var(--su)); }
+.k3-stroke-5 { --x: 1340; --y: 789; width: calc(77 * var(--su)); }
+
+/* Polaroid-Reihe */
+.p-titel  { --x: 48; --y: 836; font-size: calc(23 * var(--su)); }
+.p-stroke { --x: 40; --y: 862; width: calc(135 * var(--su)); }
+.pol-frame { filter: drop-shadow(0 4px 10px rgba(60,40,20,.15)); }
+.pf-1 { --x: 56;  --y: 867; width: calc(193 * var(--su)); }
+.pf-2 { --x: 228; --y: 860; width: calc(193 * var(--su)); }
+.pf-3 { --x: 407; --y: 846; width: calc(193 * var(--su)); }
+.pf-4 { --x: 590; --y: 846; width: calc(174 * var(--su)); }
+.pf-5 { --x: 759; --y: 847; width: calc(173 * var(--su)); }
+.pf-6 { --x: 911; --y: 847; width: calc(174 * var(--su)); }
+.ph-1 { --x: 70;  --y: 875; width: calc(186 * var(--su)); }
+.ph-2 { --x: 241; --y: 846; width: calc(219 * var(--su)); }
+.ph-3 { --x: 441; --y: 884; width: calc(155 * var(--su)); transform: rotate(4.6deg); }
+.ph-4 { --x: 593; --y: 870; width: calc(198 * var(--su)); }
+.ph-5 { --x: 799; --y: 877; width: calc(142 * var(--su)); }
+.ph-6 { --x: 970; --y: 849; width: calc(96 * var(--su)); transform: rotate(3.7deg); }
+
+/* CTA-Box */
+.cta-box { --x: 1167; --y: 828; width: calc(328 * var(--su)); }
+.cta-box .cta-bg { width: 100%; }
+.cta-box img.cta-cup { position: absolute; left: calc(-34 * var(--su)); bottom: calc(-6 * var(--su)); width: calc(112 * var(--su));
+           transition: transform .35s cubic-bezier(.34,1.56,.64,1); filter: drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
+.cta-box:hover .cta-cup { transform: rotate(-8deg) scale(1.08); }
+.cta-inhalt { position: absolute; left: 24%; top: 12%; right: 7%; }
+.cta-inhalt h3 { font-family: var(--ff-marker); font-size: calc(21 * var(--su)); line-height: 1.05; }
+.cta-inhalt p  { font-family: var(--ff-body); font-weight: 600; font-size: calc(12.5 * var(--su)); line-height: 1.35; margin-top: calc(6 * var(--su)); }
+.cta-btn { position: absolute; left: 24%; bottom: 9%; width: calc(220 * var(--su)); height: calc(52 * var(--su));
+           font-size: calc(17 * var(--su)); border-radius: calc(8 * var(--su)); }
+
+/* ---------- Mobile: gestapeltes Layout ---------- */
+@media (max-width: 820px) {
+  .home-stage { display: none; }
+  .home-mobile { display: block !important; }
+}
+.home-mobile { display: none; padding: 0 0 40px; }
+.home-mobile .m-hero { position: relative; overflow: hidden; }
+.home-mobile .m-hero img.m-sky { width: 100%; }
+.home-mobile .m-hero .m-figuren { position: absolute; left: 50%; bottom: 0; width: 88%; transform: translateX(-50%); display: flex; justify-content: center; }
+.home-mobile .m-hero .m-figuren img { width: 44%; }
+.home-mobile .m-logo { text-align: center; padding: 26px 18px 6px; }
+.home-mobile .m-logo .l1 { font-family: var(--ff-marker); font-size: clamp(38px, 11vw, 54px); color: var(--navy); transform: rotate(-3deg); display: block; }
+.home-mobile .m-logo .l3 { font-family: var(--ff-marker); font-size: clamp(22px, 6.4vw, 30px); color: var(--blue); display: block; margin-top: 4px; }
+.home-mobile .m-tagline { text-align: center; font-family: var(--ff-tag); font-weight: 500; font-size: 16px; line-height: 1.5; padding: 12px 26px 18px; }
+.home-mobile .m-cta { display: flex; justify-content: center; padding-bottom: 26px; }
+.home-mobile section.m-card { background: var(--panel); margin: 16px; border-radius: 16px; padding: 22px 20px; }
+.home-mobile h2 { font-family: var(--ff-marker); font-size: 22px; margin-bottom: 14px; }
+.home-mobile .m-fact { display: flex; align-items: center; gap: 12px; font-family: var(--ff-marker); font-size: 19px; margin: 10px 0; }
+.home-mobile .m-fact img { width: 44px; }
+.home-mobile .m-cafe img { border-radius: 12px; margin-top: 14px; }
+.home-mobile .m-team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+.home-mobile .m-team img { border-radius: 50%; }
+.home-mobile .m-team .av-name { font-size: 18px; margin-top: 8px; }
+.home-mobile .m-team .av-rolle { font-size: 11.5px; margin-top: 4px; }
+.home-mobile .m-pols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.home-mobile .m-pols .polaroid { background: #FBF6EC; padding: 8px 8px 14px; border-radius: 4px; box-shadow: var(--shadow-pol); }
+</style>
+</head>
+<body>
+
+<!-- ======================= NAVIGATION ======================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Sahne zum Tee? Das Kiezquiz — Startseite">
+      <span class="brand-main">Sahne zum Tee?</span>
+      <span class="brand-sub">DAS KiEZQUiZ</span>
+      <img class="brand-krone" src="assets/img/deco/krone-schwarz.png" alt="">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Startseite</a></li>
+      <li><a href="termine.html">Termine</a></li>
+      <li><a href="das-quiz.html">Das Quiz</a></li>
+      <li><a href="index.html#team">Über uns</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menü">Menü</button>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.6.6-.7 1.1-.1.4-.3.8-.4 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.6 1.1.7.4.1.8.3 1.9.4 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.6-.6.7-1.1.1-.4.3-.8.4-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.6-1.1-.7-.4-.1-.8-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+      </a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ======================= DESKTOP-STAGE ======================= -->
+  <div class="stage home-stage" aria-label="Sahne zum Tee — Das Kiez Quiz, Startseite">
+
+    <!-- HERO -->
+    <div class="el hero-sky" data-depth="0.04"><img src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree" fetchpriority="high"></div>
+    <div class="el hero-wolke cloud-a" data-depth="0.22"><img src="assets/img/deco/wolke-doodle.png" alt=""></div>
+    <div class="el hero-wolke-2 cloud-b" data-depth="0.3"><img src="assets/img/deco/wolke-doodle.png" alt=""></div>
+    <div class="el hero-pfote" data-depth="0.16"><img src="assets/img/deco/pfote-gross.png" alt=""></div>
+    <div class="el hero-turm rv-left" data-depth="0.09"><img src="assets/img/hero/fernsehturm.png" alt="Berliner Fernsehturm"></div>
+    <div class="el hero-bruecke rv-right" data-depth="0.09"><img src="assets/img/hero/oberbaumbruecke.png" alt="Oberbaumbrücke mit gelber Tram"></div>
+    <div class="el hero-julia rv" data-depth="0.13" style="--d:.15s"><img class="sway" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel"></div>
+    <div class="el hero-schwebi rv" data-depth="0.13" style="--d:.25s"><img class="sway" style="animation-delay:-4.5s" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea"></div>
+    <div class="el hero-cali rv-pop" data-depth="0.17" style="--d:.4s"><img class="bob" src="assets/img/hero/cali.png" alt="Hündin Cali"></div>
+
+    <div class="el hero-logo rv" data-depth="0.07">
+      <div class="l1">Sahne</div>
+      <div class="l2">zum Tee?</div>
+      <div class="l3">DAS KiEZ QUiZ</div>
+    </div>
+    <div class="el hero-tagline rv" data-depth="0.07" style="--d:.15s">
+      Dein Kiez-Kneipenquiz<br>
+      in Berlin-Friedrichshain.<br>
+      Von hier. Für euch.<br>
+      Mit Herz, Berliner Schnauze<br>
+      und unnützem Wissen.
+    </div>
+    <a class="el btn btn-rot hero-btn rv" data-depth="0.07" style="--d:.3s" href="termine.html">Nächste Termine</a>
+
+    <div class="el hero-label lbl-julia rv" data-depth="0.2" style="--d:.5s">Drittevonlinks</div>
+    <div class="el pfeil-julia rv" data-depth="0.2" style="--d:.55s"><img src="assets/img/deco/pfeil.png" alt=""></div>
+    <div class="el hero-label lbl-schwebi rv" data-depth="0.2" style="--d:.6s">Schwebi</div>
+    <div class="el pfeil-schwebi rv" data-depth="0.2" style="--d:.65s"><img src="assets/img/deco/pfeil.png" alt=""></div>
+    <div class="el hero-cali-label rv-pop" data-depth="0.2" style="--d:.7s"><img src="assets/img/hero/label-cali.png" alt="Cali"></div>
+
+    <!-- KARTE 1: Nächster Termin -->
+    <h2 class="el card-titel k1-titel rv">Nächster Termin</h2>
+    <div class="el k1-stroke rv"><img src="assets/img/strokes/rot-193.png" alt=""></div>
+    <div class="el k1-icon-1 rv-pop" style="--d:.1s"><img src="assets/img/icons/kalender.png" alt=""></div>
+    <div class="el k1-icon-2 rv-pop" style="--d:.2s"><img src="assets/img/icons/uhr.png" alt=""></div>
+    <div class="el k1-icon-3 rv-pop" style="--d:.3s"><img src="assets/img/icons/pin.png" alt=""></div>
+    <div class="el k1-fact k1-t1 rv" style="--d:.15s">30.8.2026</div>
+    <div class="el k1-fact k1-t2 rv" style="--d:.25s">19:30 UHR</div>
+    <div class="el k1-fact k1-t3 rv" style="--d:.35s">Straßmanns</div>
+    <a class="el btn btn-rot k1-btn rv" style="--d:.45s" href="termine.html">Tisch reservieren</a>
+    <a class="el k1-cafe rv" style="--d:.3s" href="termine.html" aria-label="Zu den Terminen">
+      <img src="assets/img/illu/cafe.png" alt="Café am Kanal mit Fernsehturm-Eistüte">
+    </a>
+
+    <!-- KARTE 2: Wer sind wir? -->
+    <h2 class="el card-titel k2-titel rv" id="team">Wer sind wir?</h2>
+    <div class="el k2-stroke rv"><img src="assets/img/strokes/rot-150.png" alt=""></div>
+    <div class="el avatar av-julia rv-pop" style="--d:.1s"><img src="assets/img/team/avatar-julia.png" alt="Julia"></div>
+    <div class="el avatar av-schwebi rv-pop" style="--d:.22s"><img src="assets/img/team/avatar-schwebi.png" alt="Schwebi"></div>
+    <div class="el avatar av-cali rv-pop" style="--d:.34s"><img src="assets/img/team/avatar-cali.png" alt="Cali"></div>
+    <div class="el av-name nm-julia rv" style="--d:.2s">Julia<span class="nm-sub">(Drittevonlinks)</span></div>
+    <div class="el av-name nm-schwebi rv" style="--d:.32s">Schwebi</div>
+    <div class="el av-name nm-cali rv" style="--d:.44s">Cali</div>
+    <div class="el av-rolle rl-julia rv" style="--d:.3s">• Moderatorin<br>• Quizmasterin<br>• Kiezwissen</div>
+    <div class="el av-rolle rl-schwebi rv" style="--d:.42s">• Fragenlieferant<br>• Berliner Schnauze<br>• Spezialist für unnützes Wissen</div>
+    <div class="el av-rolle rl-cali rv" style="--d:.54s">• Offizielle Sahne-zum-Tee-Kontrolleurin</div>
+
+    <!-- KARTE 3: Das Kiez Quiz — Tiles -->
+    <h2 class="el k3-titel rv">Das Kiez Quiz</h2>
+    <div class="el k3-stroke rv"><img src="assets/img/strokes/rot-150.png" alt=""></div>
+    <a class="el tile t1 rv-pop" style="--d:.1s" href="termine.html">
+      <img class="tile-bg" src="assets/img/tiles/wolke-pink.png" alt="">
+      <img class="tile-icon" src="assets/img/illu/turm-eis.png" alt="">
+      <span class="tile-label">Termine</span>
+    </a>
+    <a class="el tile t2 rv-pop" style="--d:.2s" href="https://open.spotify.com" target="_blank" rel="noopener">
+      <img class="tile-bg" src="assets/img/tiles/wolke-rosa-gross.png" alt="">
+      <img class="tile-icon" src="assets/img/illu/drink-becher.png" alt="">
+      <img class="tile-note" src="assets/img/deco/note-1.png" alt="">
+      <span class="tile-label">Sahne zum Tee<br>Playlist</span>
+    </a>
+    <a class="el tile t3 rv-pop" style="--d:.3s" href="galerie.html">
+      <img class="tile-bg" src="assets/img/tiles/wolke-gruen.png" alt="">
+      <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
+      <span class="tile-label">Kiezgeschichten</span>
+    </a>
+    <a class="el tile t4 rv-pop" style="--d:.4s" href="das-quiz.html">
+      <img class="tile-bg" src="assets/img/tiles/wolke-orange.png" alt="">
+      <span class="tile-q">?</span>
+      <img class="tile-funkel" src="assets/img/deco/funkel-stern.png" alt="">
+      <span class="tile-label">Das Kiez-Quiz</span>
+    </a>
+    <a class="el tile t5 rv-pop" style="--d:.5s" href="kontakt.html">
+      <img class="tile-bg" src="assets/img/tiles/wolke-blau.png" alt="">
+      <img class="tile-icon" src="assets/img/deco/pfote-gross.png" alt="">
+      <span class="tile-label">Kontakt</span>
+    </a>
+
+    <!-- POLAROID-REIHE -->
+    <h2 class="el card-titel p-titel rv">Vergangene Quizabende</h2>
+    <div class="el p-stroke rv"><img src="assets/img/strokes/rot-135.png" alt=""></div>
+    <div class="el pol-frame pf-1 rv" style="--d:.05s"><img src="assets/img/deco/polaroid-frame-1.png" alt=""></div>
+    <div class="el pol-frame pf-2 rv" style="--d:.1s"><img src="assets/img/deco/polaroid-frame-1.png" alt=""></div>
+    <div class="el pol-frame pf-3 rv" style="--d:.15s"><img src="assets/img/deco/polaroid-frame-2.png" alt=""></div>
+    <div class="el pol-frame pf-4 rv" style="--d:.2s"><img src="assets/img/deco/polaroid-frame-quer.png" alt=""></div>
+    <div class="el pol-frame pf-5 rv" style="--d:.25s"><img src="assets/img/deco/polaroid-frame-3.png" alt=""></div>
+    <div class="el pol-frame pf-6 rv" style="--d:.3s"><img src="assets/img/deco/polaroid-frame-3.png" alt=""></div>
+    <div class="el polaroid ph-1 rv" style="--d:.1s; --wr:-2.5deg"><img src="assets/img/fotos/quizabend-1.png" alt="Quizabend-Moment"></div>
+    <div class="el polaroid ph-2 rv" style="--d:.15s; --wr:2deg"><img src="assets/img/fotos/quizabend-2.png" alt="Schwebi und Julia"></div>
+    <div class="el polaroid ph-3 rv" style="--d:.2s; --wr:6deg"><img src="assets/img/fotos/quizabend-3.png" alt="Mit Cali"></div>
+    <div class="el polaroid ph-4 rv" style="--d:.25s; --wr:-2deg"><img src="assets/img/fotos/quizabend-4.png" alt="Huckepack-Jubel"></div>
+    <div class="el polaroid ph-5 rv" style="--d:.3s; --wr:2.5deg"><img src="assets/img/fotos/quizabend-5.png" alt="Pause auf der Bank"></div>
+    <div class="el polaroid ph-6 rv" style="--d:.35s; --wr:5deg"><img src="assets/img/fotos/quizabend-6.png" alt="Gelacht wird immer"></div>
+
+    <!-- CTA-BOX -->
+    <div class="el cta-box rv-pop" style="--d:.2s">
+      <img class="cta-bg" src="assets/img/tiles/wolke-blau-breit.png" alt="">
+      <img class="cta-cup" src="assets/img/illu/becher-cta.png" alt="">
+      <div class="cta-inhalt">
+        <h3>Lust auf Quizabend?</h3>
+        <p>Sichert euren Tisch und werdet Teil des schönsten Kiezquiz Berlin!</p>
+      </div>
+      <a class="btn btn-schwarz cta-btn" href="termine.html">Jetzt reservieren <span class="btn-pfeil">→</span></a>
+    </div>
+  </div>
+
+  <!-- ======================= MOBILE ======================= -->
+  <div class="home-mobile">
+    <div class="m-logo">
+      <span class="l1">Sahne zum Tee?</span>
+      <span class="l3">DAS KiEZ QUiZ</span>
+    </div>
+    <p class="m-tagline">Dein Kiez-Kneipenquiz in Berlin-Friedrichshain.<br>Von hier. Für euch. Mit Herz, Berliner Schnauze und unnützem Wissen.</p>
+    <div class="m-cta"><a class="btn btn-rot" href="termine.html">Nächste Termine</a></div>
+    <div class="m-hero">
+      <img class="m-sky" src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree">
+      <div class="m-figuren">
+        <img src="assets/img/hero/julia.png" alt="Julia">
+        <img src="assets/img/hero/schwebi.png" alt="Schwebi">
+      </div>
+    </div>
+    <section class="m-card rv">
+      <h2>Nächster Termin</h2>
+      <div class="m-fact"><img src="assets/img/icons/kalender.png" alt="">30.8.2026</div>
+      <div class="m-fact"><img src="assets/img/icons/uhr.png" alt="">19:30 Uhr</div>
+      <div class="m-fact"><img src="assets/img/icons/pin.png" alt="">Straßmanns</div>
+      <a class="btn btn-rot" href="termine.html">Tisch reservieren</a>
+      <div class="m-cafe"><img src="assets/img/illu/cafe.png" alt="Café am Kanal"></div>
+    </section>
+    <section class="m-card rv">
+      <h2>Wer sind wir?</h2>
+      <div class="m-team">
+        <div><img src="assets/img/team/avatar-julia.png" alt="Julia"><div class="av-name">Julia</div><div class="av-rolle">Moderatorin · Quizmasterin · Kiezwissen</div></div>
+        <div><img src="assets/img/team/avatar-schwebi.png" alt="Schwebi"><div class="av-name">Schwebi</div><div class="av-rolle">Fragenlieferant · Berliner Schnauze</div></div>
+        <div><img src="assets/img/team/avatar-cali.png" alt="Cali"><div class="av-name">Cali</div><div class="av-rolle">Offizielle Sahne-zum-Tee-Kontrolleurin</div></div>
+      </div>
+    </section>
+    <section class="m-card rv">
+      <h2>Vergangene Quizabende</h2>
+      <div class="m-pols">
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-1.png" alt=""></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-2.png" alt=""></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-4.png" alt=""></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-3.png" alt=""></div>
+      </div>
+    </section>
+    <div class="m-cta"><a class="btn btn-schwarz" href="termine.html">Jetzt reservieren <span class="btn-pfeil">→</span></a></div>
+  </div>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
+  <div class="footer-meta">
+    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+  </div>
+</footer>
+
+<!-- ======================= CHAT-STUB (Cali) ======================= -->
+<button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">
+  <img src="assets/img/team/avatar-cali.png" alt="">
+  <span class="chat-badge"></span>
+</button>
+<div class="kiez-chat-panel" role="dialog" aria-label="Cali-Chat">
+  <h3>Wuff! Ich bin Cali 🐾</h3>
+  <p>Bald beantworte ich hier eure Fragen rund ums Kiezquiz — Termine, Regeln, Reservierung. Bis dahin:</p>
+  <a class="btn btn-rot" href="termine.html">Tisch reservieren</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

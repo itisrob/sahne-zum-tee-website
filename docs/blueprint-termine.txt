@@ -1,0 +1,126 @@
+=== TERMINE (125 el, Koordinaten in 1536x1024 Design-Pixeln, c=Zentrum) ===
+TXT 'samstag' c=(13,12) w=32 fs=9.4 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(13,12) w=32 fs=9.4 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(13,12) w=32 fs=9.4 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(13,12) w=32 fs=9.4 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Ruhme, Ehre und schöne Snaps' c=(67,13) w=141 fs=10.4 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT '6 Runden Kneipenquiz. Jede Menge Wissen, null langweile. Für' c=(143,13) w=291 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '6 Runden Kneipenquiz. Jede Menge Wissen, null langweile. Für' c=(143,13) w=291 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '6 Runden Kneipenquiz. Jede Menge Wissen, null langweile. Für' c=(143,13) w=291 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Einlass' c=(14,14) w=33 fs=10.8 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Alle 2 Wochen Samstags' c=(53,14) w=113 fs=10.8 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Teamgröße' c=(24,15) w=54 fs=11.3 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Regelmäßig' c=(26,15) w=57 fs=11.3 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'ab 18:00 Uhr' c=(29,15) w=63 fs=11.3 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT '2-6 pro Person' c=(32,15) w=71 fs=11.3 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Preis' c=(10,16) w=25 fs=11.8 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Gewinne' c=(19,16) w=45 fs=11.8 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'ausverkauft' c=(26,16) w=57 fs=12.3 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '2-6 Personen' c=(30,16) w=65 fs=11.8 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'im kalender ansehen' c=(45,16) w=97 fs=11.8 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Special Quiznight mit Überraschungen, Extra-Runden und noch ' c=(191,16) w=389 fs=12.3 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'juni' c=(7,17) w=20 fs=12.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(67,17) w=140 fs=12.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(67,17) w=140 fs=12.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(67,17) w=140 fs=12.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(67,17) w=140 fs=12.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Kontakt' c=(18,18) w=43 fs=13.2 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'mai' c=(8,19) w=21 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'august' c=(15,19) w=36 fs=13.7 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'specials' c=(19,19) w=45 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Über uns' c=(23,19) w=51 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(24,19) w=55 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(24,19) w=55 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(24,19) w=55 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(24,19) w=55 fs=14.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'alle termine' c=(29,19) w=65 fs=13.7 ff=Times fw=400 col=rgb(255, 255, 255) rot=0
+TXT 'Das Quiz' c=(24,20) w=55 fs=14.6 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Galerie' c=(19,21) w=44 fs=15.1 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Termine' c=(24,22) w=53 fs=16 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'Schnappt euch euren Tisch und seid dabei!' c=(139,22) w=285 fs=15.6 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Startseite' c=(29,23) w=63 fs=17 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Wir freuen uns auf euch!' c=(88,23) w=181 fs=17 ff=Times fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'gut zu wissen' c=(45,24) w=95 fs=17.5 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Das Kiezquiz' c=(52,29) w=110 fs=20.3 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(99,36) w=204 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(99,36) w=204 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(99,36) w=204 fs=10.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+IMG b52027ce c=(1422,36) 58x41 rot=0 o=5
+IMG dcf05638 c=(1471,36) 39x41 rot=0 o=6
+TXT 'Startseite' c=(451,39) w=91 fs=17.1 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Termine' c=(584,39) w=64 fs=16.2 ff=YAD0xLc7TF0_2 fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'Das Quiz' c=(704,39) w=67 fs=14.7 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Über uns' c=(823,39) w=66 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Galerie' c=(942,39) w=56 fs=15.2 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Kontakt' c=(1053,39) w=59 fs=13.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Seid dabei!' c=(25,43) w=55 fs=12.3 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+IMG 74ca9054 c=(580,46) 79x21 rot=0 o=4
+TXT 'Sahne zum Tee?' c=(103,48) w=212 fs=32.6 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Unsere Quizabende im Straßmanns in Friedrichshain.' c=(164,55) w=334 fs=15.6 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT '14' c=(19,65) w=43 fs=43.4 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+TXT '12' c=(19,67) w=44 fs=44.4 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+TXT '31' c=(20,69) w=46 fs=45.8 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+TXT '28' c=(20,69) w=45 fs=45.3 ff=Times fw=400 col=rgb(225, 39, 90) rot=0
+IMG 625b816a c=(223,86) 58x60 rot=0 o=3
+TXT 'Termine' c=(114,108) w=234 fs=70.4 ff=Times fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Das Kiezquiz' c=(118,109) w=124 fs=20.4 ff=YADipSPNawc_0 fw=400 col=rgb(225, 39, 90) rot=-2.7
+IMG 253eb4f6 c=(590,195) 1142x278 rot=0 o=1
+TXT 'Termine' c=(246,196) w=275 fs=70.9 ff=YADipSPNawc_0 fw=400 col=rgb(34, 34, 34) rot=-2.7
+IMG 5ec06142 c=(1335,215) 426x318 rot=0 o=2
+IMG 39d8781f c=(252,234) 310x40 rot=0 o=8
+TXT 'Schnappt euch euren Tisch und seid dabei!' c=(276,269) w=319 fs=15.7 ff=YAFdJjvw9Ps_0 fw=700 col=rgb(34, 34, 34) rot=0
+TXT 'Unsere Quizabende im Straßmanns in Friedrichshain.' c=(304,291) w=377 fs=15.7 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+IMG 55931429 c=(794,353) 39x41 rot=0 o=19
+IMG 3d85e0aa c=(174,363) 155x60 rot=0 o=11
+IMG cf6e9435 c=(290,363) 79x60 rot=0 o=12
+IMG e8f2e0a0 c=(377,363) 98x60 rot=0 o=13
+IMG 0889f916 c=(474,363) 98x60 rot=0 o=14
+IMG 427fa1b0 c=(571,363) 98x60 rot=0 o=15
+IMG 301bf1ff c=(687,363) 136x60 rot=0 o=17
+TXT 'juni' c=(381,367) w=27 fs=12.8 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'alle termine' c=(176,368) w=89 fs=13.8 ff=YAD0xLc7TF0_2 fw=400 col=rgb(255, 255, 255) rot=0
+TXT 'mai' c=(288,368) w=25 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'august' c=(574,368) w=51 fs=13.8 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'specials' c=(683,368) w=60 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'im kalender ansehen' c=(1319,405) w=127 fs=11.9 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+IMG 97e59133 c=(967,432) 117x40 rot=0 o=27
+TXT '19:30 uhr' c=(299,434) w=63 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'ausverkauft' c=(966,434) w=81 fs=12.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+IMG 15711dfe c=(591,452) 988x120 rot=0 o=20
+TXT '31' c=(175,454) w=40 fs=46.2 ff=YAD0xLc7TF0_2 fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'strassmanns' c=(357,458) w=178 fs=26.2 ff=YAD0xLc7TF0_2 fw=400 col=rgb(0, 0, 0) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(660,465) w=227 fs=10.4 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+IMG 626150f7 c=(967,472) 193x41 rot=0 o=25
+IMG 83fc99f9 c=(1006,472) 39x41 rot=0 o=26
+IMG 1f49cb5b c=(271,482) 39x21 rot=0 o=23
+TXT 'gut zu wissen' c=(1241,483) w=122 fs=17.6 ff=YADipSPNawc_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(175,486) w=46 fs=9.5 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(367,488) w=157 fs=12.8 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+IMG 7364c3af c=(774,512) 1548x1032 rot=0 o=0
+TXT 'Einlass' c=(1243,529) w=35 fs=10.9 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'ab 18:00 Uhr' c=(1259,545) w=67 fs=11.4 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(299,559) w=63 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Teamgröße' c=(1256,577) w=59 fs=11.4 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT '14' c=(175,580) w=40 fs=43.8 ff=YAD0xLc7TF0_2 fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(660,591) w=227 fs=10.4 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT '2-6 Personen' c=(1261,594) w=71 fs=11.9 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(175,607) w=46 fs=9.5 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(367,609) w=157 fs=12.8 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Gewinne' c=(1249,632) w=46 fs=11.9 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Ruhme, Ehre und schöne Snaps' c=(1301,648) w=151 fs=10.4 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Preis' c=(1239,681) w=26 fs=11.9 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(299,683) w=63 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT '2-6 pro Person' c=(1264,697) w=77 fs=11.4 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT '28' c=(176,704) w=47 fs=45.7 ff=YAD0xLc7TF0_2 fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'strassmanns' c=(357,710) w=178 fs=26.2 ff=YAD0xLc7TF0_2 fw=400 col=rgb(0, 0, 0) rot=0
+TXT 'Mit Herz, Schmauze und unmitümützten Wissen.' c=(660,715) w=227 fs=10.4 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(175,731) w=46 fs=9.5 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(367,733) w=157 fs=12.8 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'Regelmäßig' c=(1258,734) w=63 fs=11.4 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Alle 2 Wochen Samstags' c=(1288,751) w=125 fs=10.9 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT '19:30 uhr' c=(299,807) w=63 fs=14.3 ff=YAD0xLc7TF0_2 fw=400 col=rgb(34, 34, 34) rot=0
+TXT '12' c=(175,828) w=40 fs=44.7 ff=YAD0xLc7TF0_2 fw=400 col=rgb(225, 39, 90) rot=0
+TXT 'special edition' c=(365,828) w=196 fs=24.7 ff=YAD0xLc7TF0_2 fw=400 col=rgb(0, 0, 0) rot=0
+TXT 'Seid dabei!' c=(577,842) w=61 fs=12.3 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
+TXT 'samstag' c=(175,855) w=46 fs=9.5 ff=YAFdJjvw9Ps_0 fw=600 col=rgb(34, 34, 34) rot=0
+TXT 'Straßmanns, Friedrichshain' c=(367,856) w=157 fs=12.8 ff=YAFdJjvw9Ps_0 fw=400 col=rgb(34, 34, 34) rot=0
