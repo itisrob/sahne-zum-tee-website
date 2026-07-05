@@ -111,6 +111,11 @@ body { --bg: #F5E7DC; }
           overflow: hidden; margin-bottom: 30px; background: #BFE3F7;
           box-shadow: 0 6px 20px rgba(60,40,20,.10); }
 .q-hero .qh-sky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+/* Blau-Verlauf oben (kein helles Wolkenband) + weicher Auslauf unten (kein harter Schnitt der Figuren/Skyline mittig) */
+.q-hero::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 34%; z-index: 2; pointer-events: none;
+                  background: linear-gradient(to bottom, rgba(120,178,214,.5) 0%, rgba(120,178,214,.15) 45%, rgba(120,178,214,0) 100%); }
+.q-hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 66px; z-index: 6; pointer-events: none;
+                 background: linear-gradient(to bottom, rgba(245,231,220,0) 0%, #F5E7DC 100%); }
 .q-hero .qh-layer { position: absolute; bottom: 0; width: auto; }
 .q-hero .qh-turm    { left: 43%;  height: 84%; opacity: .97; z-index: 1; }
 .q-hero .qh-bruecke { right: -1%; height: 58%; opacity: .95; z-index: 1; }

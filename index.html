@@ -105,6 +105,9 @@
 
 /* Hero */
 .hero-sky      { --x: 0;    --y: 0;   width: calc(1536 * var(--su)); border-radius: calc(12 * var(--su)); overflow: hidden; }
+/* dezenter Blau-Verlauf oben: tönt das helle Wolkenband, damit kein „weißer Strich“ oben wirkt */
+.hero-sky::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+                   background: linear-gradient(to bottom, rgba(120,178,214,.5) 0%, rgba(120,178,214,.16) 14%, rgba(120,178,214,0) 30%); }
 .sky-cloud-1 { left: 4%;  top: 4%;  width: 20%; --wx: calc(52 * var(--su)); --wy: calc(-5 * var(--su)); --wd: 44s; }
 .sky-cloud-2 { left: 27%; top: 9%;  width: 18%; --wx: calc(-40 * var(--su)); --wy: calc(6 * var(--su)); --wd: 55s; animation-delay: -18s; }
 .sky-cloud-3 { left: 82%; top: 10%; width: 15%; --wx: calc(-58 * var(--su)); --wy: calc(-4 * var(--su)); --wd: 48s; animation-delay: -30s; }
@@ -136,7 +139,10 @@
 .lbl-julia   { --x: 518;  --y: 132; font-size: calc(23 * var(--su)); transform: rotate(-9deg); }
 .lbl-schwebi { --x: 1196; --y: 168; font-size: calc(23 * var(--su)); transform: rotate(9deg); }
 .pfeil-julia   { --x: 614;  --y: 137; width: calc(78 * var(--su)); }
-.pfeil-schwebi { --x: 1150; --y: 128; width: calc(78 * var(--su)); transform: rotate(164deg); }
+/* Rotation am IMG (nicht am .el), damit die Reveal-Animation (.rv.on{transform:none}) sie nicht überschreibt.
+   Zeigt nach links-unten AUF Schwebi. */
+.pfeil-schwebi { --x: 1120; --y: 120; width: calc(78 * var(--su)); }
+.pfeil-schwebi img { transform: rotate(202deg); }
 
 /* Karten-Inhalte */
 .card-titel { font-family: var(--ff-marker); font-size: calc(25 * var(--su)); color: var(--ink); white-space: nowrap; }
@@ -313,27 +319,26 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-person li::before { content: '•'; color: var(--pink); margin-right: 7px; }
 
 /* Kiez-Quiz-Tiles: Quiz als Banner oben, darunter 2×2 — größer & lesbar, Icons mittig */
-.m-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
-.m-tile { position: relative; border-radius: 14px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+/* Kiez-Quiz-Kacheln: JEDE Wolke wird komplett gezeigt (natürliches Seitenverhältnis, nichts abgeschnitten).
+   Zwei breite Wolken (Das Kiez-Quiz, Kontakt) = volle Breite; drei quadratische in einer 3er-Reihe. */
+.m-tiles { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 18px; align-items: start; }
+.m-tile { position: relative; border-radius: 14px; overflow: hidden; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
 .m-tile:active { transform: scale(.96); }
-.m-tile .tile-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.m-tile.sq { aspect-ratio: 1 / 0.92; overflow: hidden; }
-/* Wolken-Panel füllt die Kachel komplett (kein Rand/Luft, kein abgeschnitten wirkender Block) */
-.m-tile.sq .tile-bg { object-fit: cover; }
-.m-tile.sq .tile-icon { position: absolute; left: 50%; top: 39%; transform: translate(-50%,-50%); height: 44%; width: auto; max-width: 58%; object-fit: contain; }
-/* Termine: schmaler Eis-Fernsehturm kleiner & höher, damit „Termine“ frei bleibt */
-.m-tile.sq-turm .tile-icon { top: 34%; height: 38%; }
-/* Kontakt: Pfote deutlich größer */
-.m-tile.sq-paw .tile-icon { top: 38%; height: 54%; max-width: 74%; }
-.m-tile.sq .tile-label { position: absolute; left: 6px; right: 6px; bottom: 10%; text-align: center;
-                         font-family: var(--ff-round); font-weight: 600; font-size: 13.5px; line-height: 1.05; color: var(--ink); }
-.m-tile.wide { grid-column: 1 / -1; aspect-ratio: 3 / 1; overflow: hidden; }
-.m-tile.wide .tile-bg { object-fit: cover; }
-.m-tile.wide .tile-icon { position: absolute; left: 25%; top: 50%; transform: translate(-50%,-50%); height: 72%; width: auto; }
-.m-tile.wide .tile-q { position: absolute; left: 24%; top: 50%; transform: translate(-50%,-50%); font-family: var(--ff-round);
-                       font-weight: 600; font-size: 58px; color: var(--lila); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
-.m-tile.wide .tile-label { position: absolute; left: 40%; right: 6%; top: 50%; transform: translateY(-50%); text-align: left;
-                           font-family: var(--ff-round); font-weight: 600; font-size: 20px; color: var(--ink); line-height: 1.1; }
+.m-tile .tile-bg { display: block; width: 100%; height: auto; }   /* Wolke voll sichtbar, Kachel = Wolkenform */
+/* Drei quadratische Kacheln (Termine, Playlist, Kiezgeschichten) */
+.m-tile.sq { grid-column: span 1; }
+.m-tile.sq .tile-icon { position: absolute; left: 50%; top: 41%; transform: translate(-50%,-50%); height: 38%; width: auto; max-width: 54%; object-fit: contain; }
+.m-tile.sq-turm .tile-icon { top: 36%; height: 36%; }
+.m-tile.sq .tile-label { position: absolute; left: 3px; right: 3px; bottom: 9%; text-align: center;
+                         font-family: var(--ff-round); font-weight: 600; font-size: 11.5px; line-height: 1.05; color: var(--ink); }
+/* Zwei breite Banner: Das Kiez-Quiz (oben), Kontakt (unten) — volle Breite */
+.m-tile.wide { grid-column: 1 / -1; }
+.m-tile.wide .tile-icon { position: absolute; left: 21%; top: 50%; transform: translate(-50%,-50%); height: 60%; width: auto; }
+.m-tile.sq-paw.wide .tile-icon { height: 52%; }
+.m-tile.wide .tile-q { position: absolute; left: 20%; top: 47%; transform: translate(-50%,-50%); font-family: var(--ff-round);
+                       font-weight: 600; font-size: 54px; color: var(--lila); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
+.m-tile.wide .tile-label { position: absolute; left: 38%; right: 6%; top: 50%; transform: translateY(-50%); text-align: left;
+                           font-family: var(--ff-round); font-weight: 600; font-size: 22px; color: var(--ink); line-height: 1.1; }
 
 /* Vergangene Quizabende: Fotos füllen die Kästchen komplett, zentriert */
 .m-pols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
@@ -602,7 +607,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
           <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
           <span class="tile-label">Kiezgeschichten</span>
         </a>
-        <a class="m-tile sq sq-paw" href="kontakt.html">
+        <a class="m-tile wide sq-paw" href="kontakt.html">
           <img class="tile-bg" src="assets/img/tiles/wolke-blau.png" alt="">
           <img class="tile-icon" src="assets/img/deco/pfote-gross.png" alt="">
           <span class="tile-label">Kontakt</span>

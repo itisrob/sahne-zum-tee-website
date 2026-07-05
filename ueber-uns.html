@@ -132,7 +132,10 @@
 .up-schwebi { left: calc(533 * var(--su));  top: calc(844 * var(--su)); width: calc(470 * var(--su)); height: calc(734 * var(--su)); }
 .up-cali    { left: calc(1038 * var(--su)); top: calc(844 * var(--su)); width: calc(470 * var(--su)); height: calc(734 * var(--su)); }
 
-.ue-timg img { transition: transform .4s cubic-bezier(.34, 1.56, .64, 1); transform-origin: 50% 100%; }
+.ue-timg img { transition: transform .4s cubic-bezier(.34, 1.56, .64, 1); transform-origin: 50% 100%;
+               /* weicher Auslauf unten, damit die Figuren nicht hart abgeschnitten im Panel stehen */
+               -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+               mask-image: linear-gradient(to bottom, #000 78%, transparent 100%); }
 .ue-timg:hover img { transform: scale(1.04); }
 .ti-julia   { --x: 148;  --y: 875; width: calc(230 * var(--su)); }
 .ti-schwebi { --x: 648;  --y: 879; width: calc(240 * var(--su)); }
@@ -221,7 +224,9 @@
 
 /* Team gestapelt */
 .um-person { text-align: center; padding-top: 8px; }
-.um-person > img { margin: 10px auto 16px; width: 58%; max-width: 230px; }
+.um-person > img { margin: 10px auto 16px; width: 58%; max-width: 230px;
+                   -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+                   mask-image: linear-gradient(to bottom, #000 80%, transparent 100%); }
 .um-person > img.um-img-cali { width: 50%; max-width: 190px; }
 .um-name { font-family: var(--ff-marker); font-size: 24px; }
 .um-sub { font-family: var(--ff-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; color: var(--pink); margin-top: 4px; }
