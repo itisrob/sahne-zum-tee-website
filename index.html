@@ -104,7 +104,7 @@
 .p4 { left: calc(28 * var(--su));   top: calc(902 * var(--su)); width: calc(1480 * var(--su)); height: calc(262 * var(--su)); }
 
 /* Hero */
-.hero-sky      { --x: 28;   --y: 21;  width: calc(1479 * var(--su)); border-radius: calc(10 * var(--su)); }
+.hero-sky      { --x: 0;    --y: 0;   width: calc(1536 * var(--su)); border-radius: calc(12 * var(--su)); overflow: hidden; }
 .sky-cloud-1 { left: 4%;  top: 4%;  width: 20%; --wx: calc(52 * var(--su)); --wy: calc(-5 * var(--su)); --wd: 44s; }
 .sky-cloud-2 { left: 27%; top: 9%;  width: 18%; --wx: calc(-40 * var(--su)); --wy: calc(6 * var(--su)); --wd: 55s; animation-delay: -18s; }
 .sky-cloud-3 { left: 82%; top: 10%; width: 15%; --wx: calc(-58 * var(--su)); --wy: calc(-4 * var(--su)); --wd: 48s; animation-delay: -30s; }
@@ -317,7 +317,9 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-tile { position: relative; border-radius: 14px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
 .m-tile:active { transform: scale(.96); }
 .m-tile .tile-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.m-tile.sq { aspect-ratio: 1 / 0.92; }
+.m-tile.sq { aspect-ratio: 1 / 0.92; overflow: hidden; }
+/* Wolken-Panel füllt die Kachel komplett (kein Rand/Luft, kein abgeschnitten wirkender Block) */
+.m-tile.sq .tile-bg { object-fit: cover; }
 .m-tile.sq .tile-icon { position: absolute; left: 50%; top: 39%; transform: translate(-50%,-50%); height: 44%; width: auto; max-width: 58%; object-fit: contain; }
 /* Termine: schmaler Eis-Fernsehturm kleiner & höher, damit „Termine“ frei bleibt */
 .m-tile.sq-turm .tile-icon { top: 34%; height: 38%; }
