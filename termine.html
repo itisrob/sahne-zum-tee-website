@@ -224,7 +224,7 @@
 .sf-ghost  { left: 29.7%; top: 38.5%; width: 18.6%; height: 19.5%; }
 
 /* Kalender-Button: sitzt im Band (an der Position der Ghost-Variante), skaliert mit */
-.kal-band-btn { position: absolute; left: 30.08%; top: 39.3%; width: 17.97%; height: 20.1%;
+.kal-band-btn { position: absolute; left: 30.08%; top: 6%; width: 17.97%; height: 18%;
                 display: flex; align-items: center; justify-content: center; gap: .7vw;
                 background: #F8EDE2; line-height: 1.1;
                 border: max(1.5px, .13vw) solid var(--pink); border-radius: .65vw;
@@ -243,7 +243,8 @@
   .kal-band-btn { display: none; }
 }
 .termine-mobile { display: none; padding: 0 0 36px; }
-.termine-mobile .tm-himmel img { width: 100%; }
+.termine-mobile .tm-himmel { height: 168px; overflow: hidden; }
+.termine-mobile .tm-himmel img { width: 100%; height: 100%; object-fit: cover; object-position: 97% 44%; }
 .termine-mobile .tm-kopf { text-align: center; padding: 26px 18px 0; }
 .termine-mobile .tm-titel { font-family: var(--ff-brush); font-size: clamp(46px, 13vw, 64px);
                             color: #222; display: inline-block; transform: rotate(-2.7deg); line-height: 1; }

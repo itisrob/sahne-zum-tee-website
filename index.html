@@ -223,8 +223,8 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .cta-inhalt { position: absolute; left: 23%; top: 13%; right: 8%; }
 .cta-inhalt h3 { font-family: var(--ff-marker); font-size: calc(20 * var(--su)); line-height: 1.15; }
 .cta-inhalt p  { font-family: var(--ff-body); font-weight: 600; font-size: calc(12 * var(--su)); line-height: 1.5; margin-top: calc(8 * var(--su)); }
-.cta-btn { position: absolute; left: 23%; bottom: 10%; width: calc(212 * var(--su)); height: calc(46 * var(--su));
-           font-size: calc(15.5 * var(--su)); border-radius: calc(8 * var(--su)); }
+.cta-btn { position: absolute; left: 23%; bottom: 10%; height: calc(46 * var(--su)); white-space: nowrap;
+           padding: 0 calc(22 * var(--su)); font-size: calc(15 * var(--su)); border-radius: calc(8 * var(--su)); }
 
 /* ============================================================
    MOBILE FIRST — komplette Startseite, nichts überlappt
@@ -268,6 +268,15 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-hero .m-schwebi { position: absolute; bottom: -2px; right: 3%; width: 50%;
                      animation: sway 8s ease-in-out infinite; animation-delay: -4s; transform-origin: 50% 100%; }
 .m-hero .m-cali    { position: absolute; bottom: 0; left: 37%; width: 27%; animation: bob 5s ease-in-out infinite; }
+/* Hero-Namen + Pfeile (mobil) */
+.m-hero .m-lbl { position: absolute; z-index: 5; font-family: var(--ff-marker); color: var(--navy);
+                 font-size: 15px; white-space: nowrap; text-shadow: 0 1px 4px rgba(255,255,255,.8); }
+.m-hero .ml-julia   { top: 6%;  left: 3%;  transform: rotate(-7deg); }
+.m-hero .ml-schwebi { top: 5%;  right: 4%; transform: rotate(7deg); }
+.m-hero .m-arrow { position: absolute; z-index: 5; width: 44px; opacity: .92; }
+.m-hero .ma-julia   { top: 15%; left: 20%; transform: rotate(50deg); }
+.m-hero .ma-schwebi { top: 12%; right: 18%; transform: rotate(130deg); }
+.m-hero .m-cali-lbl { position: absolute; z-index: 5; top: 55%; left: 8%; width: 30%; filter: drop-shadow(0 1px 3px rgba(255,255,255,.7)); }
 @keyframes meer-atmen-mobil {
   0%, 100% { transform: scale(1.02); }
   50%      { transform: scale(1.075); }
@@ -281,38 +290,53 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-card .btn { margin-top: 6px; }
 .m-cafe img { border-radius: 12px; margin-top: 18px; width: 100%; }
 
-/* Team: untereinander, ALLE Infos sichtbar */
-.m-person { display: flex; gap: 16px; align-items: flex-start; margin-top: 20px; }
-.m-person img { width: 88px; border-radius: 50%; flex-shrink: 0; }
-.m-person .mp-name { font-family: var(--ff-marker); font-size: 21px; }
-.m-person .mp-sub { font-family: var(--ff-cond); font-weight: 600; font-size: 12px; color: var(--pink); letter-spacing: .04em; }
-.m-person ul { list-style: none; margin-top: 8px; }
-.m-person li { font-family: var(--ff-cond); font-weight: 600; font-size: 14px; letter-spacing: .04em;
-               text-transform: uppercase; color: #3A342C; line-height: 1.75; }
-.m-person li::before { content: '• '; color: var(--pink); }
+/* Team: zentriert, groß & gut lesbar, ALLE Infos sichtbar */
+.m-person { text-align: center; margin-top: 24px; padding-top: 22px; border-top: 1px solid #E7D8BF; }
+.m-person:first-of-type { border-top: none; padding-top: 6px; }
+.m-person img { width: 128px; height: 128px; object-fit: cover; border-radius: 50%; display: block;
+                margin: 0 auto 12px; box-shadow: 0 5px 14px rgba(60,40,20,.16); }
+.m-person .mp-name { font-family: var(--ff-marker); font-size: 26px; color: var(--ink); }
+.m-person .mp-sub { font-family: var(--ff-cond); font-weight: 600; font-size: 13px; color: var(--pink);
+                    letter-spacing: .05em; margin-top: 3px; }
+.m-person ul { list-style: none; margin-top: 12px; display: inline-block; text-align: left; }
+.m-person li { font-family: var(--ff-cond); font-weight: 600; font-size: 15.5px; letter-spacing: .02em;
+               text-transform: uppercase; color: #3A342C; line-height: 1.65; }
+.m-person li::before { content: '•'; color: var(--pink); margin-right: 7px; }
 
-/* Kiez-Quiz-Tiles */
-.m-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+/* Kiez-Quiz-Tiles: 2 breite Wolken als Banner, 3 quadratische als Reihe — Icons mittig */
+.m-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
 .m-tile { position: relative; border-radius: 14px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
-.m-tile:active { transform: scale(.96); }
-.m-tile img.tile-bg { width: 100%; }
-.m-tile .tile-icon { position: absolute; left: 50%; top: 6%; transform: translateX(-50%); height: 55%; width: auto; }
-.m-tile .tile-q { position: absolute; left: 0; right: 0; top: 4%; text-align: center; font-family: var(--ff-round); font-weight: 600; font-size: 44px; color: var(--lila); }
-.m-tile .tile-label { position: absolute; left: 0; right: 0; bottom: 7%; text-align: center;
-                      font-family: var(--ff-round); font-weight: 600; font-size: 14px; color: var(--ink); }
+.m-tile:active { transform: scale(.95); }
+.m-tile .tile-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.m-tile.sq { aspect-ratio: 1 / 1; }
+.m-tile.sq .tile-bg { object-fit: contain; }
+.m-tile.sq .tile-icon { position: absolute; left: 50%; top: 43%; transform: translate(-50%,-50%); height: 46%; width: auto; }
+.m-tile.sq .tile-label { position: absolute; left: 2px; right: 2px; bottom: 9%; text-align: center;
+                         font-family: var(--ff-round); font-weight: 600; font-size: 11.5px; line-height: 1.05; color: var(--ink); }
+.m-tile.wide { grid-column: 1 / -1; aspect-ratio: 2.9 / 1; }
+.m-tile.wide .tile-bg { object-fit: cover; border-radius: 14px; }
+.m-tile.wide .tile-icon { position: absolute; left: 24%; top: 50%; transform: translate(-50%,-50%); height: 74%; width: auto; }
+.m-tile.wide .tile-q { position: absolute; left: 24%; top: 50%; transform: translate(-50%,-50%); font-family: var(--ff-round);
+                       font-weight: 600; font-size: 52px; color: var(--lila); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
+.m-tile.wide .tile-label { position: absolute; left: 40%; right: 7%; top: 50%; transform: translateY(-50%); text-align: left;
+                           font-family: var(--ff-round); font-weight: 600; font-size: 20px; color: var(--ink); line-height: 1.1; }
 
-/* Polaroids */
-.m-pols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
-.m-pols .polaroid { background: #FBF6EC; padding: 8px 8px 16px; border-radius: 4px; box-shadow: var(--shadow-pol); }
+/* Vergangene Quizabende: Fotos füllen die Kästchen komplett, zentriert */
+.m-pols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+.m-pols .polaroid { aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; background: none; padding: 0;
+                    box-shadow: 0 5px 14px rgba(60,40,20,.16); }
+.m-pols .polaroid img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-/* CTA-Box mobil */
-.m-quizabend { position: relative; margin: 0 16px 26px; }
-.m-quizabend .cta-bg { width: 100%; }
-.m-quizabend .m-inhalt { position: absolute; left: 26%; top: 12%; right: 8%; }
-.m-quizabend .m-inhalt h3 { font-family: var(--ff-marker); font-size: clamp(17px, 4.6vw, 24px); }
-.m-quizabend .m-inhalt p { font-family: var(--ff-body); font-weight: 600; font-size: clamp(11px, 3vw, 15px); line-height: 1.45; margin-top: 6px; }
-.m-quizabend .m-cup { position: absolute; left: -2px; bottom: -6px; width: 22%; filter: drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
-.m-quizabend .btn { position: absolute; left: 26%; bottom: 10%; font-size: clamp(12px, 3.4vw, 16px); }
+/* CTA-Box mobil: gleichmäßiger Abstand, Cloud als gefüllter Hintergrund */
+.m-quizabend { position: relative; margin: 0 16px 26px; border-radius: 18px; overflow: hidden;
+               background: url('assets/img/tiles/wolke-blau-breit.png') center / cover;
+               padding: 24px 22px 26px 104px; }
+.m-quizabend .cta-bg { display: none; }
+.m-quizabend .m-cup { position: absolute; left: 6px; bottom: -2px; width: 90px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); }
+.m-quizabend .m-inhalt { position: static; }
+.m-quizabend .m-inhalt h3 { font-family: var(--ff-marker); font-size: 22px; line-height: 1.12; color: var(--ink); }
+.m-quizabend .m-inhalt p { font-family: var(--ff-body); font-weight: 600; font-size: 13.5px; line-height: 1.5; margin: 8px 0 0; color: #241d15; }
+.m-quizabend .btn { position: static; display: inline-flex; margin-top: 16px; font-size: 15px; }
 </style>
 </head>
 <body>
@@ -489,6 +513,11 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
       <img class="m-julia" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel">
       <img class="m-schwebi" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea">
       <img class="m-cali" src="assets/img/hero/cali.png" alt="Hündin Cali">
+      <span class="m-lbl ml-julia">Drittevonlinks</span>
+      <img class="m-arrow ma-julia" src="assets/img/deco/pfeil.png" alt="">
+      <span class="m-lbl ml-schwebi">Schwebi</span>
+      <img class="m-arrow ma-schwebi" src="assets/img/deco/pfeil.png" alt="">
+      <img class="m-cali-lbl" src="assets/img/hero/label-cali.png" alt="Cali">
     </div>
 
     <div class="m-kopf rv">
@@ -537,27 +566,27 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     <section class="m-card rv">
       <h2>Das Kiez Quiz<img class="h2-stroke" src="assets/img/strokes/rot-150.png" alt=""></h2>
       <div class="m-tiles">
-        <a class="m-tile" href="termine.html">
-          <img class="tile-bg" src="assets/img/tiles/wolke-pink.png" alt="">
-          <img class="tile-icon" src="assets/img/illu/turm-eis.png" alt="">
-          <span class="tile-label">Termine</span>
-        </a>
-        <a class="m-tile" href="https://open.spotify.com" target="_blank" rel="noopener">
-          <img class="tile-bg" src="assets/img/tiles/wolke-rosa-gross.png" alt="">
-          <img class="tile-icon" src="assets/img/illu/drink-becher.png" alt="">
-          <span class="tile-label">Playlist</span>
-        </a>
-        <a class="m-tile" href="galerie.html">
-          <img class="tile-bg" src="assets/img/tiles/wolke-gruen.png" alt="">
-          <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
-          <span class="tile-label">Kiezgeschichten</span>
-        </a>
-        <a class="m-tile" href="das-quiz.html">
+        <a class="m-tile wide" href="das-quiz.html">
           <img class="tile-bg" src="assets/img/tiles/wolke-orange.png" alt="">
           <span class="tile-q">?</span>
           <span class="tile-label">Das Kiez-Quiz</span>
         </a>
-        <a class="m-tile" href="kontakt.html">
+        <a class="m-tile sq" href="termine.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-pink.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/turm-eis.png" alt="">
+          <span class="tile-label">Termine</span>
+        </a>
+        <a class="m-tile sq" href="https://open.spotify.com" target="_blank" rel="noopener">
+          <img class="tile-bg" src="assets/img/tiles/wolke-rosa-gross.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/drink-becher.png" alt="">
+          <span class="tile-label">Playlist</span>
+        </a>
+        <a class="m-tile sq" href="galerie.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-gruen.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
+          <span class="tile-label">Kiezgeschichten</span>
+        </a>
+        <a class="m-tile wide" href="kontakt.html">
           <img class="tile-bg" src="assets/img/tiles/wolke-blau.png" alt="">
           <img class="tile-icon" src="assets/img/deco/pfote-gross.png" alt="">
           <span class="tile-label">Kontakt</span>

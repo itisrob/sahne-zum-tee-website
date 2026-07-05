@@ -140,7 +140,7 @@ body { --bg: #F7F1E6; }
 }
 .k-row:hover { background: #FFFDF6; transform: translateY(calc(-2 * var(--su))); }
 .k-ic {
-  width: calc(52 * var(--su)); height: auto; flex-shrink: 0;
+  width: calc(68 * var(--su)); height: auto; flex-shrink: 0;
   transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
 }
 .k-row:hover .k-ic { transform: scale(1.08) rotate(-5deg); }
@@ -200,13 +200,18 @@ body { --bg: #F7F1E6; }
   .kontakt-mobile { display: block !important; }
 
   .kontakt-mobile { padding: 26px 16px 44px; }
-  .kontakt-mobile .m-titel { width: min(300px, 72vw); margin-bottom: 18px; }
+  .kontakt-mobile .m-titel { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 20px;
+    font-family: var(--ff-display); font-size: 46px; line-height: 1; color: var(--ink);
+    position: relative; padding-bottom: 6px; letter-spacing: .01em; }
+  .kontakt-mobile .m-titel::after { content: ''; position: absolute; left: 0; width: 74%; bottom: -2px; height: 9px;
+    background: url('assets/img/strokes/pink-308.png') no-repeat left center / 100% 100%; }
+  .kontakt-mobile .m-titel .h { width: 30px; height: 30px; color: var(--pink); flex-shrink: 0; }
   .kontakt-mobile .fett { font-family: var(--ff-body); font-weight: 700; font-size: 17px; line-height: 1.35; }
   .kontakt-mobile p.m-intro { font-family: var(--ff-body); font-size: 14.5px; line-height: 1.55; color: #3E362C; margin-top: 8px; }
   .kontakt-mobile .k-panel { border-radius: 14px; margin-top: 20px; }
   .kontakt-mobile .k-row { gap: 14px; padding: 14px 16px; }
   .kontakt-mobile .k-row + .k-row::before { left: 16px; right: 16px; }
-  .kontakt-mobile .k-ic { width: 44px; }
+  .kontakt-mobile .k-ic { width: 58px; }
   .kontakt-mobile .k-titel { font-size: 14px; }
   .kontakt-mobile .k-sub { font-size: 13px; margin-top: 4px; }
   .kontakt-mobile .k-pfeil { font-size: 20px; }
@@ -322,7 +327,7 @@ body { --bg: #F7F1E6; }
 
   <!-- ======================= MOBILE ======================= -->
   <div class="kontakt-mobile">
-    <img class="m-titel" src="assets/img/kontakt/titel.png" alt="Kontakt">
+    <h1 class="m-titel">Kontakt<svg class="h" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 20s-7-4.35-7-9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 7 3.5C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></h1>
     <div class="fett">Schreibt uns, folgt uns oder reserviert euren Tisch!</div>
     <p class="m-intro">Wir freuen uns auf eure Nachrichten, Ideen, Veranstaltungsanfragen oder einfach ein nettes „Moin!“.</p>
 

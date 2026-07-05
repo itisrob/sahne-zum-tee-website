@@ -154,7 +154,7 @@ body { --bg: #F5E7DC; }
   .quiz-stage { display: none; }
   .quiz-mobile { display: block !important; }
 }
-.quiz-mobile { display: none; padding: 0 0 0; background: #F5E7DC; }
+.quiz-mobile { display: none; padding: 0; background: #F5E7DC; }
 .quiz-mobile .m-head { text-align: center; padding: 30px 22px 8px; }
 .quiz-mobile h1 {
   font-family: var(--ff-marker); font-size: clamp(40px, 12vw, 58px);
@@ -162,18 +162,52 @@ body { --bg: #F5E7DC; }
   border-bottom: 5px solid var(--pink); padding-bottom: 2px; line-height: 1.05;
 }
 .quiz-mobile .m-intro {
-  font-family: var(--ff-tag); font-weight: 500; font-size: 16px; line-height: 1.55;
-  text-align: center; padding: 14px 26px 6px; color: #111;
+  font-family: var(--ff-tag); font-weight: 500; font-size: 16.5px; line-height: 1.6;
+  text-align: center; padding: 16px 26px 8px; color: #111;
 }
-.quiz-mobile .m-qcards { padding: 16px 18px 0; }
-.quiz-mobile .m-qcards img {
-  display: block; width: 100%; max-width: 520px; margin: 0 auto 22px;
-  border-radius: 12px; box-shadow: 0 4px 14px rgba(60,40,20,.12);
-}
-/* Skyline = Abschlussbild / Fußzeile (kein Footer auf dieser Seite) */
-.quiz-mobile .m-skyline { margin-top: 24px; }
-.quiz-mobile .m-skyline img { display: block; width: 100%; }
-.quiz-mobile .m-cta { display: flex; justify-content: center; padding: 10px 0 30px; }
+/* Native, gut lesbare Karten */
+.quiz-mobile .m-cards { padding: 10px 16px 0; }
+.quiz-mobile .qc { background: #FBF6EC; border: 1px solid #EBDBC1; border-radius: 16px;
+                   padding: 22px 20px; margin-bottom: 16px; box-shadow: 0 4px 14px rgba(60,40,20,.08); }
+.quiz-mobile .qc h2 { font-family: var(--ff-display); font-size: 17px; letter-spacing: .02em; color: var(--ink);
+                      position: relative; display: inline-block; margin-bottom: 16px; }
+.quiz-mobile .qc h2::after { content: ''; position: absolute; left: 0; right: -6px; bottom: -6px; height: 5px;
+                      background: url('assets/img/strokes/rot-150.png') no-repeat left center / 100% 100%; }
+.quiz-mobile .step { display: flex; gap: 14px; align-items: flex-start; margin: 15px 0; }
+.quiz-mobile .step .num { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; color: #fff;
+                          font-family: var(--ff-cond); font-weight: 700; font-size: 16px; line-height: 30px; text-align: center; }
+.quiz-mobile .n1 { background: #E1275A; } .quiz-mobile .n2 { background: #2E8BC0; }
+.quiz-mobile .n3 { background: #7BA05B; } .quiz-mobile .n4 { background: #E8963F; }
+.quiz-mobile .step .st { font-family: var(--ff-display); font-size: 14.5px; letter-spacing: .01em; }
+.quiz-mobile .step .sd { font-family: var(--ff-body); font-size: 15px; line-height: 1.5; color: #3a342c; margin-top: 3px; }
+.quiz-mobile .qc .note { font-family: var(--ff-marker); font-size: 15px; color: var(--ink); margin-top: 12px; }
+.quiz-mobile .qrow { margin: 13px 0; }
+.quiz-mobile .qcat { font-family: var(--ff-cond); font-weight: 700; font-size: 14px; letter-spacing: .06em;
+                     text-transform: uppercase; display: inline-block; margin-bottom: 2px; }
+.quiz-mobile .c-berlin { color: #2E8BC0; } .quiz-mobile .c-musik { color: #E1275A; }
+.quiz-mobile .c-filme { color: #7BA05B; } .quiz-mobile .c-kiez { color: #E8963F; }
+.quiz-mobile .qrow p { font-family: var(--ff-body); font-size: 15px; line-height: 1.45; color: #3a342c; }
+.quiz-mobile .lead { font-family: var(--ff-body); font-weight: 600; font-size: 15px; margin-bottom: 12px; color: #241d15; }
+.quiz-mobile .opt { display: flex; align-items: center; gap: 12px; margin: 9px 0; font-family: var(--ff-body); font-size: 15.5px; }
+.quiz-mobile .opt .let { flex-shrink: 0; width: 26px; height: 26px; border: 2px solid #C9B79A; border-radius: 50%;
+                         font-family: var(--ff-cond); font-weight: 700; font-size: 14px; line-height: 22px; text-align: center; color: var(--ink); }
+.quiz-mobile ul.checks { list-style: none; }
+.quiz-mobile ul.checks li { position: relative; padding-left: 26px; margin: 11px 0; font-family: var(--ff-body); font-size: 15px; line-height: 1.4; color: #3a342c; }
+.quiz-mobile ul.checks li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--pink); font-weight: 700; }
+.quiz-mobile .fame-years { display: flex; gap: 8px; margin-bottom: 12px; }
+.quiz-mobile .fame-years span { font-family: var(--ff-cond); font-weight: 700; font-size: 15px; padding: 4px 14px; border-radius: 999px; background: #F0E3D0; color: #8a7a5f; }
+.quiz-mobile .fame-years .win { background: #F6D3DE; color: var(--pink); }
+.quiz-mobile .fame-photo { width: 100%; border-radius: 12px; display: block; margin-bottom: 12px; box-shadow: 0 3px 10px rgba(60,40,20,.15); }
+.quiz-mobile .fame-cap { text-align: center; }
+.quiz-mobile .fame-cap .king { font-family: var(--ff-display); font-size: 16px; }
+.quiz-mobile .fame-cap .team { font-family: var(--ff-body); font-style: italic; font-size: 14px; color: #3a342c; margin-top: 2px; }
+.quiz-mobile .fame-cap .grats { font-family: var(--ff-marker); font-size: 15px; color: var(--pink); margin-top: 8px; }
+.quiz-mobile .contact-row { display: flex; align-items: center; gap: 12px; margin: 12px 0; font-family: var(--ff-body); font-size: 15px; }
+.quiz-mobile .contact-row img { width: 34px; flex-shrink: 0; }
+.quiz-mobile .contact-row a { color: var(--ink); font-weight: 600; }
+.quiz-mobile .m-cta { display: flex; justify-content: center; padding: 8px 0 26px; }
+.quiz-mobile .m-foot { line-height: 0; margin-top: 6px; }
+.quiz-mobile .m-foot img { width: 100%; display: block; }
 </style>
 </head>
 <body>
@@ -254,17 +288,86 @@ body { --bg: #F5E7DC; }
   <div class="quiz-mobile">
     <div class="m-head"><h1>Das Quiz</h1></div>
     <p class="m-intro">Von Berlin bis Bollywood — wir quizzen, was Spaß macht!<br>6 Runden. Jede Menge Wissen. Null Langeweile.<br>Für euch. Mit Herz, Schnauze und unnützem Wissen.</p>
-    <div class="m-qcards">
-      <img class="rv" src="assets/img/quiz/card-ablauf.png" alt="Wie läuft ein Abend ab? — Team finden, Getränk bestellen, 6 Runden spielen, gewinnen oder diskutieren">
-      <img class="rv" src="assets/img/quiz/card-fragen.png" alt="Beispiel-Fragen aus den Kategorien Berlin, Musik, Filme und Kiezwissen">
-      <img class="rv" src="assets/img/quiz/card-schaetzen.png" alt="Beispiel-Schätzfragen — Wie viele Spätis gibt es ungefähr in Friedrichshain?">
-      <img class="rv" src="assets/img/quiz/card-halloffame.png" alt="Hall of Fame — Quizkönige 2024 „Die Schlaufüchse“">
-      <img class="rv" src="assets/img/quiz/card-regeln.png" alt="Quizregeln — Handys bleiben im Sack, Fair geht vor, keine Klugscheißerei">
-      <img class="rv" src="assets/img/quiz/card-wissen.png" alt="Gut zu wissen — Einlass ab 18:30 Uhr, Quizstart 19:30 Uhr">
-      <img class="rv" src="assets/img/quiz/card-fragen2.png" alt="Noch Fragen? — Instagram @sahne.zum.tee.quiz oder Mail an hallo@sahne-zum-tee.de">
+
+    <div class="m-cards">
+      <div class="qc rv">
+        <h2>Wie läuft ein Abend ab?</h2>
+        <div class="step"><span class="num n1">1</span><div><div class="st">Team finden</div><div class="sd">Bildet Teams mit 2–6 Personen.</div></div></div>
+        <div class="step"><span class="num n2">2</span><div><div class="st">Getränk bestellen</div><div class="sd">Schnappt euch ein kühles Getränk und macht es euch gemütlich.</div></div></div>
+        <div class="step"><span class="num n3">3</span><div><div class="st">6 Runden spielen</div><div class="sd">Knifflige Fragen, lustige Schätzfragen und spannende Themen warten auf euch.</div></div></div>
+        <div class="step"><span class="num n4">4</span><div><div class="st">Gewinnen oder diskutieren</div><div class="sd">Punkte zählen, Preise abstauben oder einfach Spaß haben.</div></div></div>
+        <p class="note">♥ Wissen verbindet. Diskussionen auch.</p>
+      </div>
+
+      <div class="qc rv">
+        <h2>Beispiel-Fragen</h2>
+        <div class="qrow"><span class="qcat c-berlin">Berlin</span><p>Wie viele Brücken gibt es in Berlin über der Spree?</p></div>
+        <div class="qrow"><span class="qcat c-musik">Musik</span><p>Welcher Song von Queen beginnt mit den Worten „Is this the real life?“</p></div>
+        <div class="qrow"><span class="qcat c-filme">Filme</span><p>In welchem Jahr kam „Zurück in die Zukunft“ in die Kinos?</p></div>
+        <div class="qrow"><span class="qcat c-kiez">Kiezwissen</span><p>Wie hieß der alte Vergnügungspark auf dem heutigen RAW-Gelände?</p></div>
+        <p class="note">… und vieles mehr!</p>
+      </div>
+
+      <div class="qc rv">
+        <h2>Beispiel-Schätzfragen</h2>
+        <p class="lead">Wie viele Spätis gibt es ungefähr in Friedrichshain? Tippt am besten:</p>
+        <div class="opt"><span class="let">A</span>50 – 80</div>
+        <div class="opt"><span class="let">B</span>80 – 120</div>
+        <div class="opt"><span class="let">C</span>120 – 180</div>
+        <div class="opt"><span class="let">D</span>180 – 250</div>
+        <p class="note">Oft näher dran als man denkt! 🙂</p>
+      </div>
+
+      <div class="qc rv">
+        <h2>Hall of Fame</h2>
+        <div class="fame-years"><span>2023</span><span class="win">2024</span><span>2025</span></div>
+        <img class="fame-photo" src="assets/img/fotos/hall-of-fame-2024.png" alt="Quizkönige 2024 — Die Schlaufüchse">
+        <div class="fame-cap">
+          <div class="king">Quizkönige 2024 👑</div>
+          <div class="team">„Die Schlaufüchse“</div>
+          <div class="grats">Wir gratulieren! 🎉</div>
+        </div>
+      </div>
+
+      <div class="qc rv">
+        <h2>Quizregeln</h2>
+        <ul class="checks">
+          <li>Handys bleiben im Sack (während der Runden).</li>
+          <li>Fair geht vor – bei uns zählt Teamwork.</li>
+          <li>Keine Klugscheißerei – Spaß haben!</li>
+          <li>Die Entscheidung der Spielleitung ist endgültig.</li>
+          <li>Respektvoller Umgang miteinander und mit anderen Teams.</li>
+        </ul>
+      </div>
+
+      <div class="qc rv">
+        <h2>Gut zu wissen</h2>
+        <ul class="checks">
+          <li>Einlass &amp; Getränke ab 18:30 Uhr.</li>
+          <li>Quizstart pünktlich um 19:30 Uhr.</li>
+          <li>Tolle Preise für die besten Teams.</li>
+          <li>Regelmäßig neue Fragen &amp; Specials.</li>
+        </ul>
+      </div>
+
+      <div class="qc rv">
+        <h2>Noch Fragen?</h2>
+        <p class="lead" style="margin-bottom:6px">Schreibt uns gerne — wir freuen uns!</p>
+        <div class="contact-row"><img src="assets/img/kontakt/icon-instagram.png" alt=""><a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a></div>
+        <div class="contact-row"><img src="assets/img/kontakt/icon-mail.png" alt=""><a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a></div>
+      </div>
     </div>
+
     <div class="m-cta"><a class="btn btn-rot" href="termine.html">Tisch reservieren</a></div>
-    <div class="m-skyline"><img src="assets/img/quiz/skyline-nacht.png" alt="Friedrichshain bei Nacht mit Oberbaumbrücke und Tram"></div>
+
+    <footer class="m-foot">
+      <img src="assets/img/quiz/skyline-nacht.png" alt="Friedrichshain bei Nacht: Oberbaumbrücke, gelbe Tram und Späti">
+      <div class="footer-meta">
+        Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+        <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+        <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+      </div>
+    </footer>
   </div>
 
   <!-- ======================= SEMANTISCHER INHALT (Screenreader / SEO / Chatbot) ======================= -->

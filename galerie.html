@@ -108,7 +108,10 @@
 .el > img { width: 100%; height: auto; }
 
 /* Kopf */
-.gal-titel  { --x: 40;  --y: 140; width: calc(290 * var(--su)); margin: 0; }
+.gal-titel  { --x: 40;  --y: 138; margin: 0; font-family: var(--ff-display); font-size: calc(64 * var(--su));
+  line-height: 1; color: var(--ink); position: relative; padding-bottom: calc(6 * var(--su)); letter-spacing: .01em; }
+.gal-titel::after { content: ''; position: absolute; left: 0; width: calc(300 * var(--su)); bottom: calc(-4 * var(--su));
+  height: calc(13 * var(--su)); background: url('assets/img/strokes/pink-308.png') no-repeat left center / 100% 100%; }
 
 .gal-intro { --x: 60; --y: 250; width: calc(430 * var(--su)); font-family: var(--ff-body); color: var(--ink); }
 .gal-intro .lead { font-weight: 700; font-size: calc(17 * var(--su)); }
@@ -137,11 +140,15 @@
 }
 .gal-mobile .pill-play { border-width: 1.5px; border-radius: 5px; padding: 0 5px; margin-right: 6px; vertical-align: 1px; }
 
-/* Foto-teilen-Button (Bild) — frei stehend oben rechts auf Titel-/Intro-Höhe */
-.gal-foto-btn { --x: 1200; --y: 265; width: calc(300 * var(--su)); display: block;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), filter .3s; }
+/* Foto-teilen-Button (nativ) — frei stehend oben rechts auf Titel-/Intro-Höhe */
+.gal-foto-btn { --x: 1198; --y: 288; display: inline-flex; align-items: center; gap: calc(11 * var(--su));
+  font-family: var(--ff-cond); font-weight: 700; font-size: calc(15 * var(--su)); letter-spacing: .07em;
+  text-transform: uppercase; color: var(--pink); background: #FBF0F3; border: calc(2 * var(--su)) solid var(--pink);
+  border-radius: 999px; padding: calc(12 * var(--su)) calc(26 * var(--su));
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s; }
 .gal-foto-btn:hover { transform: translateY(calc(-3 * var(--su))) rotate(-1deg) scale(1.05);
-  filter: drop-shadow(0 calc(6 * var(--su)) calc(12 * var(--su)) rgba(225, 39, 90, .25)); }
+  box-shadow: 0 calc(6 * var(--su)) calc(14 * var(--su)) rgba(225, 39, 90, .25); }
+.gal-foto-btn svg { width: calc(22 * var(--su)); height: calc(22 * var(--su)); flex-shrink: 0; }
 
 /* Polaroid-Grid — Reihe 1 (mit Luft: ~26px Gaps, keine Berührungen) */
 .g-quizkoenige { --x: 30;   --y: 474; width: calc(330 * var(--su)); }
@@ -186,18 +193,28 @@
   .gal-mobile { display: block !important; }
 }
 .gal-mobile { display: none; padding: 26px 0 0; background: #F7F1E6; }
-.gal-mobile .m-titel { width: 210px; margin: 0 18px 14px; }
-.gal-mobile .m-intro { padding: 0 20px 4px; font-family: var(--ff-body); }
+.gal-mobile .m-titel { font-family: var(--ff-display); font-size: 52px; line-height: 1; color: var(--ink);
+                       margin: 0 20px 4px; padding-bottom: 4px; position: relative; display: inline-block; letter-spacing: .01em; }
+.gal-mobile .m-titel::after { content: ''; position: absolute; left: 0; right: -8px; bottom: -4px; height: 9px;
+                       background: url('assets/img/strokes/pink-308.png') no-repeat left center / 100% 100%; }
+.gal-mobile .m-intro { padding: 6px 20px 4px; font-family: var(--ff-body); }
 .gal-mobile .m-intro .lead { font-weight: 700; font-size: 17px; margin-bottom: 8px; }
 .gal-mobile .m-intro p { font-size: 15px; line-height: 1.55; margin-bottom: 6px; }
 .gal-mobile .m-intro a.pink { color: var(--pink); font-weight: 600; }
 .gal-mobile .m-pills { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 20px 8px; }
-.gal-mobile .m-foto { display: flex; justify-content: center; padding: 22px 20px 12px; }
-.gal-mobile .m-foto img { width: 260px; }
-.gal-mobile .m-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 18px; padding: 22px 20px 40px; align-items: start; }
-.gal-mobile .m-grid .polaroid img { width: 100%; }
-.gal-mobile .m-skyline img { width: 100%; }
-.gal-titel img, .m-titel img, .gal-foto-btn img { mix-blend-mode: multiply; }
+.gal-mobile .m-foto { padding: 18px 20px 8px; }
+.gal-mobile .foto-teilen-btn { display: inline-flex; align-items: center; gap: 10px;
+                       font-family: var(--ff-cond); font-weight: 700; font-size: 14px; letter-spacing: .07em;
+                       text-transform: uppercase; color: var(--pink); background: #FBF0F3;
+                       border: 2px solid var(--pink); border-radius: 999px; padding: 11px 22px;
+                       transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .2s, color .2s; }
+.gal-mobile .foto-teilen-btn:active { transform: scale(.96); }
+.gal-mobile .foto-teilen-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+.gal-mobile .m-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; padding: 18px 20px 30px; align-items: start; }
+.gal-mobile .m-grid .polaroid img { width: 100%; display: block; }
+.gal-mobile .m-foot { line-height: 0; margin-top: 8px; }
+.gal-mobile .m-foot img { width: 100%; display: block; }
+.gal-titel img, .gal-foto-btn img { mix-blend-mode: multiply; }
 </style>
 </head>
 <body>
@@ -235,7 +252,7 @@
   <div class="stage gal-stage" aria-label="Galerie — Eindrücke unserer Quizabende">
 
     <!-- Titel -->
-    <h1 class="el gal-titel rv"><img src="assets/img/galerie/titel.png" alt="Galerie"></h1>
+    <h1 class="el gal-titel rv">Galerie</h1>
 
     <!-- Intro -->
     <div class="el gal-intro rv" style="--d:.1s">
@@ -257,7 +274,8 @@
 
     <!-- Auch dein Foto teilen -->
     <a class="el gal-foto-btn rv" style="--d:.3s" href="mailto:hallo@sahne-zum-tee.de">
-      <img src="assets/img/galerie/btn-foto-teilen.png" alt="Auch dein Foto teilen! — Mail an hallo@sahne-zum-tee.de">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 8.5h3l1.2-2h5.6L18 8.5h2a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 20 19.5H4A1.5 1.5 0 0 1 2.5 18v-8A1.5 1.5 0 0 1 4 8.5Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="13.5" r="3.2" stroke="currentColor" stroke-width="1.7"/></svg>
+      Auch dein Foto teilen!
     </a>
 
     <!-- Polaroid-Grid — Reihe 1 -->
@@ -302,7 +320,7 @@
 
   <!-- ======================= MOBILE ======================= -->
   <div class="gal-mobile">
-    <h1 class="m-titel"><img src="assets/img/galerie/titel.png" alt="Galerie"></h1>
+    <h1 class="m-titel">Galerie</h1>
     <div class="m-intro">
       <p class="lead">Hier wird gelacht, gequizzt und gefeiert!</p>
       <p>Ein paar Eindrücke unserer Quizabende im Straßmanns.</p>
@@ -318,7 +336,10 @@
       <button class="pill" data-filter="videos"><span class="pill-play">▶</span>Videos</button>
     </div>
     <div class="m-foto">
-      <a href="mailto:hallo@sahne-zum-tee.de"><img src="assets/img/galerie/btn-foto-teilen.png" alt="Auch dein Foto teilen! — Mail an hallo@sahne-zum-tee.de"></a>
+      <a class="foto-teilen-btn" href="mailto:hallo@sahne-zum-tee.de">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 8.5h3l1.2-2h5.6L18 8.5h2a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 20 19.5H4A1.5 1.5 0 0 1 2.5 18v-8A1.5 1.5 0 0 1 4 8.5Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="13.5" r="3.2" stroke="currentColor" stroke-width="1.7"/></svg>
+        Auch dein Foto teilen!
+      </a>
     </div>
     <div class="m-grid">
       <div class="polaroid rv" style="--wr:-2.5deg" data-tags="sieger"><img src="assets/img/galerie/pol-quizkoenige.png" alt="Quizkönige 2024"></div>
@@ -332,7 +353,14 @@
       <div class="polaroid rv" style="--wr:-2.5deg" data-tags="sieger teams"><img src="assets/img/galerie/pol-gewonnen.png" alt="Gewonnen!"></div>
       <div class="polaroid rv" style="--wr:2.5deg" data-tags="videos"><img src="assets/img/galerie/pol-video.png" alt="Video vom Quizabend"></div>
     </div>
-    <div class="m-skyline"><img src="assets/img/galerie/skyline-nacht.png" alt="Nächtliche Friedrichshain-Skyline"></div>
+    <footer class="m-foot">
+      <img src="assets/img/galerie/skyline-nacht.png" alt="Nächtliche Friedrichshain-Skyline mit Oberbaumbrücke und Späti">
+      <div class="footer-meta">
+        Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+        <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+        <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+      </div>
+    </footer>
   </div>
 
   <!-- Versteckter semantischer Text: Bildunterschriften der Galerie -->
