@@ -92,9 +92,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ---------- Termine: Stage-Layout (Design-Canvas 1536, mit Luft; Skyline-Band = Fußzeile) ----------
+/* ---------- Termine: Stage-Layout (Design-Canvas 1536, mit Luft) ----------
    Hintergrund in zwei Ebenen: Papierfarbe (body-BG #F5EFE3) als Stage-Grund,
-   Tages-Skyline (termine/skyline-tag.png) als eigenes, volle-Breite-Band direkt am Stage-Ende.
+   Kopf-Aquarell (termine/himmel-termine.png) als volle-Breite-Band oben.
+   Abschluss unten über den einheitlichen <footer class="site-footer"> (footer-band.png).
    Der Zettel rechts ist ein eigenes Bild (termine/zettel-gut-zu-wissen.png) — alles kann atmen. */
 .termine-stage { height: calc(1024 * var(--su)); overflow: visible; z-index: 2; }
 .el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
@@ -214,33 +215,10 @@
 .z-btnrow .btn { font-size: calc(12.5 * var(--su)); padding: calc(10 * var(--su)) calc(20 * var(--su));
                  border-radius: calc(7 * var(--su)); white-space: nowrap; }
 
-/* ---------- Skyline-Band = Fußzeile (volle Breite, schließt die Seite ab) ---------- */
-.skyline-band { position: relative; z-index: 1; line-height: 0; }
-.skyline-band > img { width: 100%; height: auto; display: block; }
-/* deckt im Band eingebackene Reste ab (Zettel-Ecke rechts oben, Ghost-Kalender-Button) */
-.sky-fix { position: absolute; background: #F8EDE2;
-           box-shadow: 0 0 .5vw .4vw #F8EDE2; border-radius: .4vw; }
-.sf-zettel { left: 73.2%; top: -1%; width: 19.8%; height: 33%; }
-.sf-ghost  { left: 29.7%; top: 38.5%; width: 18.6%; height: 19.5%; }
-
-/* Kalender-Button: sitzt im Band (an der Position der Ghost-Variante), skaliert mit */
-.kal-band-btn { position: absolute; left: 30.08%; top: 6%; width: 17.97%; height: 18%;
-                display: flex; align-items: center; justify-content: center; gap: .7vw;
-                background: #F8EDE2; line-height: 1.1;
-                border: max(1.5px, .13vw) solid var(--pink); border-radius: .65vw;
-                font-family: var(--ff-cond); font-weight: 700; font-size: clamp(9px, .92vw, 15px);
-                letter-spacing: .12em; text-transform: uppercase; color: var(--pink);
-                transition: background .25s, color .25s, transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s; }
-.kal-band-btn svg { width: 1.05vw; height: auto; display: block; }
-.kal-band-btn:hover { background: var(--pink); color: #F8EDE2;
-                      transform: translateY(-2px) !important;
-                      box-shadow: 0 .5vw 1.1vw rgba(225, 39, 90, .3); }
-
 /* ---------- Mobile: gestapeltes Layout ---------- */
 @media (max-width: 820px) {
   .termine-stage { display: none; }
   .termine-mobile { display: block !important; }
-  .kal-band-btn { display: none; }
 }
 .termine-mobile { display: none; padding: 0 0 36px; }
 .termine-mobile .tm-himmel { height: 168px; overflow: hidden; }
