@@ -105,12 +105,13 @@
 
 /* Hero */
 .hero-sky      { --x: 0;    --y: 0;   width: calc(1536 * var(--su)); border-radius: calc(12 * var(--su)); overflow: hidden; }
-/* dezenter Blau-Verlauf oben: tönt das helle Wolkenband, damit kein „weißer Strich“ oben wirkt */
-.hero-sky::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-                   background: linear-gradient(to bottom, rgba(120,178,214,.5) 0%, rgba(120,178,214,.16) 14%, rgba(120,178,214,0) 30%); }
-.sky-cloud-1 { left: 4%;  top: 4%;  width: 20%; --wx: calc(52 * var(--su)); --wy: calc(-5 * var(--su)); --wd: 44s; }
-.sky-cloud-2 { left: 27%; top: 9%;  width: 18%; --wx: calc(-40 * var(--su)); --wy: calc(6 * var(--su)); --wd: 55s; animation-delay: -18s; }
-.sky-cloud-3 { left: 82%; top: 10%; width: 15%; --wx: calc(-58 * var(--su)); --wy: calc(-4 * var(--su)); --wd: 48s; animation-delay: -30s; }
+.sky-cloud-1 { left: 4%;  top: 4%;  --wx: calc(52 * var(--su)); --wy: calc(-5 * var(--su)); --wd: 44s; }
+.sky-cloud-2 { left: 27%; top: 9%;  --wx: calc(-40 * var(--su)); --wy: calc(6 * var(--su)); --wd: 55s; animation-delay: -18s; }
+.sky-cloud-3 { left: 82%; top: 10%; --wx: calc(-58 * var(--su)); --wy: calc(-4 * var(--su)); --wd: 48s; animation-delay: -30s; }
+/* WICHTIG: muss .el>img{width:100%} schlagen — sonst werden die Wolken riesig (die „zwei weißen Striche“ oben) */
+.hero-sky img.sky-cloud-1 { width: 20%; height: auto; }
+.hero-sky img.sky-cloud-2 { width: 18%; height: auto; }
+.hero-sky img.sky-cloud-3 { width: 15%; height: auto; }
 .hero-turm     { --x: 32;   --y: 143; width: calc(231 * var(--su)); }
 .hero-bruecke  { --x: 1163; --y: 198; width: calc(346 * var(--su)); }
 .hero-julia    { --x: 595;  --y: 59;  width: calc(346 * var(--su)); }

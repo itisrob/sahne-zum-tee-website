@@ -104,26 +104,21 @@ body { --bg: #F5E7DC; }
   padding-bottom: 20px;
 }
 
-/* Hero-Band: NATIV aufgebaut (Himmel + Fernsehturm + Oberbaumbrücke + Figuren + Titel).
-   Ersetzt das gebackene hero-band.png (Logo-Rest oben links + ausgefranster Rand rechts).
-   Nichts wird oben abgeschnitten; Titel mittig-gesetzt statt hart linksbündig. */
-.q-hero { position: relative; width: 100%; aspect-ratio: 1400 / 338; border-radius: 18px;
-          overflow: hidden; margin-bottom: 30px; background: #BFE3F7;
-          box-shadow: 0 6px 20px rgba(60,40,20,.10); }
-.q-hero .qh-sky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-/* Blau-Verlauf oben (kein helles Wolkenband) + weicher Auslauf unten (kein harter Schnitt der Figuren/Skyline mittig) */
-.q-hero::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 34%; z-index: 2; pointer-events: none;
-                  background: linear-gradient(to bottom, rgba(120,178,214,.5) 0%, rgba(120,178,214,.15) 45%, rgba(120,178,214,0) 100%); }
-.q-hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 66px; z-index: 6; pointer-events: none;
-                 background: linear-gradient(to bottom, rgba(245,231,220,0) 0%, #F5E7DC 100%); }
-.q-hero .qh-layer { position: absolute; bottom: 0; width: auto; }
-.q-hero .qh-turm    { left: 43%;  height: 84%; opacity: .97; z-index: 1; }
-.q-hero .qh-bruecke { right: -1%; height: 58%; opacity: .95; z-index: 1; }
-.q-hero .qh-julia   { right: 29%; height: 95%; z-index: 3; }
-.q-hero .qh-cali    { right: 18%; height: 47%; z-index: 4; }
-.q-hero .qh-schwebi { right: 2%;  height: 96%; z-index: 3; }
-.q-hero .q-hero-text { position: absolute; left: 2%; top: 50%; transform: translateY(-50%);
-                       width: 43%; text-align: center; z-index: 5; }
+/* Hero-Band: Aquarell-Pinselstrich (himmel-termine, mit gemalter Berliner Skyline) — GENAU wie auf Termine
+   und wie in der Canva-Vorlage. Natürliches Seitenverhältnis → die gemalten Brush-Kanten bleiben sichtbar.
+   Darüber natives „Das Quiz“ + die drei Figuren. */
+.q-hero { position: relative; width: 100%; margin-bottom: 22px; }
+.q-hero .qh-brush { display: block; width: 100%; height: auto; }
+.q-hero .qh-layer { position: absolute; bottom: 4%; width: auto; z-index: 3; }
+/* Figuren mit weichem Auslauf unten (kein harter Oberschenkel-Schnitt) */
+.q-hero .qh-julia, .q-hero .qh-schwebi {
+  -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 84%, transparent 100%); }
+.q-hero .qh-julia   { right: 34%; height: 82%; }
+.q-hero .qh-cali    { right: 25%; height: 40%; z-index: 4; }
+.q-hero .qh-schwebi { right: 13%; height: 83%; }
+.q-hero .q-hero-text { position: absolute; left: 2%; top: 42%; transform: translateY(-50%);
+                       width: 37%; text-align: center; z-index: 5; }
 .q-hero .q-hero-text h1 { font-family: var(--ff-marker); color: var(--navy);
                           font-size: clamp(30px, 5.2vw, 70px); line-height: .96; letter-spacing: .01em;
                           text-shadow: 0 2px 12px rgba(255,255,255,.55); display: inline-block;
@@ -332,11 +327,9 @@ body { --bg: #F5E7DC; }
   <!-- ======================= DESKTOP-STAGE ======================= -->
   <div class="quiz-stage" aria-label="Das Quiz — so läuft ein Abend bei Sahne zum Tee?">
 
-    <!-- HERO-BAND (nativ, nichts abgeschnitten) -->
-    <div class="q-hero rv" data-depth="0.05" aria-label="DAS QUIZ — Julia, Hündin Cali und Schwebi vor der Berliner Skyline mit Fernsehturm">
-      <img class="qh-sky" src="assets/img/hero/himmel-panorama.png" alt="" fetchpriority="high">
-      <img class="qh-layer qh-turm" src="assets/img/hero/fernsehturm.png" alt="">
-      <img class="qh-layer qh-bruecke" src="assets/img/hero/oberbaumbruecke.png" alt="">
+    <!-- HERO-BAND: Aquarell-Pinselstrich (wie Termine) + Figuren -->
+    <div class="q-hero rv" data-depth="0.05" aria-label="DAS QUIZ — Julia, Hündin Cali und Schwebi vor der Berliner Aquarell-Skyline mit Fernsehturm">
+      <img class="qh-brush" src="assets/img/hero/himmel-termine.png" alt="" fetchpriority="high">
       <img class="qh-layer qh-julia" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel">
       <img class="qh-layer qh-cali" src="assets/img/hero/cali.png" alt="Hündin Cali">
       <img class="qh-layer qh-schwebi" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea">
