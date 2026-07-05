@@ -37,14 +37,14 @@
 .hero-cali-label { --x: 499; --y: 346; width: calc(134 * var(--su)); }
 
 /* Logo-Block: sauber linksbündig auf einer Achse, mehr Luft */
-.hero-logo { --x: 232; --y: 92; transform: rotate(-4deg); transform-origin: left top; line-height: .98; }
+.hero-logo { --x: 232; --y: 80; transform: rotate(-4deg); transform-origin: left top; line-height: .98; }
 .hero-logo .l1 { font-family: var(--ff-marker); font-size: calc(82 * var(--su)); color: var(--navy); }
 .hero-logo .l2 { font-family: var(--ff-marker); font-size: calc(60 * var(--su)); color: var(--navy); margin-top: calc(2 * var(--su)); }
 .hero-logo .l3 { font-family: var(--ff-marker); font-size: calc(44 * var(--su)); color: var(--blue);
                  text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,31,61,.25); margin-top: calc(10 * var(--su)); }
-.hero-tagline { --x: 240; --y: 316; font-family: var(--ff-tag); font-weight: 500;
-                font-size: calc(17.5 * var(--su)); line-height: calc(25.5 * var(--su)); color: #111; }
-.hero-btn { --x: 240; --y: 452; width: calc(250 * var(--su)); height: calc(56 * var(--su));
+.hero-tagline { --x: 240; --y: 300; font-family: var(--ff-tag); font-weight: 500;
+                font-size: calc(17.5 * var(--su)); line-height: calc(24.5 * var(--su)); color: #111; }
+.hero-btn { --x: 240; --y: 432; width: calc(250 * var(--su)); height: calc(56 * var(--su));
             font-size: calc(21 * var(--su)); border-radius: calc(7 * var(--su)); white-space: nowrap; }
 
 .hero-label { font-family: var(--ff-marker); color: var(--navy); white-space: nowrap; }
@@ -168,20 +168,30 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-cta { display: flex; justify-content: center; padding: 0 16px 26px; }
 .m-cta .btn { font-size: 17px; padding: .9em 2em; }
 
-/* Hero-Bild: eigenständig, Wolken ziehen, Wasser atmet, KEIN Text darüber */
+/* Hero-Bild: kommt zuerst, Wolken ziehen kräftig, Wasser atmet spürbar */
 .m-hero {
-  position: relative; margin: 0 16px 26px; height: 340px;
+  position: relative; margin: 8px 16px 18px; height: 360px;
   border-radius: 16px; overflow: hidden;
   box-shadow: 0 10px 26px rgba(60, 40, 20, .18);
 }
-.m-hero .m-sky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%;
-                 animation: meer-atmen 11s ease-in-out infinite; transform-origin: 50% 80%; }
-.m-hero .sky-cloud { opacity: .9; }
-.m-hero .m-c1 { left: 2%;  top: 3%;  width: 44%; --wx: 26px; --wy: -4px; --wd: 40s; }
-.m-hero .m-c2 { left: 62%; top: 7%;  width: 36%; --wx: -30px; --wy: 5px; --wd: 52s; animation-delay: -20s; }
-.m-hero .m-julia   { position: absolute; bottom: -2px; left: 8%;  width: 44%; }
-.m-hero .m-schwebi { position: absolute; bottom: -2px; right: 6%; width: 47%; }
-.m-hero .m-cali    { position: absolute; bottom: 0; left: 38%; width: 26%; animation: bob 7s ease-in-out infinite; }
+.m-hero .m-sky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 72%;
+                 animation: meer-atmen-mobil 8s ease-in-out infinite; transform-origin: 50% 84%; will-change: transform; }
+.m-hero .sky-cloud { opacity: .95; will-change: transform; }
+.m-hero .m-c1 { left: -5%; top: 3%;  width: 50%; --wx: 60px;  --wy: -8px; --wd: 19s; }
+.m-hero .m-c2 { left: 58%; top: 8%;  width: 46%; --wx: -66px; --wy: 8px;  --wd: 24s; animation-delay: -9s; }
+.m-hero .m-c3 { left: 26%; top: -3%; width: 40%; --wx: 46px;  --wy: 6px;  --wd: 30s; animation-delay: -15s; opacity: .8; }
+.m-hero .m-doodle { position: absolute; left: 64%; top: 42%; width: 24%; opacity: .45;
+                    animation: wolken-zug 15s ease-in-out infinite; --wx: -34px; --wy: 6px; }
+.m-hero .m-julia   { position: absolute; bottom: -2px; left: 5%;  width: 47%;
+                     animation: sway 8s ease-in-out infinite; transform-origin: 50% 100%; }
+.m-hero .m-schwebi { position: absolute; bottom: -2px; right: 3%; width: 50%;
+                     animation: sway 8s ease-in-out infinite; animation-delay: -4s; transform-origin: 50% 100%; }
+.m-hero .m-cali    { position: absolute; bottom: 0; left: 37%; width: 27%; animation: bob 5s ease-in-out infinite; }
+@keyframes meer-atmen-mobil {
+  0%, 100% { transform: scale(1.02); }
+  50%      { transform: scale(1.075); }
+}
+.m-kopf { padding-top: 6px; }
 
 /* Karten */
 .m-card { background: url('assets/img/paper/beige-800.png') center / cover; border-radius: 16px; padding: 24px 20px 26px; }
@@ -388,6 +398,17 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
   <!-- ======================= MOBILE (alle Inhalte, nichts überlappt) ======================= -->
   <div class="home-mobile">
 
+    <div class="m-hero rv">
+      <img class="m-sky" src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree">
+      <img class="sky-cloud m-c1" src="assets/img/hero/wolke-hd-1.png" alt="">
+      <img class="sky-cloud m-c2" src="assets/img/hero/wolke-hd-3.png" alt="">
+      <img class="sky-cloud m-c3" src="assets/img/hero/wolke-hd-2.png" alt="">
+      <img class="m-doodle" src="assets/img/deco/wolke-doodle.png" alt="">
+      <img class="m-julia" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel">
+      <img class="m-schwebi" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea">
+      <img class="m-cali" src="assets/img/hero/cali.png" alt="Hündin Cali">
+    </div>
+
     <div class="m-kopf rv">
       <span class="l1">Sahne zum Tee?</span>
       <span class="l3">DAS KiEZ QUiZ</span>
@@ -395,15 +416,6 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     <p class="m-tagline rv">Dein Kiez-Kneipenquiz in Berlin-Friedrichshain.<br>
       Von hier. Für euch.<br>Mit Herz, Berliner Schnauze und unnützem Wissen.</p>
     <div class="m-cta rv"><a class="btn btn-rot" href="termine.html">Nächste Termine</a></div>
-
-    <div class="m-hero rv">
-      <img class="m-sky" src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree">
-      <img class="sky-cloud m-c1" src="assets/img/hero/wolke-1.png" alt="">
-      <img class="sky-cloud m-c2" src="assets/img/hero/wolke-3.png" alt="">
-      <img class="m-julia" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel">
-      <img class="m-schwebi" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea">
-      <img class="m-cali" src="assets/img/hero/cali.png" alt="Hündin Cali">
-    </div>
 
     <section class="m-card rv">
       <h2>Nächster Termin<img class="h2-stroke" src="assets/img/strokes/rot-193.png" alt=""></h2>
