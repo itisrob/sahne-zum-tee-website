@@ -115,10 +115,11 @@
 .hero-cali     { --x: 576;  --y: 374; width: calc(173 * var(--su)); }
 .hero-pfote    { --x: 1339; --y: 44;  width: calc(122 * var(--su)); opacity: .9; }
 .hero-wolke    { --x: 98;   --y: 22;  width: calc(126 * var(--su)); opacity: .8; }
-.hero-cali-label { --x: 502; --y: 352; font-family: var(--ff-marker); color: var(--navy);
-                   font-size: calc(24 * var(--su)); white-space: nowrap; display: inline-flex; align-items: center; gap: calc(7 * var(--su)); }
-.hero-cali-label img { width: calc(23 * var(--su)); height: auto; }
-.pfeil-cali { --x: 590; --y: 392; width: calc(54 * var(--su)); transform: rotate(42deg); }
+.hero-cali-label { --x: 470; --y: 372; font-family: var(--ff-marker); color: var(--navy);
+                   font-size: calc(24 * var(--su)); white-space: nowrap; display: inline-flex; align-items: center; gap: calc(8 * var(--su)); }
+.hero-cali-label img { width: calc(34 * var(--su)); height: auto; }
+/* Pfeil links NEBEN dem Hund (Hund liegt bei x576/y374), zeigt nach rechts auf ihn */
+.pfeil-cali { --x: 486; --y: 430; width: calc(60 * var(--su)); transform: rotate(8deg); }
 
 /* Logo-Block: sauber linksbündig auf einer Achse, mehr Luft */
 .hero-logo { --x: 232; --y: 80; transform: rotate(-4deg); transform-origin: left top; line-height: .98; }
@@ -181,7 +182,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .tile .tile-label { position: absolute; left: 0; right: 0; text-align: center; font-family: var(--ff-round);
                     font-weight: 600; color: var(--ink); line-height: 1.05; }
 .t1 { --x: 1092; --y: 618; width: calc(130 * var(--su)); }
-.t1 .tile-icon { left: 32%; top: -9%; width: 36%; }
+.t1 .tile-icon { left: 37%; top: -16%; width: 26%; }
 .t1 .tile-label { bottom: 7%; font-size: calc(14.5 * var(--su)); transform: rotate(-3deg); }
 .t2 { --x: 1232; --y: 618; width: calc(130 * var(--su)); }
 .t2 .tile-icon { left: 30%; top: 5%; width: 42%; }
@@ -191,13 +192,13 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .t3 .tile-icon { left: 26%; top: 12%; width: 52%; }
 .t3 .tile-label { bottom: 6%; font-size: calc(11 * var(--su)); }
 .t4 { --x: 1100; --y: 760; width: calc(186 * var(--su)); }
-.t4 .tile-q { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: var(--ff-round);
-              font-weight: 600; font-size: calc(48 * var(--su)); color: var(--lila);
+.t4 .tile-q { position: absolute; left: 0; right: 0; top: 2%; text-align: center; font-family: var(--ff-round);
+              font-weight: 600; font-size: calc(64 * var(--su)); color: var(--lila);
               text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,0,0,.18); }
 .t4 .tile-label { bottom: 8%; font-size: calc(13 * var(--su)); }
 .t4 .tile-funkel { position: absolute; right: 11%; top: 7%; width: 12%; }
 .t5 { --x: 1302; --y: 760; width: calc(192 * var(--su)); }
-.t5 .tile-icon { left: 35%; top: 2%; width: 28%; }
+.t5 .tile-icon { left: 31%; top: 0%; width: 40%; }
 .t5 .tile-label { bottom: 8%; font-size: calc(16 * var(--su)); }
 
 /* Polaroid-Reihe (mit Luft nach unten verlegt) */
@@ -276,9 +277,11 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
                  font-size: 15px; white-space: nowrap; text-shadow: 0 1px 4px rgba(255,255,255,.85); }
 .m-hero .ml-julia   { top: 11%; left: 2%;  transform: rotate(-7deg); }
 .m-hero .ml-schwebi { top: 9%;  right: 3%; transform: rotate(7deg); }
-.m-hero .m-arrow { position: absolute; z-index: 5; width: 40px; opacity: .92; }
-.m-hero .ma-julia   { top: 20%; left: 21%; transform: rotate(52deg); }
-.m-hero .ma-schwebi { top: 18%; right: 20%; transform: rotate(128deg); }
+.m-hero .m-arrow { position: absolute; z-index: 5; width: 30px; opacity: .9; }
+/* Pfeile sitzen im Himmel ÜBER den Köpfen (unter der Nav) und zeigen nach unten auf die Person */
+.m-hero .ma-julia   { top: 19%; left: 27%;  transform: rotate(78deg); }
+.m-hero .ma-schwebi { top: 17%; right: 27%; transform: rotate(102deg); }
+.m-hero .ma-cali    { top: 61%; left: 52%; width: 28px; transform: rotate(88deg); }
 .m-hero .m-cali-lbl { position: absolute; z-index: 5; top: 55%; left: 50%; transform: translateX(-50%);
                  font-family: var(--ff-marker); color: var(--navy); font-size: 16px; white-space: nowrap;
                  display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 1px 5px rgba(255,255,255,.95); }
@@ -315,14 +318,19 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-tile:active { transform: scale(.96); }
 .m-tile .tile-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .m-tile.sq { aspect-ratio: 1 / 0.92; }
-.m-tile.sq .tile-icon { position: absolute; left: 50%; top: 41%; transform: translate(-50%,-50%); height: 46%; width: auto; max-width: 60%; object-fit: contain; }
-.m-tile.sq .tile-label { position: absolute; left: 6px; right: 6px; bottom: 11%; text-align: center;
+.m-tile.sq .tile-icon { position: absolute; left: 50%; top: 39%; transform: translate(-50%,-50%); height: 44%; width: auto; max-width: 58%; object-fit: contain; }
+/* Termine: schmaler Eis-Fernsehturm kleiner & höher, damit „Termine“ frei bleibt */
+.m-tile.sq-turm .tile-icon { top: 34%; height: 38%; }
+/* Kontakt: Pfote deutlich größer */
+.m-tile.sq-paw .tile-icon { top: 38%; height: 54%; max-width: 74%; }
+.m-tile.sq .tile-label { position: absolute; left: 6px; right: 6px; bottom: 10%; text-align: center;
                          font-family: var(--ff-round); font-weight: 600; font-size: 13.5px; line-height: 1.05; color: var(--ink); }
-.m-tile.wide { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
+.m-tile.wide { grid-column: 1 / -1; aspect-ratio: 3 / 1; overflow: hidden; }
+.m-tile.wide .tile-bg { object-fit: cover; }
 .m-tile.wide .tile-icon { position: absolute; left: 25%; top: 50%; transform: translate(-50%,-50%); height: 72%; width: auto; }
-.m-tile.wide .tile-q { position: absolute; left: 25%; top: 50%; transform: translate(-50%,-50%); font-family: var(--ff-round);
-                       font-weight: 600; font-size: 52px; color: var(--lila); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
-.m-tile.wide .tile-label { position: absolute; left: 42%; right: 7%; top: 50%; transform: translateY(-50%); text-align: left;
+.m-tile.wide .tile-q { position: absolute; left: 24%; top: 50%; transform: translate(-50%,-50%); font-family: var(--ff-round);
+                       font-weight: 600; font-size: 58px; color: var(--lila); text-shadow: 2px 2px 0 rgba(0,0,0,.15); }
+.m-tile.wide .tile-label { position: absolute; left: 40%; right: 6%; top: 50%; transform: translateY(-50%); text-align: left;
                            font-family: var(--ff-round); font-weight: 600; font-size: 20px; color: var(--ink); line-height: 1.1; }
 
 /* Vergangene Quizabende: Fotos füllen die Kästchen komplett, zentriert */
@@ -523,6 +531,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
       <span class="m-lbl ml-schwebi">Schwebi</span>
       <img class="m-arrow ma-schwebi" src="assets/img/deco/pfeil.png" alt="">
       <span class="m-cali-lbl">Cali<img src="assets/img/deco/pfote-gross.png" alt=""></span>
+      <img class="m-arrow ma-cali" src="assets/img/deco/pfeil.png" alt="">
     </div>
 
     <div class="m-kopf rv">
@@ -576,7 +585,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
           <span class="tile-q">?</span>
           <span class="tile-label">Das Kiez-Quiz</span>
         </a>
-        <a class="m-tile sq" href="termine.html">
+        <a class="m-tile sq sq-turm" href="termine.html">
           <img class="tile-bg" src="assets/img/tiles/wolke-pink.png" alt="">
           <img class="tile-icon" src="assets/img/illu/turm-eis.png" alt="">
           <span class="tile-label">Termine</span>
@@ -591,7 +600,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
           <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
           <span class="tile-label">Kiezgeschichten</span>
         </a>
-        <a class="m-tile sq" href="kontakt.html">
+        <a class="m-tile sq sq-paw" href="kontakt.html">
           <img class="tile-bg" src="assets/img/tiles/wolke-blau.png" alt="">
           <img class="tile-icon" src="assets/img/deco/pfote-gross.png" alt="">
           <span class="tile-label">Kontakt</span>
