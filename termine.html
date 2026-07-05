@@ -11,12 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ---------- Termine: Stage-Layout (Design-Canvas 1536×1024) ---------- */
-.termine-stage {
-  height: calc(1024 * var(--su));
-  background: url('assets/img/pages/termine-bg.png') no-repeat top center / 100% auto;
-  overflow: visible;
-}
+/* ---------- Termine: Stage-Layout (Design-Canvas 1536, mit Luft; Skyline-Band = Fußzeile) ----------
+   Hintergrund in zwei Ebenen: Papierfarbe (body-BG #F5EFE3) als Stage-Grund,
+   Tages-Skyline (termine/skyline-tag.png) als eigenes, volle-Breite-Band direkt am Stage-Ende.
+   Der Zettel rechts ist ein eigenes Bild (termine/zettel-gut-zu-wissen.png) — alles kann atmen. */
+.termine-stage { height: calc(1024 * var(--su)); overflow: visible; z-index: 2; }
 .el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
 .el > img { width: 100%; height: auto; }
 
@@ -25,16 +24,16 @@
 .t-sky img { border-radius: calc(6 * var(--su)); }
 .t-wolke { --x: 856; --y: 92; width: calc(118 * var(--su)); opacity: .6; z-index: 1; }
 
-/* Titelblock */
-.t-titel { --x: 106; --y: 150; z-index: 3; font-family: var(--ff-brush); font-weight: 400;
+/* Titelblock (mit Luft) */
+.t-titel { --x: 106; --y: 154; z-index: 3; font-family: var(--ff-brush); font-weight: 400;
            font-size: calc(86 * var(--su)); line-height: 1; color: #222; white-space: nowrap; }
 .t-titel .rot { display: inline-block; transform: rotate(-2.7deg); }
-.t-stroke { --x: 97; --y: 214; width: calc(310 * var(--su)); z-index: 2; }
-.t-sub1 { --x: 116; --y: 260; z-index: 3; font-family: var(--ff-body); font-weight: 700; font-size: calc(15.7 * var(--su)); }
-.t-sub2 { --x: 116; --y: 283; z-index: 3; font-family: var(--ff-body); font-weight: 400; font-size: calc(15.7 * var(--su)); }
+.t-stroke { --x: 97; --y: 220; width: calc(310 * var(--su)); z-index: 2; }
+.t-sub1 { --x: 116; --y: 264; z-index: 3; font-family: var(--ff-body); font-weight: 700; font-size: calc(15.7 * var(--su)); }
+.t-sub2 { --x: 116; --y: 288; z-index: 3; font-family: var(--ff-body); font-weight: 400; font-size: calc(15.7 * var(--su)); }
 
 /* Filter-Pills */
-.t-pills { --x: 96; --y: 333; z-index: 4; display: flex; align-items: center; gap: calc(9 * var(--su)); }
+.t-pills { --x: 96; --y: 346; z-index: 4; display: flex; align-items: center; gap: calc(9 * var(--su)); }
 .t-pills .pill {
   height: calc(60 * var(--su));
   padding: 0 calc(26 * var(--su));
@@ -43,7 +42,7 @@
   display: inline-flex; align-items: center;
   white-space: nowrap;
 }
-.t-herz { --x: 772; --y: 330; width: calc(42 * var(--su)); z-index: 4; opacity: .85; }
+.t-herz { --x: 788; --y: 350; width: calc(42 * var(--su)); z-index: 4; opacity: .85; }
 .t-herz svg { width: 100%; height: auto; display: block; transform: rotate(9deg);
               transform-origin: 50% 60%; animation: herz-beat 3.2s ease-in-out infinite; }
 @keyframes herz-beat {
@@ -51,11 +50,11 @@
   50%      { transform: rotate(9deg) scale(1.1); }
 }
 
-/* Event-Karten */
+/* Event-Karten (mehr Innenluft, ~18 Design-px Abstand zwischen den Karten) */
 .ev {
   --x: 97;
   width: calc(988 * var(--su));
-  height: calc(120 * var(--su));
+  height: calc(124 * var(--su));
   background: #FBF6EC;
   border: calc(2 * var(--su)) solid #E9DAC1;
   border-radius: calc(16 * var(--su));
@@ -68,84 +67,111 @@
   box-shadow: 0 calc(14 * var(--su)) calc(30 * var(--su)) rgba(60, 40, 20, .16);
   z-index: 6;
 }
-.ev-1 { --y: 392; } .ev-2 { --y: 516; } .ev-3 { --y: 640; } .ev-4 { --y: 764; }
+.ev-1 { --y: 438; } .ev-2 { --y: 580; } .ev-3 { --y: 722; } .ev-4 { --y: 864; }
 
-.ev-tag { position: absolute; left: calc(28 * var(--su)); top: 0; height: 100%; width: calc(110 * var(--su));
-          display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(4 * var(--su)); }
+.ev-tag { position: absolute; left: calc(32 * var(--su)); top: 0; height: 100%; width: calc(110 * var(--su));
+          display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(5 * var(--su)); }
 .ev-tag .zahl { font-family: var(--ff-display); font-size: calc(45 * var(--su)); color: var(--pink); line-height: 1; }
 .ev-tag .wtag { font-family: var(--ff-cond); font-weight: 600; font-size: calc(11 * var(--su));
                 letter-spacing: .16em; text-transform: uppercase; color: #333; }
 
-.ev-info { position: absolute; left: calc(170 * var(--su)); top: calc(22 * var(--su)); }
+.ev-info { position: absolute; left: calc(178 * var(--su)); top: calc(25 * var(--su)); }
 .ev-zeit { font-family: var(--ff-cond); font-weight: 600; font-size: calc(14.3 * var(--su));
            letter-spacing: .1em; text-transform: uppercase; color: #444; }
 .ev-ort  { font-family: var(--ff-display); font-size: calc(24 * var(--su)); letter-spacing: .02em;
-           text-transform: uppercase; color: #000; margin-top: calc(4 * var(--su)); }
-.ev-adresse { font-family: var(--ff-body); font-size: calc(12.8 * var(--su)); color: #333; margin-top: calc(6 * var(--su)); }
+           text-transform: uppercase; color: #000; margin-top: calc(5 * var(--su)); }
+.ev-adresse { font-family: var(--ff-body); font-size: calc(12.8 * var(--su)); color: #333; margin-top: calc(7 * var(--su)); }
 
-.ev-text { position: absolute; left: calc(512 * var(--su)); top: 50%; transform: translateY(-50%);
+.ev-text { position: absolute; left: calc(522 * var(--su)); top: 50%; transform: translateY(-50%);
            width: calc(280 * var(--su)); font-family: var(--ff-body); font-size: calc(10.6 * var(--su));
-           line-height: 1.6; color: #333; }
+           line-height: 1.65; color: #333; }
 
-.ev-badge { position: absolute; right: calc(40 * var(--su)); top: 50%; margin-top: calc(-22 * var(--su));
+.ev-badge { position: absolute; right: calc(46 * var(--su)); top: 50%; margin-top: calc(-22 * var(--su));
             transform: rotate(-4deg);
             font-family: var(--ff-marker); font-size: calc(16 * var(--su)); letter-spacing: .04em;
             text-transform: uppercase; color: #C41F3E;
             border: calc(3 * var(--su)) solid #C41F3E; border-radius: calc(8 * var(--su));
             padding: calc(6 * var(--su)) calc(14 * var(--su)); background: rgba(255, 255, 255, .35); }
 
-.ev-btn { position: absolute; right: calc(48 * var(--su)); top: calc(39 * var(--su));
+.ev-btn { position: absolute; right: calc(52 * var(--su)); top: calc(42 * var(--su));
           font-size: calc(13 * var(--su)); padding: calc(12 * var(--su)) calc(22 * var(--su));
           border-radius: calc(7 * var(--su)); white-space: nowrap; }
 
-/* Kalender-Button unten (deckt die im Hintergrund eingebackene Ghost-Variante ab) */
-.t-kalbtn { --x: 462; --y: 886; width: calc(276 * var(--su)); height: calc(43 * var(--su)); z-index: 6;
-            display: flex; align-items: center; justify-content: center; gap: calc(12 * var(--su));
-            background: #F8EDE2;
-            border: calc(2 * var(--su)) solid var(--pink); border-radius: calc(10 * var(--su));
-            font-family: var(--ff-cond); font-weight: 700; font-size: calc(14 * var(--su));
-            letter-spacing: .12em; text-transform: uppercase; color: var(--pink);
-            transition: background .25s, color .25s, transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s; }
-.t-kalbtn svg { width: calc(16 * var(--su)); height: calc(16 * var(--su)); display: block; }
-.t-kalbtn:hover { background: var(--pink); color: #F8EDE2;
-                  transform: translateY(calc(-2 * var(--su))) !important;
-                  box-shadow: 0 calc(8 * var(--su)) calc(18 * var(--su)) rgba(225, 39, 90, .3); }
-
-/* Zettel „Gut zu wissen" (Zettel selbst ist im Hintergrundbild) */
-.z-label { --x: 1214; --y: 396; width: calc(210 * var(--su)); text-align: center; z-index: 5; }
-.z-label a { font-family: var(--ff-cond); font-weight: 600; font-size: calc(11.9 * var(--su));
+/* Zettel „Gut zu wissen" — eigenes Bild, Inhalte als HTML darüber */
+.z-label { --x: 1134; --y: 428; width: calc(296 * var(--su)); text-align: center; z-index: 5; }
+.z-label a { font-family: var(--ff-cond); font-weight: 600; font-size: calc(13 * var(--su));
              letter-spacing: .14em; text-transform: uppercase; color: #333;
              border-bottom: 1px dashed #998A6E; padding-bottom: 2px;
              transition: color .2s, border-color .2s; }
 .z-label a:hover { color: var(--pink); border-color: var(--pink); }
 
-.z-kopf { --x: 1180; --y: 470; z-index: 5; font-family: var(--ff-display); font-size: calc(17.6 * var(--su));
+.z-zettel { --x: 1104; --y: 464; width: calc(354 * var(--su)); z-index: 5; }
+.z-zettel > img { width: 100%; height: auto; }
+/* deckt zwei kleine, im Zettel-Scan eingebackene Icon-Reste ab */
+.z-fix { position: absolute; background: #F4E2D0; border-radius: calc(10 * var(--su));
+         box-shadow: 0 0 calc(6 * var(--su)) calc(4 * var(--su)) #F4E2D0; }
+.z-fix-1 { left: calc(54 * var(--su)); top: calc(222 * var(--su)); width: calc(34 * var(--su)); height: calc(46 * var(--su)); }
+.z-fix-2 { left: calc(50 * var(--su)); top: calc(314 * var(--su)); width: calc(42 * var(--su)); height: calc(44 * var(--su)); }
+
+.z-kopf { position: absolute; left: calc(40 * var(--su)); top: calc(52 * var(--su));
+          font-family: var(--ff-display); font-size: calc(20 * var(--su));
           letter-spacing: .03em; text-transform: uppercase; color: #222; }
-.z-liste { --x: 1225; --y: 519; z-index: 5; width: calc(192 * var(--su)); list-style: none; }
-.z-liste li { margin-bottom: calc(19 * var(--su)); }
-.z-liste .zl { display: block; font-family: var(--ff-body); font-weight: 700; font-size: calc(11 * var(--su)); color: #222; }
-.z-liste .zw { display: block; font-family: var(--ff-body); font-weight: 400; font-size: calc(11.4 * var(--su));
-               color: #333; margin-top: calc(3 * var(--su)); }
-.z-gruss { --x: 1182; --y: 790; z-index: 5; width: calc(200 * var(--su)); text-align: center;
-           font-family: var(--ff-brush); font-size: calc(20 * var(--su)); color: #222; }
+.z-liste { position: absolute; left: calc(40 * var(--su)); top: calc(94 * var(--su));
+           width: calc(276 * var(--su)); list-style: none; }
+.z-liste li { display: flex; align-items: flex-start; gap: calc(12 * var(--su)); margin-bottom: calc(15 * var(--su)); }
+.z-ico { flex: 0 0 auto; width: calc(26 * var(--su)); margin-top: calc(3 * var(--su)); opacity: .9; }
+.z-ico img, .z-ico svg { width: 100%; height: auto; display: block; }
+.z-liste .zl { display: block; font-family: var(--ff-body); font-weight: 700; font-size: calc(14 * var(--su));
+               line-height: 1.3; color: #222; }
+.z-liste .zw { display: block; font-family: var(--ff-body); font-weight: 400; font-size: calc(13 * var(--su));
+               line-height: 1.45; color: #333; margin-top: calc(4 * var(--su)); }
+.z-gruss { position: absolute; left: 0; right: 0; top: calc(366 * var(--su)); text-align: center;
+           font-family: var(--ff-brush); font-size: calc(21 * var(--su)); color: #222; }
 .z-gruss .rot { display: inline-block; transform: rotate(-2deg); }
+.z-btnrow { position: absolute; left: 0; right: 0; top: calc(404 * var(--su));
+            display: flex; justify-content: center; }
+.z-btnrow .btn { font-size: calc(12.5 * var(--su)); padding: calc(10 * var(--su)) calc(20 * var(--su));
+                 border-radius: calc(7 * var(--su)); white-space: nowrap; }
+
+/* ---------- Skyline-Band = Fußzeile (volle Breite, schließt die Seite ab) ---------- */
+.skyline-band { position: relative; z-index: 1; line-height: 0; }
+.skyline-band > img { width: 100%; height: auto; display: block; }
+/* deckt im Band eingebackene Reste ab (Zettel-Ecke rechts oben, Ghost-Kalender-Button) */
+.sky-fix { position: absolute; background: #F8EDE2;
+           box-shadow: 0 0 .5vw .4vw #F8EDE2; border-radius: .4vw; }
+.sf-zettel { left: 73.2%; top: -1%; width: 19.8%; height: 33%; }
+.sf-ghost  { left: 29.7%; top: 38.5%; width: 18.6%; height: 19.5%; }
+
+/* Kalender-Button: sitzt im Band (an der Position der Ghost-Variante), skaliert mit */
+.kal-band-btn { position: absolute; left: 30.08%; top: 39.3%; width: 17.97%; height: 20.1%;
+                display: flex; align-items: center; justify-content: center; gap: .7vw;
+                background: #F8EDE2; line-height: 1.1;
+                border: max(1.5px, .13vw) solid var(--pink); border-radius: .65vw;
+                font-family: var(--ff-cond); font-weight: 700; font-size: clamp(9px, .92vw, 15px);
+                letter-spacing: .12em; text-transform: uppercase; color: var(--pink);
+                transition: background .25s, color .25s, transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s; }
+.kal-band-btn svg { width: 1.05vw; height: auto; display: block; }
+.kal-band-btn:hover { background: var(--pink); color: #F8EDE2;
+                      transform: translateY(-2px) !important;
+                      box-shadow: 0 .5vw 1.1vw rgba(225, 39, 90, .3); }
 
 /* ---------- Mobile: gestapeltes Layout ---------- */
 @media (max-width: 820px) {
   .termine-stage { display: none; }
   .termine-mobile { display: block !important; }
+  .kal-band-btn { display: none; }
 }
-.termine-mobile { display: none; padding: 0 0 40px; }
+.termine-mobile { display: none; padding: 0 0 36px; }
 .termine-mobile .tm-himmel img { width: 100%; }
-.termine-mobile .tm-kopf { text-align: center; padding: 22px 18px 0; }
+.termine-mobile .tm-kopf { text-align: center; padding: 26px 18px 0; }
 .termine-mobile .tm-titel { font-family: var(--ff-brush); font-size: clamp(46px, 13vw, 64px);
                             color: #222; display: inline-block; transform: rotate(-2.7deg); line-height: 1; }
 .termine-mobile .tm-stroke { width: 210px; margin: -6px auto 0; }
-.termine-mobile .tm-sub { text-align: center; font-family: var(--ff-body); font-size: 15px; line-height: 1.55; padding: 12px 26px 0; }
-.termine-mobile .tm-sub b { display: block; margin-bottom: 3px; }
-.termine-mobile .tm-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 20px 16px 4px; }
+.termine-mobile .tm-sub { text-align: center; font-family: var(--ff-body); font-size: 15px; line-height: 1.6; padding: 16px 26px 0; }
+.termine-mobile .tm-sub b { display: block; margin-bottom: 4px; }
+.termine-mobile .tm-pills { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; padding: 24px 16px 6px; }
 .termine-mobile .tm-card { background: #FBF6EC; border: 2px solid #E9DAC1; border-radius: 16px;
-                           margin: 14px 16px 0; padding: 16px 18px; display: flex; gap: 16px; align-items: flex-start; }
+                           margin: 20px 16px 0; padding: 20px; display: flex; gap: 16px; align-items: flex-start; }
 .termine-mobile .tm-tag { text-align: center; min-width: 58px; padding-top: 2px; }
 .termine-mobile .tm-tag .zahl { font-family: var(--ff-display); font-size: 38px; color: var(--pink); line-height: 1; }
 .termine-mobile .tm-tag .wtag { font-family: var(--ff-cond); font-weight: 600; font-size: 10.5px;
@@ -153,25 +179,29 @@
 .termine-mobile .tm-info { flex: 1; }
 .termine-mobile .tm-zeit { font-family: var(--ff-cond); font-weight: 600; font-size: 13px;
                            letter-spacing: .1em; text-transform: uppercase; color: #444; }
-.termine-mobile .tm-ort { font-family: var(--ff-display); font-size: 18px; text-transform: uppercase; color: #000; margin-top: 3px; }
-.termine-mobile .tm-adresse { font-size: 12.5px; color: #333; margin-top: 4px; }
-.termine-mobile .tm-text { font-size: 12.5px; line-height: 1.55; color: #333; margin-top: 8px; }
-.termine-mobile .tm-btn { margin-top: 12px; font-size: 13px; }
-.termine-mobile .tm-badge { display: inline-block; margin-top: 12px; font-family: var(--ff-marker); font-size: 14px;
+.termine-mobile .tm-ort { font-family: var(--ff-display); font-size: 18px; text-transform: uppercase; color: #000; margin-top: 4px; }
+.termine-mobile .tm-adresse { font-size: 12.5px; color: #333; margin-top: 5px; }
+.termine-mobile .tm-text { font-size: 12.5px; line-height: 1.6; color: #333; margin-top: 10px; }
+.termine-mobile .tm-btn { margin-top: 14px; font-size: 13px; }
+.termine-mobile .tm-badge { display: inline-block; margin-top: 14px; font-family: var(--ff-marker); font-size: 14px;
                             text-transform: uppercase; color: #C41F3E; border: 2.5px solid #C41F3E;
                             border-radius: 8px; padding: 5px 12px; transform: rotate(-3deg); }
 .termine-mobile .tm-wissen { background: var(--panel-hell); border: 2px solid #E5D5BC; border-radius: 16px;
-                             margin: 22px 16px 0; padding: 20px 20px 14px; }
-.termine-mobile .tm-wissen h2 { font-family: var(--ff-display); font-size: 16px; text-transform: uppercase; margin-bottom: 14px; }
+                             margin: 28px 16px 0; padding: 24px 22px 20px; }
+.termine-mobile .tm-wissen h2 { font-family: var(--ff-display); font-size: 20px; text-transform: uppercase; margin-bottom: 18px; }
 .termine-mobile .tm-wissen ul { list-style: none; }
-.termine-mobile .tm-wissen li { margin-bottom: 12px; }
-.termine-mobile .tm-wissen .zl { display: block; font-weight: 700; font-size: 13px; }
-.termine-mobile .tm-wissen .zw { display: block; font-size: 13.5px; color: #333; margin-top: 2px; }
-.termine-mobile .tm-gruss { font-family: var(--ff-brush); font-size: 22px; text-align: center; margin-top: 6px; }
-.termine-mobile .tm-kalender { text-align: center; margin-top: 18px; }
+.termine-mobile .tm-wissen li { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.termine-mobile .tm-wissen .z-ico { flex: 0 0 auto; width: 26px; margin-top: 2px; opacity: .9; }
+.termine-mobile .tm-wissen .z-ico img, .termine-mobile .tm-wissen .z-ico svg { width: 100%; height: auto; display: block; }
+.termine-mobile .tm-wissen .zl { display: block; font-weight: 700; font-size: 15px; line-height: 1.3; }
+.termine-mobile .tm-wissen .zw { display: block; font-size: 14.5px; line-height: 1.45; color: #333; margin-top: 3px; }
+.termine-mobile .tm-gruss { font-family: var(--ff-brush); font-size: 23px; text-align: center; margin-top: 12px; }
+.termine-mobile .tm-btnrow { text-align: center; margin-top: 16px; }
+.termine-mobile .tm-kalender { text-align: center; margin-top: 30px; }
 .termine-mobile .tm-kalender a { font-family: var(--ff-cond); font-weight: 600; font-size: 13px;
                                  letter-spacing: .12em; text-transform: uppercase; color: #333;
-                                 border-bottom: 1px dashed #998A6E; padding-bottom: 2px; }
+                                 border-bottom: 1px dashed #998A6E; padding-bottom: 2px;
+                                 transition: color .2s, border-color .2s; }
 .termine-mobile .tm-kalender a:hover { color: var(--pink); border-color: var(--pink); }
 </style>
 </head>
@@ -189,17 +219,17 @@
       <li><a href="index.html">Startseite</a></li>
       <li><a href="termine.html" class="active">Termine</a></li>
       <li><a href="das-quiz.html">Das Quiz</a></li>
-      <li><a href="index.html#team">Über uns</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="galerie.html">Galerie</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
     <button class="nav-burger" aria-label="Menü">Menü</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.6.6-.7 1.1-.1.4-.3.8-.4 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.6 1.1.7.4.1.8.3 1.9.4 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.6-.6.7-1.1.1-.4.3-.8.4-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.6-1.1-.7-.4-.1-.8-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        <img src="assets/img/icons/nav-instagram.png" alt="">
       </a>
       <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+        <img src="assets/img/icons/nav-facebook.png" alt="">
       </a>
     </div>
   </div>
@@ -286,24 +316,40 @@
       <a class="btn btn-rot ev-btn" href="kontakt.html">Reservieren</a>
     </article>
 
-    <!-- Kalender-Button (deckt eingebackene Ghost-Variante im Hintergrundbild ab) -->
-    <a class="el t-kalbtn rv" style="--d:.2s" href="#">
-      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5h12V14H2zM2 6.5h12M4.5 1.5v3M11.5 1.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Im Kalender ansehen
-      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 2v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-
-    <!-- Zettel „Gut zu wissen" (Zettel im Hintergrundbild, Texte als HTML darüber) -->
+    <!-- Kalender-Link über dem Zettel -->
     <div class="el z-label rv-right" style="--d:.15s"><a href="#">Im Kalender ansehen</a></div>
-    <h2 class="el z-kopf rv-right" style="--d:.2s">Gut zu wissen</h2>
-    <ul class="el z-liste rv-right" style="--d:.3s">
-      <li><span class="zl">Einlass</span><span class="zw">ab 18:00 Uhr</span></li>
-      <li><span class="zl">Teamgröße</span><span class="zw">2-6 Personen</span></li>
-      <li><span class="zl">Gewinne</span><span class="zw">Ruhme, Ehre und schöne Snaps</span></li>
-      <li><span class="zl">Preis</span><span class="zw">2-6 pro Person</span></li>
-      <li><span class="zl">Regelmäßig</span><span class="zw">Alle 2 Wochen Samstags</span></li>
-    </ul>
-    <p class="el z-gruss rv-right" style="--d:.45s"><span class="rot">Wir freuen uns auf euch!</span></p>
+
+    <!-- Zettel „Gut zu wissen" — eigenes Bild + HTML-Inhalte -->
+    <div class="el z-zettel rv-right" style="--d:.25s">
+      <img src="assets/img/termine/zettel-gut-zu-wissen.png" alt="">
+      <span class="z-fix z-fix-1" aria-hidden="true"></span>
+      <span class="z-fix z-fix-2" aria-hidden="true"></span>
+      <h2 class="z-kopf">Gut zu wissen</h2>
+      <ul class="z-liste">
+        <li>
+          <span class="z-ico"><img src="assets/img/icons/uhr.png" alt=""></span>
+          <span><span class="zl">Einlass</span><span class="zw">ab 18:00 Uhr</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10.5" r="4.3"/><path d="M4.5 26.5c.8-5.6 3.9-8.5 7.5-8.5s6.7 2.9 7.5 8.5"/><circle cx="22.8" cy="12.2" r="3.4"/><path d="M21.5 18.3c3.3.3 5.9 2.7 6.6 7.2"/></svg></span>
+          <span><span class="zl">Teamgröße</span><span class="zw">2-6 Personen</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 4.5h11v7a5.5 5.5 0 0 1-11 0z"/><path d="M10.5 6.5H7a4.8 4.8 0 0 0 4.3 6.5M21.5 6.5H25a4.8 4.8 0 0 1-4.3 6.5"/><path d="M16 17v4.5"/><path d="M11.5 25h9M10 28h12"/></svg></span>
+          <span><span class="zl">Gewinne</span><span class="zw">Ruhme, Ehre und schöne Snaps</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11.5"/><path d="M20.8 11.6a6 6 0 1 0 0 8.8"/><path d="M10.8 14.6h6.4M10.8 17.4h6.4"/></svg></span>
+          <span><span class="zl">Preis</span><span class="zw">2-6 pro Person</span></span>
+        </li>
+        <li>
+          <span class="z-ico"><img src="assets/img/icons/kalender.png" alt=""></span>
+          <span><span class="zl">Regelmäßig</span><span class="zw">Alle 2 Wochen Samstags</span></span>
+        </li>
+      </ul>
+      <p class="z-gruss"><span class="rot">Wir freuen uns auf euch!</span></p>
+      <div class="z-btnrow"><a class="btn btn-rot" href="mailto:hallo@sahne-zum-tee.de?subject=Reservierung">Tisch reservieren</a></div>
+    </div>
   </div>
 
   <!-- ======================= MOBILE ======================= -->
@@ -368,27 +414,45 @@
     <section class="tm-wissen rv">
       <h2>Gut zu wissen</h2>
       <ul>
-        <li><span class="zl">Einlass</span><span class="zw">ab 18:00 Uhr</span></li>
-        <li><span class="zl">Teamgröße</span><span class="zw">2-6 Personen</span></li>
-        <li><span class="zl">Gewinne</span><span class="zw">Ruhme, Ehre und schöne Snaps</span></li>
-        <li><span class="zl">Preis</span><span class="zw">2-6 pro Person</span></li>
-        <li><span class="zl">Regelmäßig</span><span class="zw">Alle 2 Wochen Samstags</span></li>
+        <li>
+          <span class="z-ico"><img src="assets/img/icons/uhr.png" alt=""></span>
+          <span><span class="zl">Einlass</span><span class="zw">ab 18:00 Uhr</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10.5" r="4.3"/><path d="M4.5 26.5c.8-5.6 3.9-8.5 7.5-8.5s6.7 2.9 7.5 8.5"/><circle cx="22.8" cy="12.2" r="3.4"/><path d="M21.5 18.3c3.3.3 5.9 2.7 6.6 7.2"/></svg></span>
+          <span><span class="zl">Teamgröße</span><span class="zw">2-6 Personen</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 4.5h11v7a5.5 5.5 0 0 1-11 0z"/><path d="M10.5 6.5H7a4.8 4.8 0 0 0 4.3 6.5M21.5 6.5H25a4.8 4.8 0 0 1-4.3 6.5"/><path d="M16 17v4.5"/><path d="M11.5 25h9M10 28h12"/></svg></span>
+          <span><span class="zl">Gewinne</span><span class="zw">Ruhme, Ehre und schöne Snaps</span></span>
+        </li>
+        <li>
+          <span class="z-ico" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11.5"/><path d="M20.8 11.6a6 6 0 1 0 0 8.8"/><path d="M10.8 14.6h6.4M10.8 17.4h6.4"/></svg></span>
+          <span><span class="zl">Preis</span><span class="zw">2-6 pro Person</span></span>
+        </li>
+        <li>
+          <span class="z-ico"><img src="assets/img/icons/kalender.png" alt=""></span>
+          <span><span class="zl">Regelmäßig</span><span class="zw">Alle 2 Wochen Samstags</span></span>
+        </li>
       </ul>
       <p class="tm-gruss">Wir freuen uns auf euch!</p>
+      <div class="tm-btnrow"><a class="btn btn-rot" href="mailto:hallo@sahne-zum-tee.de?subject=Reservierung">Tisch reservieren</a></div>
     </section>
     <div class="tm-kalender"><a href="#">Im Kalender ansehen</a></div>
   </div>
-</main>
 
-<!-- ======================= FOOTER ======================= -->
-<footer class="site-footer">
-  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
-  <div class="footer-meta">
-    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
-    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
-    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+  <!-- ======================= SKYLINE-BAND (Tages-Skyline = Fußzeile) ======================= -->
+  <div class="skyline-band">
+    <img src="assets/img/termine/skyline-tag.png" alt="Gezeichnete Tages-Skyline von Friedrichshain mit Oberbaumbrücke, Tram, Späti und Fernsehturm">
+    <span class="sky-fix sf-zettel" aria-hidden="true"></span>
+    <span class="sky-fix sf-ghost" aria-hidden="true"></span>
+    <a class="kal-band-btn rv" href="#">
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5h12V14H2zM2 6.5h12M4.5 1.5v3M11.5 1.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Im Kalender ansehen
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 2v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
-</footer>
+</main>
 
 <!-- ======================= CHAT-STUB (Cali) ======================= -->
 <button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">

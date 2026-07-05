@@ -11,16 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ---------- Das Quiz: Stage-Layout (Design-Canvas 1536×972) ---------- */
+/* ---------- Das Quiz: Stage-Layout (Design-Canvas 1536×1126, luftige Verteilung) ---------- */
 body { --bg: #F5E7DC; }
 
 .quiz-stage {
-  height: calc(972 * var(--su));
+  height: calc(1126 * var(--su));
   background: #F5E7DC;
   overflow: visible;
 }
 .el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
-.el > img { width: 100%; height: auto; }
+.el > img { width: 100%; height: auto; display: block; }
 
 /* Hero-Band (DAS QUIZ Titel, Julia, Cali, Schwebi, Stadt) */
 .q-band { --x: 0; --y: 0; width: calc(1536 * var(--su)); z-index: 1; }
@@ -49,22 +49,24 @@ body { --bg: #F5E7DC; }
   filter: drop-shadow(0 calc(14 * var(--su)) calc(24 * var(--su)) rgba(60,40,20,.22));
 }
 
-/* Reihe 1 */
-.qc-ablauf    { --x: 85;   --y: 310; width: calc(405 * var(--su)); }
-.qc-fragen    { --x: 492;  --y: 310; width: calc(300 * var(--su)); }
-.qc-schaetzen { --x: 795;  --y: 310; width: calc(285 * var(--su)); }
-.qc-hall      { --x: 1082; --y: 310; width: calc(353 * var(--su)); }
+/* Reihe 1 — beginnt 30px unter dem Hero-Band (Band endet bei y=320) */
+.qc-ablauf    { --x: 40;   --y: 350; width: calc(405 * var(--su)); }
+.qc-fragen    { --x: 470;  --y: 350; width: calc(300 * var(--su)); }
+.qc-schaetzen { --x: 794;  --y: 350; width: calc(285 * var(--su)); }
+.qc-hall      { --x: 1102; --y: 350; width: calc(353 * var(--su)); }
 
-/* Reihe 2 */
-.qc-regeln    { --x: 85;   --y: 674; width: calc(450 * var(--su)); }
-.qc-wissen    { --x: 545;  --y: 674; width: calc(390 * var(--su)); }
-.qc-fragen2   { --x: 940;  --y: 674; width: calc(430 * var(--su)); }
-.q-krone      { --x: 448;  --y: 770; width: calc(67 * var(--su)); z-index: 3; }
+/* Reihe 2 — 36px unter Reihe 1 (tiefste Karte Reihe 1: 350+366=716) */
+.qc-regeln    { --x: 40;   --y: 752; width: calc(450 * var(--su)); }
+.qc-wissen    { --x: 583;  --y: 752; width: calc(390 * var(--su)); }
+.qc-fragen2   { --x: 1066; --y: 752; width: calc(430 * var(--su)); }
+.q-krone      { --x: 403;  --y: 848; width: calc(67 * var(--su)); z-index: 3; }
 .q-krone img  { transition: transform .45s cubic-bezier(.34,1.56,.64,1); }
 .q-krone:hover img { transform: rotate(-10deg) scale(1.15); }
 
-/* Skyline bei Nacht (Abschluss) */
-.q-skyline { --x: 0; --y: 836; width: calc(1536 * var(--su)); z-index: 0; }
+/* Skyline bei Nacht = Fußzeile der Seite:
+   beginnt 41px unter der letzten Karte (tiefste Karte: 752+197=949)
+   und schließt die Stage exakt ab (990+136=1126 = Stage-Höhe) */
+.q-skyline { --x: 0; --y: 990; width: calc(1536 * var(--su)); z-index: 0; }
 
 /* ---------- Mobile: gestapeltes Layout ---------- */
 @media (max-width: 820px) {
@@ -82,13 +84,15 @@ body { --bg: #F5E7DC; }
   font-family: var(--ff-tag); font-weight: 500; font-size: 16px; line-height: 1.55;
   text-align: center; padding: 14px 26px 6px; color: #111;
 }
-.quiz-mobile .m-qcards { padding: 12px 16px 0; }
+.quiz-mobile .m-qcards { padding: 16px 18px 0; }
 .quiz-mobile .m-qcards img {
-  width: 100%; max-width: 520px; margin: 0 auto 16px;
+  display: block; width: 100%; max-width: 520px; margin: 0 auto 22px;
   border-radius: 12px; box-shadow: 0 4px 14px rgba(60,40,20,.12);
 }
-.quiz-mobile .m-skyline img { width: 100%; }
-.quiz-mobile .m-cta { display: flex; justify-content: center; padding: 8px 0 26px; }
+/* Skyline = Abschlussbild / Fußzeile (kein Footer auf dieser Seite) */
+.quiz-mobile .m-skyline { margin-top: 24px; }
+.quiz-mobile .m-skyline img { display: block; width: 100%; }
+.quiz-mobile .m-cta { display: flex; justify-content: center; padding: 10px 0 30px; }
 </style>
 </head>
 <body>
@@ -105,17 +109,17 @@ body { --bg: #F5E7DC; }
       <li><a href="index.html">Startseite</a></li>
       <li><a href="termine.html">Termine</a></li>
       <li><a href="das-quiz.html" class="active">Das Quiz</a></li>
-      <li><a href="index.html#team">Über uns</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="galerie.html">Galerie</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
     <button class="nav-burger" aria-label="Menü">Menü</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.6.6-.7 1.1-.1.4-.3.8-.4 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.6 1.1.7.4.1.8.3 1.9.4 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.6-.6.7-1.1.1-.4.3-.8.4-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.6-1.1-.7-.4-.1-.8-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        <img src="assets/img/icons/nav-instagram.png" alt="">
       </a>
       <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+        <img src="assets/img/icons/nav-facebook.png" alt="">
       </a>
     </div>
   </div>
@@ -243,15 +247,7 @@ body { --bg: #F5E7DC; }
   </section>
 </main>
 
-<!-- ======================= FOOTER ======================= -->
-<footer class="site-footer">
-  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
-  <div class="footer-meta">
-    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
-    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
-    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
-  </div>
-</footer>
+<!-- Kein Footer auf dieser Seite: die Nacht-Skyline (skyline-nacht.png) ist die Fußzeile. -->
 
 <!-- ======================= CHAT-STUB (Cali) ======================= -->
 <button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">

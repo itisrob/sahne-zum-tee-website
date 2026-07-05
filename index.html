@@ -11,17 +11,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ---------- Startseite: Stage-Layout (Design-Canvas 1536×1024) ---------- */
-.home-stage {
-  height: calc(1030 * var(--su));
-  background: url('assets/img/pages/karten-grid-textur.png') no-repeat top center / 100% auto;
-  overflow: visible;
-}
+/* ---------- Startseite: Stage-Layout (Design-Canvas 1536, mit Luft: Höhe 1190) ---------- */
+.home-stage { height: calc(1190 * var(--su)); }
 .el { position: absolute; left: calc(var(--x) * var(--su)); top: calc(var(--y) * var(--su)); }
 .el > img { width: 100%; height: auto; }
 
+/* Panels (Karten-Untergründe, mit Luft) */
+.p1 { left: calc(28 * var(--su));   top: calc(540 * var(--su)); width: calc(584 * var(--su)); height: calc(336 * var(--su)); }
+.p2 { left: calc(628 * var(--su));  top: calc(540 * var(--su)); width: calc(424 * var(--su)); height: calc(336 * var(--su)); }
+.p3 { left: calc(1068 * var(--su)); top: calc(540 * var(--su)); width: calc(440 * var(--su)); height: calc(336 * var(--su)); }
+.p4 { left: calc(28 * var(--su));   top: calc(902 * var(--su)); width: calc(1480 * var(--su)); height: calc(262 * var(--su)); }
+
 /* Hero */
-.hero-sky      { --x: 28;   --y: 21;  width: calc(1479 * var(--su)); border-radius: calc(8 * var(--su)); overflow: hidden; }
+.hero-sky      { --x: 28;   --y: 21;  width: calc(1479 * var(--su)); border-radius: calc(10 * var(--su)); }
+.sky-cloud-1 { left: 4%;  top: 4%;  width: 20%; --wx: calc(52 * var(--su)); --wy: calc(-5 * var(--su)); --wd: 44s; }
+.sky-cloud-2 { left: 27%; top: 9%;  width: 18%; --wx: calc(-40 * var(--su)); --wy: calc(6 * var(--su)); --wd: 55s; animation-delay: -18s; }
+.sky-cloud-3 { left: 82%; top: 10%; width: 15%; --wx: calc(-58 * var(--su)); --wy: calc(-4 * var(--su)); --wd: 48s; animation-delay: -30s; }
 .hero-turm     { --x: 32;   --y: 143; width: calc(231 * var(--su)); }
 .hero-bruecke  { --x: 1163; --y: 198; width: calc(346 * var(--su)); }
 .hero-julia    { --x: 595;  --y: 59;  width: calc(346 * var(--su)); }
@@ -29,148 +34,194 @@
 .hero-cali     { --x: 576;  --y: 374; width: calc(173 * var(--su)); }
 .hero-pfote    { --x: 1339; --y: 44;  width: calc(122 * var(--su)); opacity: .9; }
 .hero-wolke    { --x: 98;   --y: 22;  width: calc(126 * var(--su)); opacity: .8; }
-.hero-wolke-2  { --x: 690;  --y: 40;  width: calc(96 * var(--su)); opacity: .55; }
 .hero-cali-label { --x: 499; --y: 346; width: calc(134 * var(--su)); }
 
-.hero-logo { --x: 208; --y: 96; transform: rotate(-5deg); line-height: .96; }
-.hero-logo .l1 { font-family: var(--ff-marker); font-size: calc(84 * var(--su)); color: var(--navy); }
-.hero-logo .l2 { font-family: var(--ff-marker); font-size: calc(62 * var(--su)); color: var(--navy); margin-top: calc(-4 * var(--su)); }
-.hero-logo .l3 { font-family: var(--ff-marker); font-size: calc(46 * var(--su)); color: var(--blue);
-                 text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,31,61,.25); margin-top: calc(6 * var(--su)); }
-
-.hero-tagline { --x: 245; --y: 296; font-family: var(--ff-tag); font-weight: 500;
-                font-size: calc(17 * var(--su)); line-height: calc(23.5 * var(--su)); color: #111; }
-
-.hero-btn { --x: 228; --y: 413; width: calc(251 * var(--su)); height: calc(60 * var(--su));
-            font-size: calc(22 * var(--su)); border-radius: calc(7 * var(--su)); white-space: nowrap; }
+/* Logo-Block: sauber linksbündig auf einer Achse, mehr Luft */
+.hero-logo { --x: 232; --y: 92; transform: rotate(-4deg); transform-origin: left top; line-height: .98; }
+.hero-logo .l1 { font-family: var(--ff-marker); font-size: calc(82 * var(--su)); color: var(--navy); }
+.hero-logo .l2 { font-family: var(--ff-marker); font-size: calc(60 * var(--su)); color: var(--navy); margin-top: calc(2 * var(--su)); }
+.hero-logo .l3 { font-family: var(--ff-marker); font-size: calc(44 * var(--su)); color: var(--blue);
+                 text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,31,61,.25); margin-top: calc(10 * var(--su)); }
+.hero-tagline { --x: 240; --y: 316; font-family: var(--ff-tag); font-weight: 500;
+                font-size: calc(17.5 * var(--su)); line-height: calc(25.5 * var(--su)); color: #111; }
+.hero-btn { --x: 240; --y: 452; width: calc(250 * var(--su)); height: calc(56 * var(--su));
+            font-size: calc(21 * var(--su)); border-radius: calc(7 * var(--su)); white-space: nowrap; }
 
 .hero-label { font-family: var(--ff-marker); color: var(--navy); white-space: nowrap; }
-.lbl-julia   { --x: 518; --y: 132; font-size: calc(23 * var(--su)); transform: rotate(-9deg); }
-.lbl-schwebi { --x: 1188; --y: 165; font-size: calc(23 * var(--su)); transform: rotate(9deg); }
-.pfeil-julia   { --x: 614; --y: 137; width: calc(78 * var(--su)); }
-.pfeil-schwebi { --x: 1153; --y: 128; width: calc(78 * var(--su)); transform: scaleX(-1) rotate(-16deg); }
+.lbl-julia   { --x: 518;  --y: 132; font-size: calc(23 * var(--su)); transform: rotate(-9deg); }
+.lbl-schwebi { --x: 1196; --y: 168; font-size: calc(23 * var(--su)); transform: rotate(9deg); }
+.pfeil-julia   { --x: 614;  --y: 137; width: calc(78 * var(--su)); }
+.pfeil-schwebi { --x: 1150; --y: 128; width: calc(78 * var(--su)); transform: rotate(164deg); }
 
-/* Karten-Sektion */
+/* Karten-Inhalte */
 .card-titel { font-family: var(--ff-marker); font-size: calc(25 * var(--su)); color: var(--ink); white-space: nowrap; }
-.stroke-unter { position: absolute; z-index: -1; }
 
-.k1-titel   { --x: 44;  --y: 546; }
-.k1-stroke  { --x: 38;  --y: 572; width: calc(193 * var(--su)); }
-.k1-icon-1  { --x: 40;  --y: 586; width: calc(66 * var(--su)); }
-.k1-icon-2  { --x: 43;  --y: 642; width: calc(59 * var(--su)); }
-.k1-icon-3  { --x: 42;  --y: 692; width: calc(63 * var(--su)); }
-.k1-t1 { --x: 124; --y: 606; }
-.k1-t2 { --x: 118; --y: 662; }
-.k1-t3 { --x: 124; --y: 712; }
+.k1-titel   { --x: 52;  --y: 566; }
+.k1-stroke  { --x: 46;  --y: 594; width: calc(190 * var(--su)); }
+.k1-icon-1  { --x: 52;  --y: 622; width: calc(64 * var(--su)); }
+.k1-icon-2  { --x: 55;  --y: 688; width: calc(58 * var(--su)); }
+.k1-icon-3  { --x: 54;  --y: 750; width: calc(60 * var(--su)); }
+.k1-t1 { --x: 136; --y: 640; }
+.k1-t2 { --x: 136; --y: 702; }
+.k1-t3 { --x: 136; --y: 764; }
 .k1-fact { font-family: var(--ff-marker); font-size: calc(20 * var(--su)); }
-.k1-btn { --x: 51; --y: 749; width: calc(193 * var(--su)); height: calc(60 * var(--su)); font-size: calc(15 * var(--su)); border-radius: calc(8 * var(--su)); }
-.k1-cafe { --x: 266; --y: 550; width: calc(330 * var(--su)); border-radius: calc(10 * var(--su)); overflow: hidden;
+.k1-btn { --x: 52; --y: 812; width: calc(196 * var(--su)); height: calc(50 * var(--su)); font-size: calc(14.5 * var(--su)); border-radius: calc(8 * var(--su)); }
+.k1-cafe { --x: 312; --y: 592; width: calc(272 * var(--su)); border-radius: calc(12 * var(--su)); overflow: hidden;
            transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
 .k1-cafe:hover { transform: scale(1.03) rotate(-.6deg); }
 
-.k2-titel { --x: 640; --y: 548; }
-.k2-stroke { --x: 636; --y: 574; width: calc(160 * var(--su)); }
-.avatar { border-radius: 50%; overflow: hidden; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+.k2-titel { --x: 652; --y: 566; }
+.k2-stroke { --x: 648; --y: 594; width: calc(150 * var(--su)); }
+.avatar { border-radius: 50%; overflow: hidden; transition: transform .35s cubic-bezier(.34,1.56,.64,1); display: block; }
 .avatar:hover { transform: scale(1.1) rotate(-4deg); }
-.av-julia   { --x: 632; --y: 556; width: calc(143 * var(--su)); }
-.av-schwebi { --x: 767; --y: 552; width: calc(143 * var(--su)); }
-.av-cali    { --x: 906; --y: 552; width: calc(143 * var(--su)); }
-.av-name { font-family: var(--ff-marker); font-size: calc(21 * var(--su)); text-align: center; }
-.nm-julia   { --x: 632; --y: 710; width: calc(143 * var(--su)); }
-.nm-schwebi { --x: 767; --y: 710; width: calc(143 * var(--su)); }
-.nm-cali    { --x: 906; --y: 710; width: calc(143 * var(--su)); }
-.nm-sub { display: block; font-family: var(--ff-cond); font-weight: 600; font-size: calc(11 * var(--su)); letter-spacing: .04em; color: var(--pink); margin-top: calc(2 * var(--su)); }
-.av-rolle { font-family: var(--ff-cond); font-weight: 600; font-size: calc(12.5 * var(--su)); line-height: 1.45;
-            letter-spacing: .03em; text-transform: uppercase; color: #333; }
-.rl-julia   { --x: 630; --y: 752; width: calc(145 * var(--su)); }
-.rl-schwebi { --x: 767; --y: 752; width: calc(150 * var(--su)); }
-.rl-cali    { --x: 906; --y: 752; width: calc(145 * var(--su)); }
+.av-julia   { --x: 652; --y: 622; width: calc(118 * var(--su)); }
+.av-schwebi { --x: 782; --y: 622; width: calc(118 * var(--su)); }
+.av-cali    { --x: 912; --y: 622; width: calc(118 * var(--su)); }
+.av-name { font-family: var(--ff-marker); font-size: calc(19 * var(--su)); text-align: center; }
+.nm-julia   { --x: 652; --y: 756; width: calc(118 * var(--su)); }
+.nm-schwebi { --x: 782; --y: 756; width: calc(118 * var(--su)); }
+.nm-cali    { --x: 912; --y: 756; width: calc(118 * var(--su)); }
+.nm-sub { display: block; font-family: var(--ff-cond); font-weight: 600; font-size: calc(10.5 * var(--su)); letter-spacing: .04em; color: var(--pink); margin-top: calc(3 * var(--su)); }
+.av-rolle { font-family: var(--ff-cond); font-weight: 600; font-size: calc(11.5 * var(--su)); line-height: 1.6;
+            letter-spacing: .03em; text-transform: uppercase; color: #3A342C; text-align: center; }
+.rl-julia   { --x: 646; --y: 800; width: calc(130 * var(--su)); }
+.rl-schwebi { --x: 776; --y: 800; width: calc(130 * var(--su)); }
+.rl-cali    { --x: 906; --y: 800; width: calc(130 * var(--su)); }
 
-.k3-titel { --x: 1084; --y: 522; font-family: var(--ff-round); font-weight: 600; font-size: calc(27 * var(--su)); transform: rotate(-3.2deg); }
-.k3-stroke { --x: 1078; --y: 550; width: calc(87 * var(--su)); }
+.k3-titel { --x: 1092; --y: 564; font-family: var(--ff-round); font-weight: 600; font-size: calc(26 * var(--su)); transform: rotate(-3deg); }
+.k3-stroke { --x: 1086; --y: 594; width: calc(90 * var(--su)); }
 .tile { border-radius: calc(14 * var(--su)); transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
 a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1.05); z-index: 4; }
 .tile img.tile-bg { width: 100%; }
 .tile .tile-icon { position: absolute; }
 .tile .tile-label { position: absolute; left: 0; right: 0; text-align: center; font-family: var(--ff-round);
                     font-weight: 600; color: var(--ink); line-height: 1.05; }
-.t1 { --x: 1082; --y: 557; width: calc(136 * var(--su)); }
-.t1 .tile-icon { left: 32%; top: -8%; width: 37%; }
-.t1 .tile-label { bottom: 8%; font-size: calc(15 * var(--su)); transform: rotate(-3deg); }
-.t2 { --x: 1219; --y: 552; width: calc(136 * var(--su)); }
-.t2 .tile-icon { left: 30%; top: 4%; width: 42%; }
-.t2 .tile-label { bottom: 5%; font-size: calc(11.5 * var(--su)); }
-.t2 .tile-note { position: absolute; left: 8%; top: 16%; width: 16%; }
-.t3 { --x: 1355; --y: 552; width: calc(131 * var(--su)); }
+.t1 { --x: 1092; --y: 618; width: calc(130 * var(--su)); }
+.t1 .tile-icon { left: 32%; top: -9%; width: 36%; }
+.t1 .tile-label { bottom: 7%; font-size: calc(14.5 * var(--su)); transform: rotate(-3deg); }
+.t2 { --x: 1232; --y: 618; width: calc(130 * var(--su)); }
+.t2 .tile-icon { left: 30%; top: 5%; width: 42%; }
+.t2 .tile-label { bottom: 5%; font-size: calc(11 * var(--su)); }
+.t2 .tile-note { position: absolute; left: 9%; top: 16%; width: 15%; }
+.t3 { --x: 1372; --y: 618; width: calc(126 * var(--su)); }
 .t3 .tile-icon { left: 26%; top: 12%; width: 52%; }
-.t3 .tile-label { bottom: 7%; font-size: calc(11.5 * var(--su)); }
-.t4 { --x: 1093; --y: 691; width: calc(191 * var(--su)); }
-.t4 .tile-q { position: absolute; left: 0; right: 0; top: 2%; text-align: center; font-family: var(--ff-round);
-              font-weight: 600; font-size: calc(52 * var(--su)); color: var(--lila);
+.t3 .tile-label { bottom: 6%; font-size: calc(11 * var(--su)); }
+.t4 { --x: 1100; --y: 760; width: calc(186 * var(--su)); }
+.t4 .tile-q { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: var(--ff-round);
+              font-weight: 600; font-size: calc(48 * var(--su)); color: var(--lila);
               text-shadow: calc(2*var(--su)) calc(2*var(--su)) 0 rgba(0,0,0,.18); }
-.t4 .tile-label { bottom: 9%; font-size: calc(13.5 * var(--su)); }
-.t4 .tile-funkel { position: absolute; right: 12%; top: 8%; width: 12%; }
-.t5 { --x: 1284; --y: 691; width: calc(202 * var(--su)); }
-.t5 .tile-icon { left: 34%; top: 4%; width: 30%; }
-.t5 .tile-label { bottom: 9%; font-size: calc(17 * var(--su)); }
-.k3-stroke-4 { --x: 1128; --y: 792; width: calc(98 * var(--su)); }
-.k3-stroke-5 { --x: 1340; --y: 789; width: calc(77 * var(--su)); }
+.t4 .tile-label { bottom: 8%; font-size: calc(13 * var(--su)); }
+.t4 .tile-funkel { position: absolute; right: 11%; top: 7%; width: 12%; }
+.t5 { --x: 1302; --y: 760; width: calc(192 * var(--su)); }
+.t5 .tile-icon { left: 35%; top: 2%; width: 28%; }
+.t5 .tile-label { bottom: 8%; font-size: calc(16 * var(--su)); }
 
-/* Polaroid-Reihe */
-.p-titel  { --x: 48; --y: 836; font-size: calc(23 * var(--su)); }
-.p-stroke { --x: 40; --y: 862; width: calc(135 * var(--su)); }
+/* Polaroid-Reihe (mit Luft nach unten verlegt) */
+.p-titel  { --x: 56; --y: 926; font-size: calc(23 * var(--su)); }
+.p-stroke { --x: 48; --y: 952; width: calc(135 * var(--su)); }
 .pol-frame { filter: drop-shadow(0 4px 10px rgba(60,40,20,.15)); }
-.pf-1 { --x: 56;  --y: 867; width: calc(193 * var(--su)); }
-.pf-2 { --x: 228; --y: 860; width: calc(193 * var(--su)); }
-.pf-3 { --x: 407; --y: 846; width: calc(193 * var(--su)); }
-.pf-4 { --x: 590; --y: 846; width: calc(174 * var(--su)); }
-.pf-5 { --x: 759; --y: 847; width: calc(173 * var(--su)); }
-.pf-6 { --x: 911; --y: 847; width: calc(174 * var(--su)); }
-.ph-1 { --x: 70;  --y: 875; width: calc(186 * var(--su)); }
-.ph-2 { --x: 241; --y: 846; width: calc(219 * var(--su)); }
-.ph-3 { --x: 441; --y: 884; width: calc(155 * var(--su)); transform: rotate(4.6deg); }
-.ph-4 { --x: 593; --y: 870; width: calc(198 * var(--su)); }
-.ph-5 { --x: 799; --y: 877; width: calc(142 * var(--su)); }
-.ph-6 { --x: 970; --y: 849; width: calc(96 * var(--su)); transform: rotate(3.7deg); }
+.pf-1 { --x: 60;  --y: 965; width: calc(193 * var(--su)); }
+.pf-2 { --x: 236; --y: 958; width: calc(193 * var(--su)); }
+.pf-3 { --x: 419; --y: 944; width: calc(193 * var(--su)); }
+.pf-4 { --x: 606; --y: 944; width: calc(174 * var(--su)); }
+.pf-5 { --x: 779; --y: 945; width: calc(173 * var(--su)); }
+.pf-6 { --x: 935; --y: 945; width: calc(174 * var(--su)); }
+.ph-1 { --x: 74;  --y: 973; width: calc(186 * var(--su)); }
+.ph-2 { --x: 249; --y: 944; width: calc(219 * var(--su)); }
+.ph-3 { --x: 453; --y: 982; width: calc(155 * var(--su)); transform: rotate(4.6deg); }
+.ph-4 { --x: 609; --y: 968; width: calc(198 * var(--su)); }
+.ph-5 { --x: 819; --y: 975; width: calc(142 * var(--su)); }
+.ph-6 { --x: 994; --y: 947; width: calc(96 * var(--su)); transform: rotate(3.7deg); }
 
-/* CTA-Box */
-.cta-box { --x: 1167; --y: 828; width: calc(328 * var(--su)); }
+/* CTA-Box (mehr Innenluft) */
+.cta-box { --x: 1160; --y: 946; width: calc(336 * var(--su)); }
 .cta-box .cta-bg { width: 100%; }
-.cta-box img.cta-cup { position: absolute; left: calc(-34 * var(--su)); bottom: calc(-6 * var(--su)); width: calc(112 * var(--su));
+.cta-box img.cta-cup { position: absolute; left: calc(-36 * var(--su)); bottom: calc(-8 * var(--su)); width: calc(112 * var(--su));
            transition: transform .35s cubic-bezier(.34,1.56,.64,1); filter: drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
-.cta-box:hover .cta-cup { transform: rotate(-8deg) scale(1.08); }
-.cta-inhalt { position: absolute; left: 24%; top: 12%; right: 7%; }
-.cta-inhalt h3 { font-family: var(--ff-marker); font-size: calc(21 * var(--su)); line-height: 1.05; }
-.cta-inhalt p  { font-family: var(--ff-body); font-weight: 600; font-size: calc(12.5 * var(--su)); line-height: 1.35; margin-top: calc(6 * var(--su)); }
-.cta-btn { position: absolute; left: 24%; bottom: 9%; width: calc(220 * var(--su)); height: calc(52 * var(--su));
-           font-size: calc(17 * var(--su)); border-radius: calc(8 * var(--su)); }
+.cta-box:hover img.cta-cup { transform: rotate(-8deg) scale(1.08); }
+.cta-inhalt { position: absolute; left: 23%; top: 13%; right: 8%; }
+.cta-inhalt h3 { font-family: var(--ff-marker); font-size: calc(20 * var(--su)); line-height: 1.15; }
+.cta-inhalt p  { font-family: var(--ff-body); font-weight: 600; font-size: calc(12 * var(--su)); line-height: 1.5; margin-top: calc(8 * var(--su)); }
+.cta-btn { position: absolute; left: 23%; bottom: 10%; width: calc(212 * var(--su)); height: calc(46 * var(--su));
+           font-size: calc(15.5 * var(--su)); border-radius: calc(8 * var(--su)); }
 
-/* ---------- Mobile: gestapeltes Layout ---------- */
+/* ============================================================
+   MOBILE FIRST — komplette Startseite, nichts überlappt
+   ============================================================ */
 @media (max-width: 820px) {
-  .home-stage { display: none; }
+  .home-stage, .home-stage ~ .panel { display: none; }
   .home-mobile { display: block !important; }
 }
-.home-mobile { display: none; padding: 0 0 40px; }
-.home-mobile .m-hero { position: relative; overflow: hidden; }
-.home-mobile .m-hero img.m-sky { width: 100%; }
-.home-mobile .m-hero .m-figuren { position: absolute; left: 50%; bottom: 0; width: 88%; transform: translateX(-50%); display: flex; justify-content: center; }
-.home-mobile .m-hero .m-figuren img { width: 44%; }
-.home-mobile .m-logo { text-align: center; padding: 26px 18px 6px; }
-.home-mobile .m-logo .l1 { font-family: var(--ff-marker); font-size: clamp(38px, 11vw, 54px); color: var(--navy); transform: rotate(-3deg); display: block; }
-.home-mobile .m-logo .l3 { font-family: var(--ff-marker); font-size: clamp(22px, 6.4vw, 30px); color: var(--blue); display: block; margin-top: 4px; }
-.home-mobile .m-tagline { text-align: center; font-family: var(--ff-tag); font-weight: 500; font-size: 16px; line-height: 1.5; padding: 12px 26px 18px; }
-.home-mobile .m-cta { display: flex; justify-content: center; padding-bottom: 26px; }
-.home-mobile section.m-card { background: var(--panel); margin: 16px; border-radius: 16px; padding: 22px 20px; }
-.home-mobile h2 { font-family: var(--ff-marker); font-size: 22px; margin-bottom: 14px; }
-.home-mobile .m-fact { display: flex; align-items: center; gap: 12px; font-family: var(--ff-marker); font-size: 19px; margin: 10px 0; }
-.home-mobile .m-fact img { width: 44px; }
-.home-mobile .m-cafe img { border-radius: 12px; margin-top: 14px; }
-.home-mobile .m-team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
-.home-mobile .m-team img { border-radius: 50%; }
-.home-mobile .m-team .av-name { font-size: 18px; margin-top: 8px; }
-.home-mobile .m-team .av-rolle { font-size: 11.5px; margin-top: 4px; }
-.home-mobile .m-pols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.home-mobile .m-pols .polaroid { background: #FBF6EC; padding: 8px 8px 14px; border-radius: 4px; box-shadow: var(--shadow-pol); }
+.home-mobile { display: none; padding-bottom: 8px; }
+.home-mobile section { margin: 0 16px 22px; }
+.home-mobile h2 {
+  font-family: var(--ff-marker); font-size: 24px; margin-bottom: 4px;
+  position: relative; width: max-content;
+}
+.home-mobile h2 .h2-stroke { display: block; width: 130px; margin-top: 2px; }
+
+/* Kopf: Logo + Tagline + CTA (eigener Bereich, überlappt nichts) */
+.m-kopf { text-align: center; padding: 30px 22px 4px; }
+.m-kopf .l1 { display: block; font-family: var(--ff-marker); font-size: clamp(40px, 11.5vw, 56px); color: var(--navy); transform: rotate(-2deg); line-height: 1.04; }
+.m-kopf .l3 { display: block; font-family: var(--ff-marker); font-size: clamp(23px, 6.6vw, 32px); color: var(--blue); margin-top: 8px; text-shadow: 1.5px 1.5px 0 rgba(0,31,61,.25); }
+.m-tagline { text-align: center; font-family: var(--ff-tag); font-weight: 500; font-size: 16.5px; line-height: 1.6; padding: 16px 28px 20px; }
+.m-cta { display: flex; justify-content: center; padding: 0 16px 26px; }
+.m-cta .btn { font-size: 17px; padding: .9em 2em; }
+
+/* Hero-Bild: eigenständig, Wolken ziehen, Wasser atmet, KEIN Text darüber */
+.m-hero {
+  position: relative; margin: 0 16px 26px; height: 340px;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 10px 26px rgba(60, 40, 20, .18);
+}
+.m-hero .m-sky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%;
+                 animation: meer-atmen 11s ease-in-out infinite; transform-origin: 50% 80%; }
+.m-hero .sky-cloud { opacity: .9; }
+.m-hero .m-c1 { left: 2%;  top: 3%;  width: 44%; --wx: 26px; --wy: -4px; --wd: 40s; }
+.m-hero .m-c2 { left: 62%; top: 7%;  width: 36%; --wx: -30px; --wy: 5px; --wd: 52s; animation-delay: -20s; }
+.m-hero .m-julia   { position: absolute; bottom: -2px; left: 8%;  width: 44%; }
+.m-hero .m-schwebi { position: absolute; bottom: -2px; right: 6%; width: 47%; }
+.m-hero .m-cali    { position: absolute; bottom: 0; left: 38%; width: 26%; animation: bob 7s ease-in-out infinite; }
+
+/* Karten */
+.m-card { background: url('assets/img/paper/beige-800.png') center / cover; border-radius: 16px; padding: 24px 20px 26px; }
+.m-fact { display: flex; align-items: center; gap: 16px; font-family: var(--ff-marker); font-size: 20px; margin: 18px 0; }
+.m-fact img { width: 48px; flex-shrink: 0; }
+.m-card .btn { margin-top: 6px; }
+.m-cafe img { border-radius: 12px; margin-top: 18px; width: 100%; }
+
+/* Team: untereinander, ALLE Infos sichtbar */
+.m-person { display: flex; gap: 16px; align-items: flex-start; margin-top: 20px; }
+.m-person img { width: 88px; border-radius: 50%; flex-shrink: 0; }
+.m-person .mp-name { font-family: var(--ff-marker); font-size: 21px; }
+.m-person .mp-sub { font-family: var(--ff-cond); font-weight: 600; font-size: 12px; color: var(--pink); letter-spacing: .04em; }
+.m-person ul { list-style: none; margin-top: 8px; }
+.m-person li { font-family: var(--ff-cond); font-weight: 600; font-size: 14px; letter-spacing: .04em;
+               text-transform: uppercase; color: #3A342C; line-height: 1.75; }
+.m-person li::before { content: '• '; color: var(--pink); }
+
+/* Kiez-Quiz-Tiles */
+.m-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+.m-tile { position: relative; border-radius: 14px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.m-tile:active { transform: scale(.96); }
+.m-tile img.tile-bg { width: 100%; }
+.m-tile .tile-icon { position: absolute; left: 50%; top: 6%; transform: translateX(-50%); height: 55%; width: auto; }
+.m-tile .tile-q { position: absolute; left: 0; right: 0; top: 4%; text-align: center; font-family: var(--ff-round); font-weight: 600; font-size: 44px; color: var(--lila); }
+.m-tile .tile-label { position: absolute; left: 0; right: 0; bottom: 7%; text-align: center;
+                      font-family: var(--ff-round); font-weight: 600; font-size: 14px; color: var(--ink); }
+
+/* Polaroids */
+.m-pols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+.m-pols .polaroid { background: #FBF6EC; padding: 8px 8px 16px; border-radius: 4px; box-shadow: var(--shadow-pol); }
+
+/* CTA-Box mobil */
+.m-quizabend { position: relative; margin: 0 16px 26px; }
+.m-quizabend .cta-bg { width: 100%; }
+.m-quizabend .m-inhalt { position: absolute; left: 26%; top: 12%; right: 8%; }
+.m-quizabend .m-inhalt h3 { font-family: var(--ff-marker); font-size: clamp(17px, 4.6vw, 24px); }
+.m-quizabend .m-inhalt p { font-family: var(--ff-body); font-weight: 600; font-size: clamp(11px, 3vw, 15px); line-height: 1.45; margin-top: 6px; }
+.m-quizabend .m-cup { position: absolute; left: -2px; bottom: -6px; width: 22%; filter: drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
+.m-quizabend .btn { position: absolute; left: 26%; bottom: 10%; font-size: clamp(12px, 3.4vw, 16px); }
 </style>
 </head>
 <body>
@@ -187,17 +238,17 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
       <li><a href="index.html" class="active">Startseite</a></li>
       <li><a href="termine.html">Termine</a></li>
       <li><a href="das-quiz.html">Das Quiz</a></li>
-      <li><a href="index.html#team">Über uns</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="galerie.html">Galerie</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
     <button class="nav-burger" aria-label="Menü">Menü</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.6.6-.7 1.1-.1.4-.3.8-.4 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.6 1.1.7.4.1.8.3 1.9.4 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.6-.6.7-1.1.1-.4.3-.8.4-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.6-1.1-.7-.4-.1-.8-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        <img src="assets/img/icons/nav-instagram.png" alt="">
       </a>
       <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+        <img src="assets/img/icons/nav-facebook.png" alt="">
       </a>
     </div>
   </div>
@@ -207,10 +258,20 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
   <!-- ======================= DESKTOP-STAGE ======================= -->
   <div class="stage home-stage" aria-label="Sahne zum Tee — Das Kiez Quiz, Startseite">
 
+    <!-- Panels -->
+    <div class="panel p1" aria-hidden="true"></div>
+    <div class="panel p2" aria-hidden="true"></div>
+    <div class="panel p3" aria-hidden="true"></div>
+    <div class="panel p4" aria-hidden="true"></div>
+
     <!-- HERO -->
-    <div class="el hero-sky" data-depth="0.04"><img src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree" fetchpriority="high"></div>
+    <div class="el hero-sky sky-live" data-depth="0.04">
+      <img src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree" fetchpriority="high">
+      <img class="sky-cloud sky-cloud-1" src="assets/img/hero/wolke-1.png" alt="">
+      <img class="sky-cloud sky-cloud-2" src="assets/img/hero/wolke-2.png" alt="">
+      <img class="sky-cloud sky-cloud-3" src="assets/img/hero/wolke-3.png" alt="">
+    </div>
     <div class="el hero-wolke cloud-a" data-depth="0.22"><img src="assets/img/deco/wolke-doodle.png" alt=""></div>
-    <div class="el hero-wolke-2 cloud-b" data-depth="0.3"><img src="assets/img/deco/wolke-doodle.png" alt=""></div>
     <div class="el hero-pfote" data-depth="0.16"><img src="assets/img/deco/pfote-gross.png" alt=""></div>
     <div class="el hero-turm rv-left" data-depth="0.09"><img src="assets/img/hero/fernsehturm.png" alt="Berliner Fernsehturm"></div>
     <div class="el hero-bruecke rv-right" data-depth="0.09"><img src="assets/img/hero/oberbaumbruecke.png" alt="Oberbaumbrücke mit gelber Tram"></div>
@@ -255,15 +316,15 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     <!-- KARTE 2: Wer sind wir? -->
     <h2 class="el card-titel k2-titel rv" id="team">Wer sind wir?</h2>
     <div class="el k2-stroke rv"><img src="assets/img/strokes/rot-150.png" alt=""></div>
-    <div class="el avatar av-julia rv-pop" style="--d:.1s"><img src="assets/img/team/avatar-julia.png" alt="Julia"></div>
-    <div class="el avatar av-schwebi rv-pop" style="--d:.22s"><img src="assets/img/team/avatar-schwebi.png" alt="Schwebi"></div>
-    <div class="el avatar av-cali rv-pop" style="--d:.34s"><img src="assets/img/team/avatar-cali.png" alt="Cali"></div>
+    <a class="el avatar av-julia rv-pop" style="--d:.1s" href="ueber-uns.html" aria-label="Mehr über Julia"><img src="assets/img/team/avatar-julia.png" alt="Julia"></a>
+    <a class="el avatar av-schwebi rv-pop" style="--d:.22s" href="ueber-uns.html" aria-label="Mehr über Schwebi"><img src="assets/img/team/avatar-schwebi.png" alt="Schwebi"></a>
+    <a class="el avatar av-cali rv-pop" style="--d:.34s" href="ueber-uns.html" aria-label="Mehr über Cali"><img src="assets/img/team/avatar-cali.png" alt="Cali"></a>
     <div class="el av-name nm-julia rv" style="--d:.2s">Julia<span class="nm-sub">(Drittevonlinks)</span></div>
     <div class="el av-name nm-schwebi rv" style="--d:.32s">Schwebi</div>
     <div class="el av-name nm-cali rv" style="--d:.44s">Cali</div>
-    <div class="el av-rolle rl-julia rv" style="--d:.3s">• Moderatorin<br>• Quizmasterin<br>• Kiezwissen</div>
-    <div class="el av-rolle rl-schwebi rv" style="--d:.42s">• Fragenlieferant<br>• Berliner Schnauze<br>• Spezialist für unnützes Wissen</div>
-    <div class="el av-rolle rl-cali rv" style="--d:.54s">• Offizielle Sahne-zum-Tee-Kontrolleurin</div>
+    <div class="el av-rolle rl-julia rv" style="--d:.3s">Moderatorin<br>Quizmasterin<br>Kiezwissen</div>
+    <div class="el av-rolle rl-schwebi rv" style="--d:.42s">Fragenlieferant<br>Berliner Schnauze<br>Spezialist für<br>unnützes Wissen</div>
+    <div class="el av-rolle rl-cali rv" style="--d:.54s">Offizielle<br>Sahne-zum-Tee-<br>Kontrolleurin</div>
 
     <!-- KARTE 3: Das Kiez Quiz — Tiles -->
     <h2 class="el k3-titel rv">Das Kiez Quiz</h2>
@@ -324,47 +385,113 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     </div>
   </div>
 
-  <!-- ======================= MOBILE ======================= -->
+  <!-- ======================= MOBILE (alle Inhalte, nichts überlappt) ======================= -->
   <div class="home-mobile">
-    <div class="m-logo">
+
+    <div class="m-kopf rv">
       <span class="l1">Sahne zum Tee?</span>
       <span class="l3">DAS KiEZ QUiZ</span>
     </div>
-    <p class="m-tagline">Dein Kiez-Kneipenquiz in Berlin-Friedrichshain.<br>Von hier. Für euch. Mit Herz, Berliner Schnauze und unnützem Wissen.</p>
-    <div class="m-cta"><a class="btn btn-rot" href="termine.html">Nächste Termine</a></div>
-    <div class="m-hero">
+    <p class="m-tagline rv">Dein Kiez-Kneipenquiz in Berlin-Friedrichshain.<br>
+      Von hier. Für euch.<br>Mit Herz, Berliner Schnauze und unnützem Wissen.</p>
+    <div class="m-cta rv"><a class="btn btn-rot" href="termine.html">Nächste Termine</a></div>
+
+    <div class="m-hero rv">
       <img class="m-sky" src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree">
-      <div class="m-figuren">
-        <img src="assets/img/hero/julia.png" alt="Julia">
-        <img src="assets/img/hero/schwebi.png" alt="Schwebi">
-      </div>
+      <img class="sky-cloud m-c1" src="assets/img/hero/wolke-1.png" alt="">
+      <img class="sky-cloud m-c2" src="assets/img/hero/wolke-3.png" alt="">
+      <img class="m-julia" src="assets/img/hero/julia.png" alt="Julia mit Eiswaffel">
+      <img class="m-schwebi" src="assets/img/hero/schwebi.png" alt="Schwebi mit Bubble Tea">
+      <img class="m-cali" src="assets/img/hero/cali.png" alt="Hündin Cali">
     </div>
+
     <section class="m-card rv">
-      <h2>Nächster Termin</h2>
+      <h2>Nächster Termin<img class="h2-stroke" src="assets/img/strokes/rot-193.png" alt=""></h2>
       <div class="m-fact"><img src="assets/img/icons/kalender.png" alt="">30.8.2026</div>
       <div class="m-fact"><img src="assets/img/icons/uhr.png" alt="">19:30 Uhr</div>
       <div class="m-fact"><img src="assets/img/icons/pin.png" alt="">Straßmanns</div>
       <a class="btn btn-rot" href="termine.html">Tisch reservieren</a>
-      <div class="m-cafe"><img src="assets/img/illu/cafe.png" alt="Café am Kanal"></div>
+      <div class="m-cafe"><img src="assets/img/illu/cafe.png" alt="Café am Kanal mit Fernsehturm-Eistüte"></div>
     </section>
-    <section class="m-card rv">
-      <h2>Wer sind wir?</h2>
-      <div class="m-team">
-        <div><img src="assets/img/team/avatar-julia.png" alt="Julia"><div class="av-name">Julia</div><div class="av-rolle">Moderatorin · Quizmasterin · Kiezwissen</div></div>
-        <div><img src="assets/img/team/avatar-schwebi.png" alt="Schwebi"><div class="av-name">Schwebi</div><div class="av-rolle">Fragenlieferant · Berliner Schnauze</div></div>
-        <div><img src="assets/img/team/avatar-cali.png" alt="Cali"><div class="av-name">Cali</div><div class="av-rolle">Offizielle Sahne-zum-Tee-Kontrolleurin</div></div>
+
+    <section class="m-card rv" id="team-mobil">
+      <h2>Wer sind wir?<img class="h2-stroke" src="assets/img/strokes/rot-150.png" alt=""></h2>
+      <div class="m-person">
+        <img src="assets/img/team/avatar-julia.png" alt="Julia">
+        <div>
+          <div class="mp-name">Julia</div>
+          <div class="mp-sub">(Drittevonlinks)</div>
+          <ul><li>Moderatorin</li><li>Quizmasterin</li><li>Kiezwissen</li></ul>
+        </div>
+      </div>
+      <div class="m-person">
+        <img src="assets/img/team/avatar-schwebi.png" alt="Schwebi">
+        <div>
+          <div class="mp-name">Schwebi</div>
+          <ul><li>Fragenlieferant</li><li>Berliner Schnauze</li><li>Spezialist für unnützes Wissen</li></ul>
+        </div>
+      </div>
+      <div class="m-person">
+        <img src="assets/img/team/avatar-cali.png" alt="Cali">
+        <div>
+          <div class="mp-name">Cali</div>
+          <ul><li>Offizielle Sahne-zum-Tee-Kontrolleurin</li></ul>
+        </div>
       </div>
     </section>
+
     <section class="m-card rv">
-      <h2>Vergangene Quizabende</h2>
+      <h2>Das Kiez Quiz<img class="h2-stroke" src="assets/img/strokes/rot-150.png" alt=""></h2>
+      <div class="m-tiles">
+        <a class="m-tile" href="termine.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-pink.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/turm-eis.png" alt="">
+          <span class="tile-label">Termine</span>
+        </a>
+        <a class="m-tile" href="https://open.spotify.com" target="_blank" rel="noopener">
+          <img class="tile-bg" src="assets/img/tiles/wolke-rosa-gross.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/drink-becher.png" alt="">
+          <span class="tile-label">Playlist</span>
+        </a>
+        <a class="m-tile" href="galerie.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-gruen.png" alt="">
+          <img class="tile-icon" src="assets/img/illu/klappe.png" alt="">
+          <span class="tile-label">Kiezgeschichten</span>
+        </a>
+        <a class="m-tile" href="das-quiz.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-orange.png" alt="">
+          <span class="tile-q">?</span>
+          <span class="tile-label">Das Kiez-Quiz</span>
+        </a>
+        <a class="m-tile" href="kontakt.html">
+          <img class="tile-bg" src="assets/img/tiles/wolke-blau.png" alt="">
+          <img class="tile-icon" src="assets/img/deco/pfote-gross.png" alt="">
+          <span class="tile-label">Kontakt</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="m-card rv">
+      <h2>Vergangene Quizabende<img class="h2-stroke" src="assets/img/strokes/rot-135.png" alt=""></h2>
       <div class="m-pols">
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-1.png" alt=""></div>
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-2.png" alt=""></div>
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-4.png" alt=""></div>
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-3.png" alt=""></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-1.png" alt="Quizabend-Moment"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-2.png" alt="Schwebi und Julia"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-3.png" alt="Mit Cali"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-4.png" alt="Huckepack-Jubel"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-5.png" alt="Pause auf der Bank"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-6.png" alt="Gelacht wird immer"></div>
       </div>
     </section>
-    <div class="m-cta"><a class="btn btn-schwarz" href="termine.html">Jetzt reservieren <span class="btn-pfeil">→</span></a></div>
+
+    <div class="m-quizabend rv">
+      <img class="cta-bg" src="assets/img/tiles/wolke-blau-breit.png" alt="">
+      <img class="m-cup" src="assets/img/illu/becher-cta.png" alt="">
+      <div class="m-inhalt">
+        <h3>Lust auf Quizabend?</h3>
+        <p>Sichert euren Tisch und werdet Teil des schönsten Kiezquiz Berlin!</p>
+      </div>
+      <a class="btn btn-schwarz" href="termine.html">Jetzt reservieren →</a>
+    </div>
   </div>
 </main>
 

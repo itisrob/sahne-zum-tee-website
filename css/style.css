@@ -148,10 +148,11 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .nav-links a.active::after { transform: scaleX(1); }
 .nav-links a.active { color: var(--pink); }
 
-.nav-social { display: flex; gap: 14px; align-items: center; flex-shrink: 0; }
+.nav-social { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
 .nav-social a { transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
 .nav-social a:hover { transform: rotate(-8deg) scale(1.18); }
 .nav-social svg { width: 26px; height: 26px; fill: var(--ink); display: block; }
+.nav-social img { width: 34px; height: 34px; display: block; mix-blend-mode: multiply; }
 
 .nav-burger { display: none; }
 
@@ -242,6 +243,29 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .cloud-b { animation: cloud-drift-b 34s ease-in-out infinite; }
 .bob     { animation: bob 7s ease-in-out infinite; }
 .sway    { animation: sway 9s ease-in-out infinite; transform-origin: 50% 100%; }
+
+/* Lebendiger Himmel: Wolken ziehen, das Wasser atmet */
+@keyframes wolken-zug {
+  0%   { transform: translateX(0) translateY(0) scale(1); }
+  50%  { transform: translateX(var(--wx, 60px)) translateY(var(--wy, -6px)) scale(1.04); }
+  100% { transform: translateX(0) translateY(0) scale(1); }
+}
+@keyframes meer-atmen {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.018); }
+}
+.sky-live { position: relative; overflow: hidden; }
+.sky-live > img:first-child { animation: meer-atmen 11s ease-in-out infinite; transform-origin: 50% 78%; will-change: transform; }
+.sky-cloud { position: absolute; pointer-events: none; opacity: .92; will-change: transform;
+             animation: wolken-zug var(--wd, 40s) ease-in-out infinite; }
+
+/* Beige-Panel (Karten-Untergrund) */
+.panel {
+  position: absolute;
+  background: url('../assets/img/paper/beige-800.png') center / cover;
+  border-radius: calc(16 * var(--su));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .6), 0 4px 14px rgba(120, 90, 50, .05);
+}
 
 /* ============================================================
    POLAROIDS
