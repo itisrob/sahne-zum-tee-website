@@ -184,8 +184,17 @@
 }
 @media (prefers-reduced-motion: reduce) { .g-video:hover::after { animation: none; opacity: .85; } }
 
-/* Skyline als Fußzeile der Stage (1536×146, schließt unten bündig ab) */
-.gal-skyline { --x: 0; --y: 1078; width: calc(1536 * var(--su)); pointer-events: none; }
+/* Klickbare Polaroids: Cursor + dezenter Hover-Hinweis */
+.gal-stage .polaroid,
+.gal-mobile .m-grid .polaroid { cursor: pointer; }
+.gal-stage .polaroid { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.gal-stage .polaroid:hover { transform: scale(1.035); z-index: 5; }
+.gal-mobile .m-grid .polaroid { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+.gal-mobile .m-grid .polaroid:active { transform: scale(.97); }
+@media (prefers-reduced-motion: reduce) {
+  .gal-stage .polaroid:hover,
+  .gal-mobile .m-grid .polaroid:active { transform: none; }
+}
 
 /* ---------- Mobile: gestapeltes Layout ---------- */
 @media (max-width: 820px) {
@@ -212,9 +221,72 @@
 .gal-mobile .foto-teilen-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
 .gal-mobile .m-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; padding: 18px 20px 30px; align-items: start; }
 .gal-mobile .m-grid .polaroid img { width: 100%; display: block; }
-.gal-mobile .m-foot { line-height: 0; margin-top: 8px; }
-.gal-mobile .m-foot img { width: 100%; display: block; }
 .gal-titel img, .gal-foto-btn img { mix-blend-mode: multiply; }
+
+/* ---------- Lightbox ---------- */
+.gal-lightbox {
+  position: fixed; inset: 0; z-index: 999;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .9);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+.gal-lightbox.open { display: flex; }
+.gal-lightbox.show { opacity: 1; }
+.glb-figure { margin: 0; text-align: center; max-width: 92vw; max-height: 88vh; }
+.glb-img {
+  display: block; margin: 0 auto;
+  max-width: 92vw; max-height: 88vh;
+  width: auto; height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .5);
+  transform: scale(.96);
+  transition: transform .28s cubic-bezier(.34, 1.56, .64, 1);
+}
+.gal-lightbox.show .glb-img { transform: scale(1); }
+.glb-caption {
+  margin-top: 14px; color: #F4E9D9;
+  font-family: var(--ff-body); font-size: 15px; line-height: 1.4;
+  max-width: 80vw; margin-inline: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+}
+.glb-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; line-height: 1;
+  color: #fff; background: rgba(255, 255, 255, .1);
+  border: none; border-radius: 50%;
+  cursor: pointer; user-select: none;
+  transition: background .2s, transform .2s;
+}
+.glb-btn:hover { background: rgba(255, 255, 255, .22); }
+.glb-prev { left: 18px; }
+.glb-next { right: 18px; }
+.glb-close {
+  position: absolute; top: 16px; right: 18px;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px; line-height: 1;
+  color: #fff; background: rgba(255, 255, 255, .1);
+  border: none; border-radius: 50%;
+  cursor: pointer; user-select: none;
+  transition: background .2s;
+}
+.glb-close:hover { background: rgba(255, 255, 255, .22); }
+@media (max-width: 640px) {
+  .glb-btn { width: 46px; height: 46px; font-size: 32px; }
+  .glb-prev { left: 8px; }
+  .glb-next { right: 8px; }
+  .glb-close { top: 10px; right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gal-lightbox, .glb-img { transition: none; }
+  .glb-img { transform: none; }
+  .gal-lightbox.show .glb-img { transform: none; }
+}
 </style>
 </head>
 <body>
@@ -311,11 +383,6 @@
     <div class="el polaroid g-video rv" style="--d:.5s; --wr:3deg" data-tags="videos">
       <img src="assets/img/galerie/pol-video.png" alt="Video vom Quizabend — Standbild mit Play-Button">
     </div>
-
-    <!-- Skyline-Abschluss (Fußzeile der Stage) -->
-    <div class="el gal-skyline rv" style="--d:.15s">
-      <img src="assets/img/galerie/skyline-nacht.png" alt="Nächtliche Friedrichshain-Skyline mit Oberbaumbrücke, Tram, Kiez-Liebe-Graffiti, Späti und Straßmanns">
-    </div>
   </div>
 
   <!-- ======================= MOBILE ======================= -->
@@ -353,14 +420,6 @@
       <div class="polaroid rv" style="--wr:-2.5deg" data-tags="sieger teams"><img src="assets/img/galerie/pol-gewonnen.png" alt="Gewonnen!"></div>
       <div class="polaroid rv" style="--wr:2.5deg" data-tags="videos"><img src="assets/img/galerie/pol-video.png" alt="Video vom Quizabend"></div>
     </div>
-    <footer class="m-foot">
-      <img src="assets/img/galerie/skyline-nacht.png" alt="Nächtliche Friedrichshain-Skyline mit Oberbaumbrücke und Späti">
-      <div class="footer-meta">
-        Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
-        <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
-        <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
-      </div>
-    </footer>
   </div>
 
   <!-- Versteckter semantischer Text: Bildunterschriften der Galerie -->
@@ -381,7 +440,26 @@
   </div>
 </main>
 
-<!-- Kein Site-Footer: die Nacht-Skyline schließt die Galerie als Fußzeile ab -->
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
+  <div class="footer-meta">
+    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+  </div>
+</footer>
+
+<!-- ======================= LIGHTBOX ======================= -->
+<div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-label="Foto-Ansicht" aria-hidden="true">
+  <button class="glb-close" type="button" aria-label="Schließen">&times;</button>
+  <button class="glb-btn glb-prev" type="button" aria-label="Vorheriges Foto">&#8249;</button>
+  <figure class="glb-figure">
+    <img class="glb-img" id="glbImg" src="" alt="">
+    <figcaption class="glb-caption" id="glbCaption"></figcaption>
+  </figure>
+  <button class="glb-btn glb-next" type="button" aria-label="Nächstes Foto">&#8250;</button>
+</div>
 
 <!-- ======================= CHAT-STUB (Cali) ======================= -->
 <button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">
@@ -395,5 +473,134 @@
 </div>
 
 <script src="js/main.js"></script>
+<script>
+/* ---------- Galerie-Lightbox (eigenständig, kein externes JS) ---------- */
+(function () {
+  'use strict';
+
+  var box     = document.getElementById('galLightbox');
+  if (!box) return;
+  var imgEl   = document.getElementById('glbImg');
+  var capEl   = document.getElementById('glbCaption');
+  var btnClose= box.querySelector('.glb-close');
+  var btnPrev = box.querySelector('.glb-prev');
+  var btnNext = box.querySelector('.glb-next');
+  var reduce  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var items = [];      // aktuelle Bildliste (DOM-Reihenfolge des geklickten Grids)
+  var index = 0;
+  var lastFocus = null;
+
+  /* Alle klickbaren Polaroids: Desktop-Stage + Mobile-Grid */
+  var pols = document.querySelectorAll('.gal-stage .polaroid, .gal-mobile .m-grid .polaroid');
+
+  pols.forEach(function (pol) {
+    var img = pol.querySelector('img');
+    if (!img) return;
+    pol.setAttribute('role', 'button');
+    pol.setAttribute('tabindex', '0');
+    if (!pol.getAttribute('aria-label')) {
+      pol.setAttribute('aria-label', 'Foto vergrößern: ' + (img.getAttribute('alt') || 'Galeriefoto'));
+    }
+    pol.addEventListener('click', function () { openFrom(pol); });
+    pol.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        openFrom(pol);
+      }
+    });
+  });
+
+  /* Baut die Bildliste aus dem Grid des geklickten Polaroids (Desktop ODER Mobile) */
+  function openFrom(pol) {
+    var scope = pol.closest('.gal-stage, .gal-mobile') || document;
+    items = Array.prototype.slice.call(
+      scope.querySelectorAll('.polaroid img')
+    );
+    var thisImg = pol.querySelector('img');
+    index = Math.max(0, items.indexOf(thisImg));
+    open();
+  }
+
+  function render() {
+    var src = items[index];
+    if (!src) return;
+    imgEl.src = src.getAttribute('src');
+    var alt = src.getAttribute('alt') || '';
+    imgEl.alt = alt;
+    capEl.textContent = alt;
+    capEl.style.display = alt ? '' : 'none';
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    render();
+    box.classList.add('open');
+    box.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    /* Show-Klasse für sanftes Einblenden (bei reduce sofort) */
+    if (reduce) {
+      box.classList.add('show');
+    } else {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { box.classList.add('show'); });
+      });
+    }
+    btnClose.focus();
+    document.addEventListener('keydown', onKey);
+  }
+
+  function close() {
+    box.classList.remove('show');
+    box.setAttribute('aria-hidden', 'true');
+    document.removeEventListener('keydown', onKey);
+    document.body.style.overflow = '';
+    var finish = function () { box.classList.remove('open'); };
+    if (reduce) { finish(); }
+    else { setTimeout(finish, 260); }
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+
+  function go(step) {
+    if (!items.length) return;
+    index = (index + step + items.length) % items.length;
+    render();
+  }
+
+  function onKey(e) {
+    if (e.key === 'Escape')      { close(); }
+    else if (e.key === 'ArrowLeft')  { go(-1); }
+    else if (e.key === 'ArrowRight') { go(1); }
+  }
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', function () { go(-1); });
+  btnNext.addEventListener('click', function () { go(1); });
+
+  /* Klick außerhalb des Bildes schließt */
+  box.addEventListener('click', function (e) {
+    if (e.target === box || e.target.classList.contains('glb-figure')) close();
+  });
+
+  /* Touch-Swipe links/rechts (Schwelle ~40px) */
+  var tsx = 0, tsy = 0, touching = false;
+  box.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) { touching = false; return; }
+    tsx = e.touches[0].clientX;
+    tsy = e.touches[0].clientY;
+    touching = true;
+  }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (!touching) return;
+    touching = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tsx;
+    var dy = t.clientY - tsy;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      go(dx < 0 ? 1 : -1);   // nach links wischen -> nächstes Bild
+    }
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>

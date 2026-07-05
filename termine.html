@@ -101,8 +101,8 @@
 .el > img { width: 100%; height: auto; }
 
 /* Himmel-Header */
-.t-sky   { --x: 19;  --y: 56; width: calc(1142 * var(--su)); z-index: 0; }
-.t-sky img { border-radius: calc(6 * var(--su)); }
+.t-sky   { --x: 0;  --y: 40; width: calc(1536 * var(--su)); height: calc(300 * var(--su)); z-index: 0; overflow: hidden; }
+.t-sky img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; border-radius: 0; }
 .t-wolke { --x: 856; --y: 92; width: calc(118 * var(--su)); opacity: .6; z-index: 1; }
 
 /* Titelblock (mit Luft) */
@@ -523,18 +523,17 @@
     <div class="tm-kalender"><a href="#">Im Kalender ansehen</a></div>
   </div>
 
-  <!-- ======================= SKYLINE-BAND (Tages-Skyline = Fußzeile) ======================= -->
-  <div class="skyline-band">
-    <img src="assets/img/termine/skyline-tag.png" alt="Gezeichnete Tages-Skyline von Friedrichshain mit Oberbaumbrücke, Tram, Späti und Fernsehturm">
-    <span class="sky-fix sf-zettel" aria-hidden="true"></span>
-    <span class="sky-fix sf-ghost" aria-hidden="true"></span>
-    <a class="kal-band-btn rv" href="#">
-      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5h12V14H2zM2 6.5h12M4.5 1.5v3M11.5 1.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Im Kalender ansehen
-      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 2v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
+  <!-- Skyline-Band entfernt: einheitlicher, sauberer Footer wie auf den anderen Seiten -->
 </main>
+
+<footer class="site-footer">
+  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
+  <div class="footer-meta">
+    Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
+    <a href="mailto:hallo@sahne-zum-tee.de">hallo@sahne-zum-tee.de</a> ·
+    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+  </div>
+</footer>
 
 <!-- ======================= CHAT-STUB (Cali) ======================= -->
 <button class="kiez-chat-btn" aria-label="Chat mit Cali öffnen" aria-expanded="false">
