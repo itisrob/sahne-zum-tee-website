@@ -87,9 +87,7 @@
 </script>
 <!-- /SEO -->
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&family=Caveat+Brush&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* ---------- Startseite: Stage-Layout (Design-Canvas 1536, mit Luft: Höhe 1190) ---------- */
@@ -300,7 +298,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 .m-kopf { padding-top: 6px; }
 
 /* Karten */
-.m-card { background: url('assets/img/paper/beige-800.png') center / cover; border-radius: 16px; padding: 24px 20px 26px; }
+.m-card { background: url('assets/img/paper/beige-800.webp') center / cover; border-radius: 16px; padding: 24px 20px 26px; }
 .m-fact { display: flex; align-items: center; gap: 16px; font-family: var(--ff-marker); font-size: 20px; margin: 18px 0; }
 .m-fact img { width: 48px; flex-shrink: 0; }
 .m-card .btn { margin-top: 6px; }
@@ -402,7 +400,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 
     <!-- HERO -->
     <div class="el hero-sky sky-live" data-depth="0.04">
-      <img src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree" fetchpriority="high">
+      <img src="assets/img/hero/himmel-panorama.webp" alt="Berliner Himmel über der Spree" fetchpriority="high">
       <img class="sky-cloud sky-cloud-1" src="assets/img/hero/wolke-1.png" alt="">
       <img class="sky-cloud sky-cloud-2" src="assets/img/hero/wolke-2.png" alt="">
       <img class="sky-cloud sky-cloud-3" src="assets/img/hero/wolke-3.png" alt="">
@@ -447,7 +445,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     <div class="el k1-fact k1-t3 rv" style="--d:.35s">Straßmanns</div>
     <a class="el btn btn-rot k1-btn rv" style="--d:.45s" href="/termine">Tisch reservieren</a>
     <a class="el k1-cafe rv" style="--d:.3s" href="/termine" aria-label="Zu den Terminen">
-      <img src="assets/img/illu/cafe.png" alt="Café am Kanal mit Fernsehturm-Eistüte">
+      <img src="assets/img/illu/cafe.webp" alt="Café am Kanal mit Fernsehturm-Eistüte">
     </a>
 
     <!-- KARTE 2: Wer sind wir? -->
@@ -505,9 +503,9 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
     <div class="el pol-frame pf-6 rv" style="--d:.3s"><img src="assets/img/deco/polaroid-frame-3.png" alt=""></div>
     <div class="el polaroid ph-1 rv" style="--d:.1s; --wr:-2.5deg"><img src="assets/img/fotos/quizabend-1.png" alt="Quizabend-Moment"></div>
     <div class="el polaroid ph-2 rv" style="--d:.15s; --wr:2deg"><img src="assets/img/fotos/quizabend-2.png" alt="Schwebi und Julia"></div>
-    <div class="el polaroid ph-3 rv" style="--d:.2s; --wr:6deg"><img src="assets/img/fotos/quizabend-3.png" alt="Mit Cali"></div>
+    <div class="el polaroid ph-3 rv" style="--d:.2s; --wr:6deg"><img src="assets/img/fotos/quizabend-3.webp" alt="Mit Cali"></div>
     <div class="el polaroid ph-4 rv" style="--d:.25s; --wr:-2deg"><img src="assets/img/fotos/quizabend-4.png" alt="Huckepack-Jubel"></div>
-    <div class="el polaroid ph-5 rv" style="--d:.3s; --wr:2.5deg"><img src="assets/img/fotos/quizabend-5.png" alt="Pause auf der Bank"></div>
+    <div class="el polaroid ph-5 rv" style="--d:.3s; --wr:2.5deg"><img src="assets/img/fotos/quizabend-5.webp" alt="Pause auf der Bank"></div>
     <div class="el polaroid ph-6 rv" style="--d:.35s; --wr:5deg"><img src="assets/img/fotos/quizabend-6.png" alt="Gelacht wird immer"></div>
 
     <!-- CTA-BOX -->
@@ -526,7 +524,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
   <div class="home-mobile">
 
     <div class="m-hero rv">
-      <img class="m-sky" src="assets/img/hero/himmel-panorama.png" alt="Berliner Himmel über der Spree">
+      <img class="m-sky" src="assets/img/hero/himmel-panorama.webp" alt="Berliner Himmel über der Spree">
       <img class="sky-cloud m-c1" src="assets/img/hero/wolke-hd-1.png" alt="">
       <img class="sky-cloud m-c2" src="assets/img/hero/wolke-hd-3.png" alt="">
       <img class="sky-cloud m-c3" src="assets/img/hero/wolke-hd-2.png" alt="">
@@ -556,7 +554,7 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
       <div class="m-fact"><img src="assets/img/icons/uhr.png" alt="">19:30 Uhr</div>
       <div class="m-fact"><img src="assets/img/icons/pin.png" alt="">Straßmanns</div>
       <a class="btn btn-rot" href="/termine">Tisch reservieren</a>
-      <div class="m-cafe"><img src="assets/img/illu/cafe.png" alt="Café am Kanal mit Fernsehturm-Eistüte"></div>
+      <div class="m-cafe"><img src="assets/img/illu/cafe.webp" alt="Café am Kanal mit Fernsehturm-Eistüte"></div>
     </section>
 
     <section class="m-card rv" id="team-mobil">
@@ -621,9 +619,9 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
       <div class="m-pols">
         <div class="polaroid"><img src="assets/img/fotos/quizabend-1.png" alt="Quizabend-Moment"></div>
         <div class="polaroid"><img src="assets/img/fotos/quizabend-2.png" alt="Schwebi und Julia"></div>
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-3.png" alt="Mit Cali"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-3.webp" alt="Mit Cali"></div>
         <div class="polaroid"><img src="assets/img/fotos/quizabend-4.png" alt="Huckepack-Jubel"></div>
-        <div class="polaroid"><img src="assets/img/fotos/quizabend-5.png" alt="Pause auf der Bank"></div>
+        <div class="polaroid"><img src="assets/img/fotos/quizabend-5.webp" alt="Pause auf der Bank"></div>
         <div class="polaroid"><img src="assets/img/fotos/quizabend-6.png" alt="Gelacht wird immer"></div>
       </div>
     </section>
@@ -642,11 +640,12 @@ a.tile:hover { transform: translateY(calc(-5 * var(--su))) rotate(-2deg) scale(1
 
 <!-- ======================= FOOTER ======================= -->
 <footer class="site-footer">
-  <img src="assets/img/kontakt/footer-band.png" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
+  <img src="assets/img/kontakt/footer-band.webp" alt="Abendliche Friedrichshain-Skyline: Sahne zum Tee? Kneipenquiz aus Friedrichshain.">
   <div class="footer-meta">
     Sahne zum Tee? — Das Kiezquiz · Straßmanns, Haberlandstr. 11, 10247 Berlin ·
     <a href="mailto:hallo@sahnezumtee.de">hallo@sahnezumtee.de</a> ·
-    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a>
+    <a href="https://www.instagram.com/sahne.zum.tee.quiz" target="_blank" rel="noopener">@sahne.zum.tee.quiz</a> ·
+    <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
   </div>
 </footer>
 

@@ -262,7 +262,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 /* Beige-Panel (Karten-Untergrund) */
 .panel {
   position: absolute;
-  background: url('../assets/img/paper/beige-800.png') center / cover;
+  background: url('../assets/img/paper/beige-800.webp') center / cover;
   border-radius: calc(16 * var(--su));
   box-shadow: 0 1px 0 rgba(255, 255, 255, .6), 0 4px 14px rgba(120, 90, 50, .05);
 }
